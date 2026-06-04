@@ -49,7 +49,7 @@
     "build": "tsup && powershell -Command \"Copy-Item -Path src/theme.css -Destination dist/theme.css -Force\"",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run typecheck && npm run build",
-    "pack:check": "npm pack --json"
+    "pack:check": "npm pack --dry-run"
   },
   "peerDependencies": {
     "react": ">=19",

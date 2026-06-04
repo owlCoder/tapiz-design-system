@@ -28,9 +28,9 @@ interface DemoRow {
 }
 
 const TABLE_COLUMNS: Column<DemoRow>[] = [
-  { key: "name", header: "Name" },
-  { key: "role", header: "Role" },
-  { key: "status", header: "Status" },
+  { id: "name", header: "Name", cell: (r) => r.name },
+  { id: "role", header: "Role", cell: (r) => r.role },
+  { id: "status", header: "Status", cell: (r) => r.status },
 ];
 
 const TABLE_DATA: DemoRow[] = [
@@ -188,7 +188,7 @@ export default function ComponentsSection() {
           <div className="flex flex-wrap gap-2 items-center">
             <StatusBadge label="Active" variant="success" />
             <StatusBadge label="Pending" variant="warning" />
-            <StatusBadge label="Inactive" variant="neutral" />
+            <StatusBadge label="Inactive" variant="inactive" />
           </div>
           <div className="flex gap-4 items-center">
             <Spinner />

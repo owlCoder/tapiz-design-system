@@ -6,11 +6,17 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@tapizlabs/ui": path.resolve(__dirname, "../dist/index.js"),
-      "@tapizlabs/ui/theme.css": path.resolve(__dirname, "../dist/theme.css"),
       "@tapizlabs/ui/tailwind-theme.css": path.resolve(
         __dirname,
-        "../dist/tailwind-theme.css"
+        "node_modules/@tapizlabs/ui/dist/tailwind-theme.css"
+      ),
+      "@tapizlabs/ui/theme.css": path.resolve(
+        __dirname,
+        "node_modules/@tapizlabs/ui/dist/theme.css"
+      ),
+      "@tapizlabs/ui": path.resolve(
+        __dirname,
+        "node_modules/@tapizlabs/ui/dist/index.js"
       ),
     },
   },

@@ -1,0 +1,113 @@
+/* stylelint-disable */
+/*
+  Tapiz Design System — Tailwind 4 theme integration.
+  Import this AFTER `@import "tailwindcss"` to expose all Tapiz tokens
+  as Tailwind CSS variables (text-primary-300, bg-ink-200, etc.)
+
+  Usage:
+    @import "tailwindcss";
+    @import "@tapizlabs/ui/tailwind-theme.css";
+*/
+@theme {
+  /*  Grid Brutalism  Electric Cyan + Signal Lime  */
+  --color-ink-000: #050608;
+  --color-ink-100: #06080c;
+  --color-ink-200: #0c0f16;
+  --color-ink-300: #11151e;
+  --color-ink-400: #1d222d;
+  --color-ink-500: #262d3b;
+  --color-border:    #1d2330;
+  --color-border-hi: #2a3346;
+  --color-txt-1: #f1f4f9;
+  --color-txt-2: #aab3c2;
+  --color-txt-3: #6b7686;
+  --color-txt-4: #7a8496;
+
+  /* Accent ramp  electric cyan */
+  --color-primary-50:  #e8fbff;
+  --color-primary-100: #c7f5ff;
+  --color-primary-200: #99eeff;
+  --color-primary-300: #5ee7ff;
+  --color-primary-400: #38d4f0;
+  --color-primary-500: #1eb5d4;
+  --color-primary-600: #1496b3;
+  --color-primary-700: #0e7088;
+  --color-primary-800: #0a4f60;
+  --color-primary-900: #062f3b;
+  --color-primary-950: #03161c;
+
+  /* Signal lime */
+  --color-signal-300: #e4ff66;
+  --color-signal-400: #d4ff3a;
+  --color-signal-500: #b8e620;
+
+  --color-warn: #ff7a4d;
+  --color-good: #4dd6a3;
+  --color-icon-bg: #03161c;
+  --btn-primary-color: #000;
+
+  --font-display: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-body:    'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Kill all rounding */
+  --radius-none: 0;
+  --radius-sm:   0;
+  --radius-md:   0;
+  --radius-lg:   0;
+  --radius-xl:   0;
+  --radius-2xl:  0;
+  --radius-full: 9999px;
+
+  /* Animations */
+  --animate-fade-in-up:     fade-in-up     0.5s ease both;
+  --animate-fade-in-down:   fade-in-down   0.4s ease both;
+  --animate-fade-in:        fade-in        0.3s ease both;
+  --animate-fade-out:       fade-out       0.25s ease both;
+  --animate-count-up:       count-up       0.5s ease both;
+  --animate-slide-in-right: slide-in-right 0.35s ease both;
+  --animate-slide-in-left:  slide-in-left  0.35s ease both;
+  --animate-scale-in:       scale-in       0.3s cubic-bezier(0.34,1.56,0.64,1) both;
+  --animate-progress-fill:  progress-fill  1s ease both;
+  --animate-pulse-soft:     pulse-soft     2s ease-in-out infinite;
+  --animate-shake:          shake          0.4s ease both;
+  --animate-bounce-in:      bounce-in      0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+  --animate-flip-in:        flip-in        0.4s ease both;
+  --animate-blur-in:        blur-in        0.35s ease both;
+  --animate-slide-up-fade:  slide-up-fade  0.3s ease both;
+
+  @keyframes fade-in-up    { from { opacity:0; transform:translateY(12px);  } to { opacity:1; transform:translateY(0);    } }
+  @keyframes fade-in-down  { from { opacity:0; transform:translateY(-12px); } to { opacity:1; transform:translateY(0);    } }
+  @keyframes fade-in       { from { opacity:0; } to { opacity:1; } }
+  @keyframes fade-out      { from { opacity:1; } to { opacity:0; } }
+  @keyframes count-up      { from { opacity:0; transform:scale(0.85); } to { opacity:1; transform:scale(1); } }
+  @keyframes slide-in-right { from { opacity:0; transform:translateX(20px);  } to { opacity:1; transform:translateX(0);  } }
+  @keyframes slide-in-left  { from { opacity:0; transform:translateX(-20px); } to { opacity:1; transform:translateX(0);  } }
+  @keyframes scale-in      { from { opacity:0; transform:scale(0.88); } to { opacity:1; transform:scale(1); } }
+  @keyframes progress-fill { from { width: 0%; } }
+  @keyframes pulse-soft    { 0%,100% { opacity:1; } 50% { opacity:0.6; } }
+  @keyframes shake {
+    0%,100% { transform:translateX(0);    } 20% { transform:translateX(-6px); }
+    40%     { transform:translateX(6px);  } 60% { transform:translateX(-4px); }
+    80%     { transform:translateX(4px);  }
+  }
+  @keyframes bounce-in  { from { opacity:0; transform:scale(0.7); } to { opacity:1; transform:scale(1); } }
+  @keyframes flip-in    { from { opacity:0; transform:rotateX(-30deg) translateY(8px); } to { opacity:1; transform:rotateX(0deg) translateY(0); } }
+  @keyframes blur-in    { from { opacity:0; filter:blur(6px); transform:scale(0.97); } to { opacity:1; filter:blur(0px); transform:scale(1); } }
+  @keyframes slide-up-fade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes accordion-open  { from { grid-template-rows: 0fr; opacity: 0; } to { grid-template-rows: 1fr; opacity: 1; } }
+  @keyframes accordion-close { from { grid-template-rows: 1fr; opacity: 1; } to { grid-template-rows: 0fr; opacity: 0; } }
+  @keyframes tz-pulse   { 0%,100% { opacity:1; } 50% { opacity:.35; } }
+  @keyframes tz-bar-grow { from { transform:scaleY(0); } to { transform:scaleY(1); } }
+  @keyframes skeleton-shimmer { 0% { background-position:-400px 0; } 100% { background-position:400px 0; } }
+  @keyframes slowSlideFade {
+    0%   { transform:translateX(-120px); opacity:0; }
+    15%  { transform:translateX(-80px);  opacity:1; }
+    85%  { transform:translateX(80px);   opacity:1; }
+    100% { transform:translateX(120px);  opacity:0; }
+  }
+  @keyframes thinPulse {
+    0%,100% { box-shadow:0 0 4px rgba(94,231,255,.15); background:rgba(94,231,255,.05); width:70px; height:2px; }
+    50%     { box-shadow:0 0 14px rgba(94,231,255,.4); background:rgba(94,231,255,.15); width:90px; height:3px; }
+  }
+}

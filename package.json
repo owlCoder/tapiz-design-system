@@ -31,6 +31,7 @@
       "import": "./dist/index.js"
     },
     "./theme.css": "./dist/theme.css",
+    "./tailwind-theme.css": "./dist/tailwind-theme.css",
     "./fonts": {
       "types": "./dist/fonts.d.ts",
       "import": "./dist/fonts.js"
@@ -50,7 +51,7 @@
   "scripts": {
     "build": "tsup && npm run build:css && npm run build:assets",
     "build:assets": "powershell -ExecutionPolicy Bypass -File ./scripts/build-assets.ps1",
-    "build:css": "tailwindcss -i ./src/bundle.css -o ./dist/theme.css --minify",
+    "build:css": "tailwindcss -i ./src/bundle.css -o ./dist/theme.css --minify && node scripts/copy-theme.mjs",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run typecheck && npm run build",
     "pack:check": "npm pack --dry-run"

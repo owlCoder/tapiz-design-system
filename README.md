@@ -19,6 +19,14 @@ It is intended to keep multiple apps visually aligned while reducing duplicated 
 npm install @tapizlabs/ui
 ```
 
+This package expects Tailwind CSS v4 to already exist in the consuming app.
+
+If your app does not use Tailwind yet, install it before using `@tapizlabs/ui`:
+
+```bash
+npm install tailwindcss @tailwindcss/postcss
+```
+
 ## Requirements
 
 - `react >= 19`
@@ -26,6 +34,8 @@ npm install @tapizlabs/ui
 - `tailwindcss >= 4`
 
 These are declared as peer dependencies and must be provided by the consuming app.
+
+Important: `@tapizlabs/ui` is not Tailwind-free. Consumer applications must have Tailwind CSS v4 configured, otherwise shared styles and local utility classes will not build correctly.
 
 ## Package Exports
 
@@ -77,6 +87,28 @@ export function ExamplePanel() {
 ## Tailwind Setup
 
 `@tapizlabs/ui/theme.css` is published as a compiled CSS bundle, so consumer apps only need to import it. No extra `@source` directive is required in application code.
+
+You still must keep Tailwind enabled in the consuming app itself.
+
+Minimum consumer setup:
+
+```js
+// postcss.config.js
+export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+```
+
+```css
+/* app entry CSS */
+@import "@tapizlabs/ui/theme.css";
+@import "tailwindcss";
+@source "./**/*.{ts,tsx}";
+```
+
+If Tailwind is missing from the consumer app, `@tapizlabs/ui` will not render correctly.
 
 ## Included Components
 

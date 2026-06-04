@@ -15,11 +15,12 @@ export function Tooltip({ text, children, position = "top", align = "center", wi
     <span className={`group relative inline-flex items-center${wFull ? " w-full" : ""}`}>
       {children}
       <span
-        className={`pointer-events-none absolute ${alignClass} z-60 ${width} w-max px-2.5 py-1.5
+        className={`pointer-events-none absolute ${alignClass} ${width} w-max px-2.5 py-1.5
           text-center text-[11px] leading-snug
           opacity-0 group-hover:opacity-100 transition-opacity duration-150
           ${position === "top" ? "bottom-full mb-2" : "top-full mt-2"}`}
         style={{
+          zIndex: 60,
           background: "var(--color-ink-300)",
           border: "1px solid var(--color-border-hi)",
           color: "var(--color-txt-2)",

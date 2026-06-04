@@ -62,6 +62,7 @@ export function ActionMenu({
   const [open, setOpen] = useState(false);
   const [pos, setPos] = useState<MenuPosition | null>(null);
   const btnRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     if (!open || !btnRef.current) return;
@@ -113,7 +114,9 @@ export function ActionMenu({
     if (!open) return;
     function handle(e: MouseEvent | KeyboardEvent) {
       if (e instanceof KeyboardEvent) { if (e.key === "Escape") setOpen(false); return; }
-      if (btnRef.current && !btnRef.current.contains(e.target as Node)) setOpen(false);
+      const target = e.target as Node;
+      if (btnRef.current?.contains(target) || menuRef.current?.contains(target)) return;
+      setOpen(false);
     }
     document.addEventListener("mousedown", handle);
     document.addEventListener("keydown", handle);
@@ -124,6 +127,7 @@ export function ActionMenu({
     <>
       <div className="fixed inset-0 z-9998" onClick={() => setOpen(false)} />
       <div
+        ref={menuRef}
         className={menuClassName ?? "overflow-auto"}
         style={{
           position: "fixed",

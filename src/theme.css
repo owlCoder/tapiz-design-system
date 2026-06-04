@@ -370,7 +370,7 @@ html.dark .text-primary-800 { color: var(--color-primary-300) !important; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--color-txt-3);
+  color: var(--color-primary-300);
 }
 
 .font-mono    { font-family: var(--font-mono) !important; }

@@ -33,7 +33,7 @@ export function InfoBanner(props: InfoBannerProps) {
       : <Info size={14} className="mt-1 shrink-0" />;
 
     return (
-      <div className={`flex items-start gap-2 border px-3 py-2.5 text-[13px] ${styles} ${className}`}>
+      <div className={`app-info-banner flex items-start gap-2 border px-3 py-2.5 text-[13px] ${styles} ${className}`}>
         {icon}
         <p style={{ fontFamily: "var(--font-mono)" }}>{text}</p>
       </div>
@@ -44,7 +44,7 @@ export function InfoBanner(props: InfoBannerProps) {
 
   return (
     <div
-      className={`px-4 py-3 ${className}`}
+      className={`app-info-banner px-4 py-3 ${className}`}
       style={{
         background: "rgba(94,231,255,0.04)",
         border: "1px solid rgba(94,231,255,0.12)",

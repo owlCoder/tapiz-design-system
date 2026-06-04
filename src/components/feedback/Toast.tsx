@@ -40,7 +40,7 @@ export function Toast({ message, ok, durationMs = 5000 }: ToastProps) {
   const accentColor = ok ? "var(--color-good)" : "var(--color-warn)";
 
   return createPortal(
-    <div className="pointer-events-none fixed bottom-20 left-4 right-4 z-60 flex justify-center sm:bottom-auto sm:left-auto sm:right-5 sm:top-5 sm:justify-end">
+    <div className="pointer-events-none fixed bottom-20 left-4 right-4 z-9999 flex justify-center min-[600px]:bottom-auto min-[600px]:left-auto min-[600px]:right-5 min-[600px]:top-5 min-[600px]:justify-end">
       <div
         className={`${transform} pointer-events-auto relative flex w-full max-w-sm items-center gap-2.5 overflow-hidden px-4 py-3 text-sm font-medium transition-all duration-300 sm:w-auto sm:max-w-xs`}
         style={{

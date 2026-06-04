@@ -1,10 +1,10 @@
-# @tapiz/ui
+# @tapizlabs/ui
 
 Shared Tapiz design system package for React applications.
 
 Repository: `https://github.com/owlCoder/tapiz-design-system`
 
-`@tapiz/ui` centralizes the visual foundation used across Tapiz frontends:
+`@tapizlabs/ui` centralizes the visual foundation used across Tapiz frontends:
 
 - shared theme tokens and utility classes
 - shared font loading
@@ -16,7 +16,7 @@ It is intended to keep multiple apps visually aligned while reducing duplicated 
 ## Installation
 
 ```bash
-npm install @tapiz/ui
+npm install @tapizlabs/ui
 ```
 
 ## Requirements
@@ -31,11 +31,11 @@ These are declared as peer dependencies and must be provided by the consuming ap
 
 This package exposes:
 
-- `@tapiz/ui`
+- `@tapizlabs/ui`
   React components, icons, and exported TypeScript types
-- `@tapiz/ui/theme.css`
+- `@tapizlabs/ui/theme.css`
   Shared theme tokens, utility classes, button styles, surfaces, and animation helpers
-- `@tapiz/ui/fonts`
+- `@tapizlabs/ui/fonts`
   Shared IBM Plex font loading entrypoint
 
 ## Quick Start
@@ -43,20 +43,19 @@ This package exposes:
 Import fonts once in your application entry:
 
 ```ts
-import "@tapiz/ui/fonts";
+import "@tapizlabs/ui/fonts";
 ```
 
 Import the shared theme before your app-specific styles:
 
 ```css
-@import "@tapiz/ui/theme.css";
-@source "../node_modules/@tapiz/ui/dist/**/*.js";
+@import "@tapizlabs/ui/theme.css";
 ```
 
 Then consume components directly from the package:
 
 ```tsx
-import { Button, EmptyState, InfoBanner } from "@tapiz/ui";
+import { Button, EmptyState, InfoBanner } from "@tapizlabs/ui";
 
 export function ExamplePanel() {
   return (
@@ -77,13 +76,7 @@ export function ExamplePanel() {
 
 ## Tailwind Setup
 
-`@tapiz/ui` components contain Tailwind class strings inside the published JavaScript bundle. Consumer apps must include the package in Tailwind's source scan:
-
-```css
-@source "../node_modules/@tapiz/ui/dist/**/*.js";
-```
-
-Without that line, some shared component classes may be omitted from the final CSS build.
+`@tapizlabs/ui/theme.css` is published as a compiled CSS bundle, so consumer apps only need to import it. No extra `@source` directive is required in application code.
 
 ## Included Components
 
@@ -133,7 +126,7 @@ Current exports include:
 ### Button
 
 ```tsx
-import { Button, Plus } from "@tapiz/ui";
+import { Button, Plus } from "@tapizlabs/ui";
 
 export function Actions() {
   return (
@@ -153,7 +146,7 @@ export function Actions() {
 ### ConfirmDialog
 
 ```tsx
-import { ConfirmDialog, Trash } from "@tapiz/ui";
+import { ConfirmDialog, Trash } from "@tapizlabs/ui";
 
 export function DeleteDialogExample() {
   return (
@@ -179,7 +172,7 @@ Compatibility note:
 ### Form Primitives
 
 ```tsx
-import { FieldHint, FieldLabel, Input, Select, Textarea } from "@tapiz/ui";
+import { FieldHint, FieldLabel, Input, Select, Textarea } from "@tapizlabs/ui";
 
 export function ProfileFields() {
   return (
@@ -210,7 +203,7 @@ export function ProfileFields() {
 ### EmptyState
 
 ```tsx
-import { EmptyState, Info } from "@tapiz/ui";
+import { EmptyState, Info } from "@tapizlabs/ui";
 
 export function NoResults() {
   return (
@@ -226,7 +219,7 @@ export function NoResults() {
 ### ToastProvider
 
 ```tsx
-import { ToastProvider, useToast } from "@tapiz/ui";
+import { ToastProvider, useToast } from "@tapizlabs/ui";
 
 function SaveButton() {
   const { showToast } = useToast();
@@ -254,7 +247,7 @@ export function App() {
 ### DataTable
 
 ```tsx
-import { DataTable, type Column } from "@tapiz/ui";
+import { DataTable, type Column } from "@tapizlabs/ui";
 
 interface User {
   id: string;
@@ -286,7 +279,7 @@ The root package export also includes shared icons used across Tapiz apps, inclu
 Example:
 
 ```tsx
-import { Button, Plus, LogoMark } from "@tapiz/ui";
+import { Button, Plus, LogoMark } from "@tapizlabs/ui";
 
 export function Toolbar() {
   return (
@@ -316,7 +309,7 @@ Consumer apps can add local styles on top, but should treat `theme.css` as the b
 
 ## Framework Boundary
 
-`@tapiz/ui` is the shared framework layer for reusable Tapiz UI primitives. Layout shells, SEO helpers, language/session flows, and domain-bound selectors should usually stay in consuming apps.
+`@tapizlabs/ui` is the shared framework layer for reusable Tapiz UI primitives. Layout shells, SEO helpers, language/session flows, and domain-bound selectors should usually stay in consuming apps.
 
 See [FRAMEWORK_BOUNDARY.md](./FRAMEWORK_BOUNDARY.md) for the exact package-vs-app contract used in this workspace.
 

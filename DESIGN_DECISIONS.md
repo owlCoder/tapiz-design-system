@@ -1,14 +1,14 @@
-# @tapiz/ui — Design Decisions (Initial Phase)
+# @tapizlabs/ui — Design Decisions (Initial Phase)
 
 ## Overview
 
-`@tapiz/ui` is a shared component library and design system extracted from the `tapiz-reactjs-ui` codebase. This document records the foundational decisions made before any implementation began.
+`@tapizlabs/ui` is a shared component library and design system extracted from the `tapiz-reactjs-ui` codebase. This document records the foundational decisions made before any implementation began.
 
 ---
 
 ## 1. Distribution Model
 
-**Decision:** Published npm package (`@tapiz/ui`), not a private workspace-only package.
+**Decision:** Published npm package (`@tapizlabs/ui`), not a private workspace-only package.
 
 **Rationale:**
 - External consumers need to be able to install and use the Tapiz visual style without access to the monorepo.
@@ -64,7 +64,7 @@
 - IBM Plex Sans: 300, 400, 500, 600, 700 — Latin + Cyrillic subsets
 - IBM Plex Mono: 400, 500 — Latin + Cyrillic subsets
 
-**Distribution:** font imports are centralized in `tapiz-design-system/src/fonts.ts` (a single `import "@tapiz/ui/fonts"` in consumer `main.tsx`).
+**Distribution:** font imports are centralized in `tapiz-design-system/src/fonts.ts` (a single `import "@tapizlabs/ui/fonts"` in consumer `main.tsx`).
 
 ---
 
@@ -124,11 +124,11 @@ Three entry points only:
 
 ## 8. Consumer Integration Requirements
 
-Any app consuming `@tapiz/ui` must:
+Any app consuming `@tapizlabs/ui` must:
 
-1. `@import "@tapiz/ui/theme.css"` in its root CSS file (before any app-specific overrides).
-2. `import "@tapiz/ui/fonts"` in its entry point (`main.tsx`).
-3. Add `@source "../node_modules/@tapiz/ui/dist/**/*.js"` in the root CSS so Tailwind scans and retains all utility classes used inside package components.
+1. `@import "@tapizlabs/ui/theme.css"` in its root CSS file (before any app-specific overrides).
+2. `import "@tapizlabs/ui/fonts"` in its entry point (`main.tsx`).
+3. Import `@tapizlabs/ui/theme.css` in the root CSS. The package now ships a compiled CSS bundle, so consumers do not need an extra `@source` directive.
 
 Point 3 is the most common integration mistake — without it, Tailwind purges class strings that appear only inside the package's compiled JS.
 
@@ -138,7 +138,7 @@ Point 3 is the most common integration mistake — without it, Tailwind purges c
 
 | Risk | Mitigation |
 |---|---|
-| Tailwind class purging in consumers | Required `@source` directive — documented in README |
+| Tailwind class purging in consumers | Solved in-package by shipping a compiled CSS bundle |
 | Dual React instance | `react`/`react-dom` as `peerDependencies` only |
 | Button API divergence (reactjs-ui `@utility` vs dashboard CVA) | Standardize on reactjs-ui version; update dashboard call sites during migration |
 | i18n/domain leakage in components | Audit each component before moving: no `react-i18next`, `queryKeys`, or router imports allowed in package components |
@@ -153,8 +153,8 @@ Point 3 is the most common integration mistake — without it, Tailwind purges c
 | 0 | Scaffold `tapiz-design-system/` package skeleton |
 | 1 | Extract `theme.css` + `fonts.ts` |
 | 2 | Move generic components, write barrel export, build + typecheck |
-| 3 | Migrate `tapiz-reactjs-ui` to consume `@tapiz/ui` |
-| 4 | Migrate `tapiz-service-platform/dashboard` to consume `@tapiz/ui` |
+| 3 | Migrate `tapiz-reactjs-ui` to consume `@tapizlabs/ui` |
+| 4 | Migrate `tapiz-service-platform/dashboard` to consume `@tapizlabs/ui` |
 | 5 | Publish to npm (`npm publish --access public`) |
 
 Full migration plan: [`uiframework.md`](../uiframework.md)

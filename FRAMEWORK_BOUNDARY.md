@@ -1,8 +1,8 @@
 # Tapiz UI Framework Boundary
 
-This document defines what belongs in `@tapiz/ui` and what should remain inside consuming applications.
+This document defines what belongs in `@tapizlabs/ui` and what should remain inside consuming applications.
 
-## Belongs In `@tapiz/ui`
+## Belongs In `@tapizlabs/ui`
 
 The package is the shared UI framework layer for Tapiz frontends. It should contain:
 
@@ -44,4 +44,4 @@ These wrappers are acceptable because they adapt shared framework primitives to 
 
 ## Rule Of Thumb
 
-If removing product data, routing, and translation concerns still leaves a useful component, it probably belongs in `@tapiz/ui`.
+If removing product data, routing, and translation concerns still leaves a useful component, it probably belongs in `@tapizlabs/ui`.

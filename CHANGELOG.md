@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `@tapiz/ui` should be documented in this file.
+All notable changes to `@tapizlabs/ui` should be documented in this file.
 
 The format is based on Keep a Changelog and the package follows Semantic Versioning for published releases.
 

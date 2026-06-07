@@ -1,0 +1,45 @@
+import type { ReactNode } from "react";
+
+export interface AccordionItem {
+  id: string;
+  title: ReactNode;
+  content: ReactNode;
+  meta?: ReactNode;
+  disabled?: boolean;
+}
+
+export interface AccordionProps {
+  items: AccordionItem[];
+  openIds?: string[];
+  onToggle?: (id: string) => void;
+  className?: string;
+  allowMultiple?: boolean;
+}
+
+export function Accordion({ items, openIds = [], onToggle, className = "" }: AccordionProps) {
+  return (
+    <div className={`divide-y divide-[var(--tapiz-border-subtle)] border border-[var(--tapiz-border-subtle)] bg-[var(--tapiz-bg-surface)] ${className}`}>
+      {items.map((item) => {
+        const open = openIds.includes(item.id);
+        return (
+          <section key={item.id}>
+            <button
+              type="button"
+              disabled={item.disabled}
+              aria-expanded={open}
+              onClick={() => onToggle?.(item.id)}
+              className="flex w-full items-center justify-between gap-4 px-4 py-3 text-left disabled:opacity-40"
+            >
+              <span className="font-semibold text-[var(--tapiz-text-primary)]">{item.title}</span>
+              <span className="flex items-center gap-3 text-[var(--tapiz-text-muted)]">
+                {item.meta}
+                <span aria-hidden="true" className="font-mono text-lg">{open ? "−" : "+"}</span>
+              </span>
+            </button>
+            {open ? <div className="border-t border-[var(--tapiz-border-subtle)] px-4 py-4 text-sm text-[var(--tapiz-text-secondary)]">{item.content}</div> : null}
+          </section>
+        );
+      })}
+    </div>
+  );
+}

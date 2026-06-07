@@ -15,6 +15,7 @@ type Variant =
   | "outline-secondary"
   | "outline-danger"
   | "outline-success"
+  | "brutal"
   | "link";
 
 type Size = "xs" | "sm" | "md" | "lg" | "xl";
@@ -73,6 +74,9 @@ const variantClasses: Record<Variant, string> = {
 
   "outline-success": `${TOKEN_BASE} border border-[var(--color-good)] text-[var(--color-good)]
     hover:bg-[rgba(77,214,163,0.08)]`,
+
+  brutal: `${TOKEN_BASE} border-2 border-[var(--tapiz-border-strong)] bg-[var(--tapiz-bg-surface)] text-[var(--tapiz-text-primary)]
+    shadow-[var(--tapiz-shadow-brutal)] font-bold hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[var(--tapiz-shadow-brutal-lg)]`,
 
   link: "text-[var(--color-primary-300)] hover:text-[var(--color-primary-400)] disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center gap-1",
 };

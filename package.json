@@ -1,6 +1,6 @@
 {
   "name": "@tapizlabs/ui",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Centralized design system, theming foundation, and reusable React UI components for the Tapiz platform.",
   "license": "MIT",
   "type": "module",
@@ -50,7 +50,7 @@
   },
   "scripts": {
     "build": "tsup && npm run build:css && npm run build:assets",
-    "build:assets": "powershell -ExecutionPolicy Bypass -File ./scripts/build-assets.ps1",
+    "build:assets": "node scripts/build-assets.mjs",
     "build:css": "node scripts/copy-theme.mjs",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run typecheck && npm run build && npm run pack:check",
@@ -62,9 +62,9 @@
     "tailwindcss": ">=4"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.1.13",
     "@fontsource/ibm-plex-mono": "^5.2.7",
     "@fontsource/ibm-plex-sans": "^5.2.8",
+    "@tailwindcss/cli": "^4.1.13",
     "@types/react": "^19.2.16",
     "@types/react-dom": "^19.2.3",
     "tailwindcss": "^4.1.13",

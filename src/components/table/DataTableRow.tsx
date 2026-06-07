@@ -12,21 +12,23 @@ interface DataTableRowProps<T> {
   columns: Column<T>[];
   onRowClick?: (row: T) => void;
   rowActions?: (row: T) => ReactNode;
+  densityCellClass?: string;
+  striped?: boolean;
 }
 
-function DataTableRowInner<T>({ row, columns, onRowClick, rowActions }: DataTableRowProps<T>) {
+function DataTableRowInner<T>({ row, columns, onRowClick, rowActions, densityCellClass = "px-3 py-2.5", striped = true }: DataTableRowProps<T>) {
   const clickable = Boolean(onRowClick);
   return (
     <tr
       onClick={clickable ? () => onRowClick?.(row) : undefined}
-      className={`border-b border-border transition-colors hover:bg-ink-300/30 ${
+      className={`border-b border-[var(--tapiz-border-subtle)] transition-colors hover:bg-[var(--tapiz-bg-surface-muted)] ${striped ? "even:bg-[color-mix(in_srgb,var(--tapiz-bg-surface-muted)_35%,var(--tapiz-bg-surface))]" : ""} ${
         clickable ? "cursor-pointer" : ""
       }`}
     >
       {columns.map((column) => (
         <td
           key={column.id}
-          className={`px-3 py-2 text-xs text-txt-3 ${ALIGN_CLASS[column.align ?? "left"]} ${
+          className={`${densityCellClass} text-xs text-[var(--tapiz-text-secondary)] ${ALIGN_CLASS[column.align ?? "left"]} ${
             column.className ?? ""
           }`}
         >
@@ -34,7 +36,7 @@ function DataTableRowInner<T>({ row, columns, onRowClick, rowActions }: DataTabl
         </td>
       ))}
       {rowActions !== undefined && (
-        <td className="px-3 py-2 text-right">{rowActions(row)}</td>
+        <td className={`${densityCellClass} text-right`}>{rowActions(row)}</td>
       )}
     </tr>
   );

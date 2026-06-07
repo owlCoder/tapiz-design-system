@@ -9,6 +9,9 @@ const ALIGN_CLASS: Record<ColumnAlign, string> = {
   right: "text-right",
 };
 
+export type DataTableDensity = "compact" | "comfortable" | "spacious";
+export type DataTableVariant = "default" | "enterprise" | "brutal";
+
 export interface DataTableProps<T> {
   data: T[];
   columns: Column<T>[];
@@ -44,6 +47,15 @@ export interface DataTableProps<T> {
    *   each row to a card via this function (keyed by `rowKey(row)`).
    */
   mobileCard?: (row: T) => ReactNode;
+  /** Visual density of header and cells. Defaults to comfortable. */
+  density?: DataTableDensity;
+  /** Enterprise adds stronger surface treatment; brutal adds 2px border + hard shadow. */
+  variant?: DataTableVariant;
+  /** Makes the table header sticky inside the scroll container. */
+  stickyHeader?: boolean;
+  /** Applies token-based zebra striping. Defaults to true. */
+  striped?: boolean;
+  className?: string;
 }
 
 function compareValues(
@@ -87,6 +99,11 @@ export function DataTable<T>({
   serverSort,
   footer,
   mobileCard,
+  density = "comfortable",
+  variant = "default",
+  stickyHeader = false,
+  striped = true,
+  className = "",
 }: DataTableProps<T>) {
   const [sort, setSort] = useState<SortState | null>(null);
 
@@ -115,9 +132,17 @@ export function DataTable<T>({
   const hasActions = rowActions !== undefined;
   const colCount = columns.length + (hasActions ? 1 : 0);
   const tableClass = mobileCard !== undefined ? "hidden md:table w-full text-sm table-collapse" : "w-full text-sm table-collapse";
+  const densityHeaderClass = density === "compact" ? "px-3 py-2" : density === "spacious" ? "px-4 py-4" : "px-3 py-2.5";
+  const densityCellClass = density === "compact" ? "px-3 py-2" : density === "spacious" ? "px-4 py-4" : "px-3 py-2.5";
+  const wrapperClass = [
+    "overflow-x-auto",
+    variant === "brutal" ? "border-2 border-[var(--tapiz-border-strong)] shadow-[var(--tapiz-shadow-brutal)]" : "border border-[var(--tapiz-border-subtle)]",
+    variant === "enterprise" ? "bg-[var(--tapiz-bg-surface)] shadow-[var(--tapiz-shadow-md)]" : "",
+    className,
+  ].filter(Boolean).join(" ");
 
   return (
-    <div className="border border-border overflow-x-auto">
+    <div className={wrapperClass}>
       {/* Mobile card slot — only present when mobileCard is provided */}
       {mobileCard !== undefined && (
         <div className="md:hidden">
@@ -137,7 +162,7 @@ export function DataTable<T>({
         <thead>
           <tr className="border-b border-border bg-ink-300">
             {columns.map((column) => {
-              const baseClass = `px-3 py-2.5 ${ALIGN_CLASS[column.align ?? "left"]} font-mono text-[11px] tracking-[.08em] text-txt-4 font-semibold whitespace-nowrap`;
+              const baseClass = `${densityHeaderClass} ${stickyHeader ? "sticky top-0 z-10" : ""} ${ALIGN_CLASS[column.align ?? "left"]} font-mono text-[11px] tracking-[.08em] text-txt-4 font-semibold whitespace-nowrap`;
 
               if (!column.sortable || !column.sortAccessor) {
                 return (
@@ -184,10 +209,10 @@ export function DataTable<T>({
         <tbody>
           {isLoading ? (
             Array.from({ length: loadingRows }).map((_, rowIndex) => (
-              <tr key={rowIndex} className="border-b border-border">
+              <tr key={rowIndex} className="border-b border-[var(--tapiz-border-subtle)]">
                 {Array.from({ length: colCount }).map((__, colIndex) => (
-                  <td key={colIndex} className="px-3 py-2">
-                    <div className="h-4 bg-ink-300 rounded animate-pulse w-24" />
+                  <td key={colIndex} className={densityCellClass}>
+                    <div className="h-4 w-24 animate-pulse bg-[var(--tapiz-bg-surface-muted)]" />
                   </td>
                 ))}
               </tr>
@@ -206,6 +231,8 @@ export function DataTable<T>({
                 columns={columns}
                 onRowClick={onRowClick}
                 rowActions={rowActions}
+                densityCellClass={densityCellClass}
+                striped={striped}
               />
             ))
           )}

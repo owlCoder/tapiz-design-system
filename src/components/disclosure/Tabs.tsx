@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface TabItem {
@@ -8,11 +9,11 @@ export interface TabItem {
   disabled?: boolean;
 }
 
-export interface TabsProps {
+export interface TabsProps extends BaseProps {
   items: TabItem[];
   activeId: string;
   onChange?: (id: string) => void;
-  className?: string;
+
   variant?: "line" | "boxed" | "brutal";
 }
 

@@ -1,11 +1,11 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface CTASectionProps {
+export interface CTASectionProps extends BaseProps {
   eyebrow?: ReactNode;
   title: ReactNode;
   description?: ReactNode;
   actions?: ReactNode;
-  className?: string;
 }
 
 export function CTASection({ eyebrow, title, description, actions, className = "" }: CTASectionProps) {

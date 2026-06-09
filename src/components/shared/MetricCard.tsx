@@ -1,16 +1,17 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Card } from "./Card";
 
 export type MetricTrendTone = "positive" | "negative" | "neutral" | "warning";
 
-export interface MetricCardProps {
+export interface MetricCardProps extends BaseProps {
   label: ReactNode;
   value: ReactNode;
   description?: ReactNode;
   icon?: ReactNode;
   trend?: ReactNode;
   trendTone?: MetricTrendTone;
-  className?: string;
+
   variant?: "surface" | "raised" | "brutal";
 }
 

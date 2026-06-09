@@ -1,10 +1,11 @@
+import type { BaseProps } from "../../types";
 import type { InputHTMLAttributes, ReactNode } from "react";
 
-export interface FileDropzoneProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "title"> {
+export interface FileDropzoneProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "title"> { 
   title?: ReactNode;
   description?: ReactNode;
   actionLabel?: ReactNode;
-  className?: string;
+
 }
 
 export function FileDropzone({ title = "Drop files here", description, actionLabel = "Browse", className = "", ...props }: FileDropzoneProps) {

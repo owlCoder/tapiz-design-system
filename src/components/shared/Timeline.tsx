@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface TimelineItem {
@@ -9,9 +10,8 @@ export interface TimelineItem {
   tone?: "neutral" | "info" | "success" | "warning" | "danger";
 }
 
-export interface TimelineProps {
+export interface TimelineProps extends BaseProps {
   items: TimelineItem[];
-  className?: string;
 }
 
 const tones = {

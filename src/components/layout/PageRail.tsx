@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { CSSProperties, ReactNode } from "react";
 
 export interface PageRailItem {
@@ -7,11 +8,11 @@ export interface PageRailItem {
   meta?: ReactNode;
 }
 
-export interface PageRailProps {
+export interface PageRailProps extends BaseProps {
   title?: ReactNode;
   items: PageRailItem[];
   actions?: ReactNode;
-  className?: string;
+
   style?: CSSProperties;
 }
 

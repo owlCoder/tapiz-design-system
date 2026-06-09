@@ -1,12 +1,12 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface SwitchProps {
+export interface SwitchProps extends BaseProps {
   checked?: boolean;
   onChange?: (checked: boolean) => void;
   disabled?: boolean;
   label?: ReactNode;
   description?: ReactNode;
-  className?: string;
 }
 
 export function Switch({ checked = false, onChange, disabled, label, description, className = "" }: SwitchProps) {

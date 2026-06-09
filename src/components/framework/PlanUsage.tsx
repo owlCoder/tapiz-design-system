@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface PlanUsageItem {
@@ -6,10 +7,9 @@ export interface PlanUsageItem {
   limit: number;
 }
 
-export interface PlanUsageProps {
+export interface PlanUsageProps extends BaseProps {
   title?: ReactNode;
   items: PlanUsageItem[];
-  className?: string;
 }
 
 export function PlanUsage({ title = "Plan usage", items, className = "" }: PlanUsageProps) {

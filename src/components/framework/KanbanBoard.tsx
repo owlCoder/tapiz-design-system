@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface KanbanCardItem {
@@ -15,9 +16,8 @@ export interface KanbanColumn {
   items: KanbanCardItem[];
 }
 
-export interface KanbanBoardProps {
+export interface KanbanBoardProps extends BaseProps {
   columns: KanbanColumn[];
-  className?: string;
 }
 
 const toneClasses: Record<NonNullable<KanbanCardItem["tone"]>, string> = {

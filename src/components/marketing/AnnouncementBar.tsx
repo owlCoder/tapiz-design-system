@@ -1,9 +1,9 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface AnnouncementBarProps {
+export interface AnnouncementBarProps extends BaseProps {
   children: ReactNode;
   action?: ReactNode;
-  className?: string;
 }
 
 export function AnnouncementBar({ children, action, className = "" }: AnnouncementBarProps) {

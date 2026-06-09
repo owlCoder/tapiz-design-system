@@ -1,11 +1,11 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface CodeBlockProps {
+export interface CodeBlockProps extends BaseProps {
   children: ReactNode;
   language?: string;
   title?: ReactNode;
   actions?: ReactNode;
-  className?: string;
 }
 
 export function CodeBlock({ children, language, title, actions, className = "" }: CodeBlockProps) {

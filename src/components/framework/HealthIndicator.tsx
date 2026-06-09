@@ -1,12 +1,12 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export type HealthTone = "operational" | "degraded" | "outage" | "unknown";
 
-export interface HealthIndicatorProps {
+export interface HealthIndicatorProps extends BaseProps {
   tone?: HealthTone;
   label?: ReactNode;
   detail?: ReactNode;
-  className?: string;
 }
 
 const toneClasses: Record<HealthTone, string> = {

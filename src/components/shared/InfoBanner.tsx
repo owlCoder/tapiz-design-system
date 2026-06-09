@@ -1,17 +1,17 @@
+import type { BaseProps } from "../../types";
 import { Info, LockIcon } from "../icons/index";
 
-interface StructuredInfoBannerProps {
+interface StructuredInfoBannerProps extends BaseProps {
   title: string;
   description: string;
   text?: never;
   variant?: never;
-  className?: string;
 }
 
-interface InlineInfoBannerProps {
+interface InlineInfoBannerProps extends BaseProps {
   text: string;
   variant?: "info" | "warn" | "lock";
-  className?: string;
+
   title?: never;
   description?: never;
 }
@@ -35,7 +35,7 @@ export function InfoBanner(props: InfoBannerProps) {
     return (
       <div className={`app-info-banner flex items-start gap-2 border px-3 py-2.5 text-[13px] ${styles} ${className}`}>
         {icon}
-        <p style={{ fontFamily: "var(--font-mono)" }}>{text}</p>
+        <p className="font-mono">{text}</p>
       </div>
     );
   }
@@ -44,20 +44,12 @@ export function InfoBanner(props: InfoBannerProps) {
 
   return (
     <div
-      className={`app-info-banner px-4 py-3 ${className}`}
-      style={{
-        background: "rgba(94,231,255,0.04)",
-        border: "1px solid rgba(94,231,255,0.12)",
-        borderLeft: "3px solid var(--color-primary-300)",
-      }}
+      className={`app-info-banner px-4 py-3 bg-primary-300/4 border border-primary-300/12 border-l-[3px] border-l-primary-300 ${className}`}
     >
-      <p
-        className="mb-0.5 font-mono text-[10px] font-semibold uppercase tracking-widest"
-        style={{ color: "var(--color-primary-300)" }}
-      >
+      <p className="mb-0.5 font-mono text-[10px] font-semibold uppercase tracking-widest text-primary-300">
         {title}
       </p>
-      <p className="font-mono text-[11px] leading-relaxed" style={{ color: "var(--color-txt-2)" }}>
+      <p className="font-mono text-[11px] leading-relaxed text-txt-2">
         {description}
       </p>
     </div>

@@ -1,16 +1,16 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { FieldHint } from "./FieldHint";
 import { FieldLabel } from "./FieldLabel";
 import { FormError } from "../feedback/FormError";
 
-export interface FormFieldProps {
+export interface FormFieldProps extends BaseProps {
   label?: ReactNode;
   hint?: ReactNode;
   error?: ReactNode;
   required?: boolean;
   htmlFor?: string;
   children: ReactNode;
-  className?: string;
 }
 
 export function FormField({ label, hint, error, required, htmlFor, children, className = "" }: FormFieldProps) {

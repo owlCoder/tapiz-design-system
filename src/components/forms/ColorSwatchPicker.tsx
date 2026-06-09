@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { CSSProperties, ReactNode } from "react";
 
 export interface ColorSwatchOption {
@@ -6,11 +7,10 @@ export interface ColorSwatchOption {
   color: string;
 }
 
-export interface ColorSwatchPickerProps {
+export interface ColorSwatchPickerProps extends BaseProps {
   options: ColorSwatchOption[];
   value?: string;
   onChange?: (value: string) => void;
-  className?: string;
 }
 
 export function ColorSwatchPicker({ options, value, onChange, className = "" }: ColorSwatchPickerProps) {

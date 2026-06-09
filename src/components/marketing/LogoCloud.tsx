@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface LogoCloudItem {
@@ -5,10 +6,9 @@ export interface LogoCloudItem {
   logo?: ReactNode;
 }
 
-export interface LogoCloudProps {
+export interface LogoCloudProps extends BaseProps {
   title?: ReactNode;
   items: LogoCloudItem[];
-  className?: string;
 }
 
 export function LogoCloud({ title, items, className = "" }: LogoCloudProps) {

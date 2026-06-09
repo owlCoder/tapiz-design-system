@@ -1,11 +1,11 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface SplitPaneProps {
+export interface SplitPaneProps extends BaseProps {
   primary: ReactNode;
   secondary: ReactNode;
   ratio?: "50/50" | "60/40" | "70/30";
   reverseOnMobile?: boolean;
-  className?: string;
 }
 
 const ratios = {

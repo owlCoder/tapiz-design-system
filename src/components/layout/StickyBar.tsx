@@ -1,9 +1,10 @@
+import type { BaseProps } from "../../types";
 import type { CSSProperties, ReactNode } from "react";
 
-export interface StickyBarProps {
+export interface StickyBarProps extends BaseProps {
   children: ReactNode;
   position?: "top" | "bottom";
-  className?: string;
+
   style?: CSSProperties;
 }
 

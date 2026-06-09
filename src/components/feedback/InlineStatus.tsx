@@ -1,12 +1,12 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export type InlineStatusTone = "neutral" | "success" | "warning" | "danger" | "info";
 
-export interface InlineStatusProps {
+export interface InlineStatusProps extends BaseProps {
   tone?: InlineStatusTone;
   children: ReactNode;
   pulse?: boolean;
-  className?: string;
 }
 
 const toneClasses: Record<InlineStatusTone, string> = {

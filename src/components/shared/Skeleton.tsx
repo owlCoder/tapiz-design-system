@@ -1,5 +1,5 @@
-export interface SkeletonProps {
-  className?: string;
+import type { BaseProps } from "../../types";
+export interface SkeletonProps extends BaseProps {
 }
 
 export function Skeleton({ className = "" }: SkeletonProps) {

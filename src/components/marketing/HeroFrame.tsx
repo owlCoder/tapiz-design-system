@@ -1,13 +1,13 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface HeroFrameProps {
+export interface HeroFrameProps extends BaseProps {
   eyebrow?: ReactNode;
   title: ReactNode;
   description?: ReactNode;
   actions?: ReactNode;
   visual?: ReactNode;
   meta?: ReactNode;
-  className?: string;
 }
 
 export function HeroFrame({ eyebrow, title, description, actions, visual, meta, className = "" }: HeroFrameProps) {

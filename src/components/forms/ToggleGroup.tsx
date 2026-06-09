@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface ToggleOption {
@@ -6,11 +7,11 @@ export interface ToggleOption {
   disabled?: boolean;
 }
 
-export interface ToggleGroupProps {
+export interface ToggleGroupProps extends BaseProps {
   options: ToggleOption[];
   value?: string;
   onChange?: (value: string) => void;
-  className?: string;
+
   fullWidth?: boolean;
 }
 

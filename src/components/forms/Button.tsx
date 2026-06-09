@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import { createElement, isValidElement } from "react";
 import type { ComponentType, MouseEvent, ReactNode } from "react";
 import { Spinner } from "../feedback/Spinner";
@@ -20,7 +21,7 @@ type Variant =
 
 type Size = "xs" | "sm" | "md" | "lg" | "xl";
 
-export interface ButtonProps {
+export interface ButtonProps extends BaseProps {
   children?: ReactNode;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
@@ -29,7 +30,7 @@ export interface ButtonProps {
   size?: Size;
   icon?: ButtonIcon;
   iconRight?: ButtonIcon;
-  className?: string;
+
   type?: "button" | "submit" | "reset";
   title?: string;
   fullWidth?: boolean;

@@ -1,10 +1,10 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface SLAStatusProps {
+export interface SLAStatusProps extends BaseProps {
   label: ReactNode;
   value: number;
   target?: number;
-  className?: string;
 }
 
 export function SLAStatus({ label, value, target = 95, className = "" }: SLAStatusProps) {

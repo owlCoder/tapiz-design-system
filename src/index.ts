@@ -274,3 +274,4 @@ export { RoadmapList } from "./components/marketing/RoadmapList";
 export type { RoadmapItem, RoadmapListProps } from "./components/marketing/RoadmapList";
 export { InlineStatus } from "./components/feedback/InlineStatus";
 export type { InlineStatusProps, InlineStatusTone } from "./components/feedback/InlineStatus";
+export type { BaseProps } from "./types";

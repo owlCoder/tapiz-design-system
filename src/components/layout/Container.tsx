@@ -1,12 +1,13 @@
+import type { BaseProps } from "../../types";
 import type { CSSProperties, ReactNode } from "react";
 
 export type ContainerSize = "sm" | "md" | "lg" | "xl" | "full";
 
-export interface ContainerProps {
+export interface ContainerProps extends BaseProps {
   children: ReactNode;
   size?: ContainerSize;
   padded?: boolean;
-  className?: string;
+
   style?: CSSProperties;
 }
 

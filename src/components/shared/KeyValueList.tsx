@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface KeyValueItem {
@@ -6,9 +7,9 @@ export interface KeyValueItem {
   description?: ReactNode;
 }
 
-export interface KeyValueListProps {
+export interface KeyValueListProps extends BaseProps {
   items: KeyValueItem[];
-  className?: string;
+
   density?: "compact" | "normal";
 }
 

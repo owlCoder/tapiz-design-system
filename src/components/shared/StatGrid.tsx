@@ -1,8 +1,9 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface StatGridProps {
+export interface StatGridProps extends BaseProps {
   children: ReactNode;
-  className?: string;
+
   minColumnWidth?: string;
 }
 

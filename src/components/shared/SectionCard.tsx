@@ -1,13 +1,13 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Card } from "./Card";
 
-export interface SectionCardProps {
+export interface SectionCardProps extends BaseProps {
   title?: ReactNode;
   eyebrow?: ReactNode;
   description?: ReactNode;
   action?: ReactNode;
   children: ReactNode;
-  className?: string;
 }
 
 export function SectionCard({ title, eyebrow, description, action, children, className = "" }: SectionCardProps) {

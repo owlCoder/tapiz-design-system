@@ -1,8 +1,9 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface MarketingShellProps {
+export interface MarketingShellProps extends BaseProps {
   children: ReactNode;
-  className?: string;
+
   grid?: boolean;
   noise?: boolean;
 }

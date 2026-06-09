@@ -1,8 +1,8 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface FeatureGridProps {
+export interface FeatureGridProps extends BaseProps {
   children: ReactNode;
-  className?: string;
 }
 
 export function FeatureGrid({ children, className = "" }: FeatureGridProps) {

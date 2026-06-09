@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface CalendarGridDay {
@@ -8,10 +9,9 @@ export interface CalendarGridDay {
   events?: ReactNode[];
 }
 
-export interface CalendarGridProps {
+export interface CalendarGridProps extends BaseProps {
   days: CalendarGridDay[];
   weekdays?: ReactNode[];
-  className?: string;
 }
 
 const defaultWeekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];

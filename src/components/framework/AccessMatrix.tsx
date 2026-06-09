@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface AccessMatrixRole {
@@ -12,10 +13,9 @@ export interface AccessMatrixPermission {
   roles: Record<string, boolean>;
 }
 
-export interface AccessMatrixProps {
+export interface AccessMatrixProps extends BaseProps {
   roles: AccessMatrixRole[];
   permissions: AccessMatrixPermission[];
-  className?: string;
 }
 
 export function AccessMatrix({ roles, permissions, className = "" }: AccessMatrixProps) {

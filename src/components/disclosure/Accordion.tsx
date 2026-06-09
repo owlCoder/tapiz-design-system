@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface AccordionItem {
@@ -8,11 +9,11 @@ export interface AccordionItem {
   disabled?: boolean;
 }
 
-export interface AccordionProps {
+export interface AccordionProps extends BaseProps {
   items: AccordionItem[];
   openIds?: string[];
   onToggle?: (id: string) => void;
-  className?: string;
+
   allowMultiple?: boolean;
 }
 

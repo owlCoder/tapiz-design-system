@@ -1,12 +1,13 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Avatar } from "../shared/Avatar";
 
-export interface TestimonialCardProps {
+export interface TestimonialCardProps extends BaseProps {
   quote: ReactNode;
   author: string;
   role?: ReactNode;
   avatarSrc?: string;
-  className?: string;
+
   variant?: "surface" | "brutal";
 }
 

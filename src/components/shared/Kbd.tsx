@@ -1,8 +1,8 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface KbdProps {
+export interface KbdProps extends BaseProps {
   children: ReactNode;
-  className?: string;
 }
 
 export function Kbd({ children, className = "" }: KbdProps) {

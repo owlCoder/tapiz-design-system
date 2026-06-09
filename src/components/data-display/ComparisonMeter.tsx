@@ -1,10 +1,10 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface ComparisonMeterProps {
+export interface ComparisonMeterProps extends BaseProps {
   leftLabel: ReactNode;
   rightLabel: ReactNode;
   value: number;
-  className?: string;
 }
 
 export function ComparisonMeter({ leftLabel, rightLabel, value, className = "" }: ComparisonMeterProps) {

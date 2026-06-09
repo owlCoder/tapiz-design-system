@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface HeatmapCell {
@@ -6,11 +7,10 @@ export interface HeatmapCell {
   title?: string;
 }
 
-export interface HeatmapGridProps {
+export interface HeatmapGridProps extends BaseProps {
   cells: HeatmapCell[];
   columns?: number;
   max?: number;
-  className?: string;
 }
 
 export function HeatmapGrid({ cells, columns = 7, max, className = "" }: HeatmapGridProps) {

@@ -1,11 +1,11 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface PopoverProps {
+export interface PopoverProps extends BaseProps {
   trigger: ReactNode;
   children: ReactNode;
   open?: boolean;
   align?: "start" | "end";
-  className?: string;
 }
 
 export function Popover({ trigger, children, open = false, align = "start", className = "" }: PopoverProps) {

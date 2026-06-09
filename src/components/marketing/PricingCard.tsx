@@ -1,14 +1,14 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Button } from "../forms/Button";
 
-export interface PricingCardProps {
+export interface PricingCardProps extends BaseProps {
   name: ReactNode;
   price: ReactNode;
   description?: ReactNode;
   features?: ReactNode[];
   cta?: ReactNode;
   highlighted?: boolean;
-  className?: string;
 }
 
 export function PricingCard({ name, price, description, features = [], cta, highlighted = false, className = "" }: PricingCardProps) {

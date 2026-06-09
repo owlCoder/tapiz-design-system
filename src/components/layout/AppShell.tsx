@@ -1,11 +1,12 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface AppShellProps {
+export interface AppShellProps extends BaseProps {
   sidebar?: ReactNode;
   topbar?: ReactNode;
   children: ReactNode;
   aside?: ReactNode;
-  className?: string;
+
   contentClassName?: string;
   variant?: "default" | "grid" | "noise";
 }

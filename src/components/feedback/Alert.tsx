@@ -1,14 +1,14 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export type AlertTone = "info" | "success" | "warning" | "danger" | "neutral";
 
-export interface AlertProps {
+export interface AlertProps extends BaseProps {
   tone?: AlertTone;
   title?: ReactNode;
   children?: ReactNode;
   icon?: ReactNode;
   actions?: ReactNode;
-  className?: string;
 }
 
 const toneClasses: Record<AlertTone, string> = {

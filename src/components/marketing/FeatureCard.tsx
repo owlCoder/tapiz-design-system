@@ -1,13 +1,14 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Card } from "../shared/Card";
 
-export interface FeatureCardProps {
+export interface FeatureCardProps extends BaseProps {
   title: ReactNode;
   description?: ReactNode;
   icon?: ReactNode;
   eyebrow?: ReactNode;
   children?: ReactNode;
-  className?: string;
+
   variant?: "surface" | "brutal" | "raised";
 }
 

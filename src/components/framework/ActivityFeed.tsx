@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Avatar } from "../shared/Avatar";
 
@@ -9,9 +10,8 @@ export interface ActivityFeedItem {
   meta?: ReactNode;
 }
 
-export interface ActivityFeedProps {
+export interface ActivityFeedProps extends BaseProps {
   items: ActivityFeedItem[];
-  className?: string;
 }
 
 export function ActivityFeed({ items, className = "" }: ActivityFeedProps) {

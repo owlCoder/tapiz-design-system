@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Accordion } from "../disclosure/Accordion";
 
@@ -6,11 +7,10 @@ export interface FAQItem {
   answer: ReactNode;
 }
 
-export interface FAQSectionProps {
+export interface FAQSectionProps extends BaseProps {
   title?: ReactNode;
   description?: ReactNode;
   items: FAQItem[];
-  className?: string;
 }
 
 export function FAQSection({ title = "Frequently asked questions", description, items, className = "" }: FAQSectionProps) {

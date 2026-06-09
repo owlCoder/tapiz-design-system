@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Badge } from "../shared/Badge";
 
@@ -10,9 +11,8 @@ export interface InboxItem {
   tag?: ReactNode;
 }
 
-export interface InboxListProps {
+export interface InboxListProps extends BaseProps {
   items: InboxItem[];
-  className?: string;
 }
 
 export function InboxList({ items, className = "" }: InboxListProps) {

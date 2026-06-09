@@ -1,10 +1,10 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface MockupFrameProps {
+export interface MockupFrameProps extends BaseProps {
   children: ReactNode;
   title?: ReactNode;
   toolbar?: ReactNode;
-  className?: string;
 }
 
 export function MockupFrame({ children, title, toolbar, className = "" }: MockupFrameProps) {

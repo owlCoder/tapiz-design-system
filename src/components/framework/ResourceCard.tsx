@@ -1,7 +1,8 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Badge } from "../shared/Badge";
 
-export interface ResourceCardProps {
+export interface ResourceCardProps extends BaseProps {
   title: ReactNode;
   description?: ReactNode;
   eyebrow?: ReactNode;
@@ -10,7 +11,6 @@ export interface ResourceCardProps {
   status?: ReactNode;
   actions?: ReactNode;
   href?: string;
-  className?: string;
 }
 
 export function ResourceCard({ title, description, eyebrow, icon, meta, status, actions, href, className = "" }: ResourceCardProps) {

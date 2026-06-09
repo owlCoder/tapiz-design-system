@@ -1,11 +1,12 @@
+import type { BaseProps } from "../../types";
 import type { CSSProperties } from "react";
 
-export interface SparklineProps {
+export interface SparklineProps extends BaseProps {
   values: number[];
   width?: number;
   height?: number;
   label?: string;
-  className?: string;
+
   style?: CSSProperties;
 }
 

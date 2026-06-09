@@ -1,10 +1,10 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface FilterChipProps {
+export interface FilterChipProps extends BaseProps {
   children: ReactNode;
   active?: boolean;
   onRemove?: () => void;
-  className?: string;
 }
 
 export function FilterChip({ children, active = false, onRemove, className = "" }: FilterChipProps) {

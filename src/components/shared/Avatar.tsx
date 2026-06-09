@@ -1,8 +1,8 @@
-export interface AvatarProps {
+import type { BaseProps } from "../../types";
+export interface AvatarProps extends BaseProps {
   src?: string;
   name?: string;
   size?: "xs" | "sm" | "md" | "lg";
-  className?: string;
 }
 
 const sizes = { xs: "size-6 text-[10px]", sm: "size-8 text-xs", md: "size-10 text-sm", lg: "size-14 text-base" };

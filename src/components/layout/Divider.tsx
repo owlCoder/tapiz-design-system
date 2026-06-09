@@ -1,7 +1,7 @@
-export interface DividerProps {
+import type { BaseProps } from "../../types";
+export interface DividerProps extends BaseProps {
   orientation?: "horizontal" | "vertical";
   label?: string;
-  className?: string;
 }
 
 export function Divider({ orientation = "horizontal", label, className = "" }: DividerProps) {

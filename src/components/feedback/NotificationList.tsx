@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface NotificationItem {
@@ -9,9 +10,8 @@ export interface NotificationItem {
   action?: ReactNode;
 }
 
-export interface NotificationListProps {
+export interface NotificationListProps extends BaseProps {
   items: NotificationItem[];
-  className?: string;
 }
 
 export function NotificationList({ items, className = "" }: NotificationListProps) {

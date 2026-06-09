@@ -1,10 +1,10 @@
-export interface ProgressProps {
+import type { BaseProps } from "../../types";
+export interface ProgressProps extends BaseProps {
   value: number;
   max?: number;
   label?: string;
   showValue?: boolean;
   tone?: "accent" | "success" | "warning" | "danger";
-  className?: string;
 }
 
 const tones = {

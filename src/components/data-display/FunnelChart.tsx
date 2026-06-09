@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface FunnelStep {
@@ -6,9 +7,8 @@ export interface FunnelStep {
   meta?: ReactNode;
 }
 
-export interface FunnelChartProps {
+export interface FunnelChartProps extends BaseProps {
   steps: FunnelStep[];
-  className?: string;
 }
 
 export function FunnelChart({ steps, className = "" }: FunnelChartProps) {

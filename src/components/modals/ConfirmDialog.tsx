@@ -36,18 +36,11 @@ export function ConfirmDialog({
   if (!open) return null;
   return createPortal(
     <div
-      className="fixed inset-0 z-300 flex items-center justify-center px-4"
-      style={{ background: "rgba(5,6,8,0.4)", backdropFilter: "blur(8px)" }}
+      className="fixed inset-0 z-300 flex items-center justify-center px-4 bg-[rgba(5,6,8,0.4)] backdrop-blur-sm"
       onClick={onCancel}
     >
       <div
-        className="relative w-full max-w-sm"
-        style={{
-          background: "var(--color-ink-200)",
-          border: "1px solid var(--color-border-hi)",
-          borderTop: danger ? "2px solid var(--color-danger, #f87171)" : "2px solid var(--color-primary-300)",
-          animation: "var(--animate-scale-in)",
-        }}
+        className={`relative w-full max-w-sm bg-ink-200 border border-border-hi border-t-2 animate-scale-in ${danger ? "border-t-(--color-danger,#f87171)" : "border-t-primary-300"}`}
         onClick={e => e.stopPropagation()}
       >
         <div className="p-6 flex flex-col gap-4">
@@ -55,23 +48,18 @@ export function ConfirmDialog({
           <div className="flex items-center gap-3">
             {icon && (
               <div
-                className="flex items-center justify-center w-9 h-9 shrink-0"
-                style={{
-                  background: danger ? "rgba(248,113,113,0.1)" : "rgba(94,231,255,0.08)",
-                  border: danger ? "1px solid rgba(248,113,113,0.25)" : "1px solid rgba(94,231,255,0.15)",
-                  color: danger ? "var(--color-danger, #f87171)" : "var(--color-primary-300)",
-                }}
+                className={`flex items-center justify-center w-9 h-9 shrink-0 border ${danger ? "bg-[rgba(248,113,113,0.1)] border-[rgba(248,113,113,0.25)] text-(--color-danger,#f87171)" : "bg-primary-300/8 border-primary-300/15 text-primary-300"}`}
               >
                 {icon}
               </div>
             )}
-            <p className="text-sm font-semibold" style={{ color: "var(--color-txt-1)" }}>
+            <p className="text-sm font-semibold text-txt-1">
               {title}
             </p>
           </div>
 
           {/* Description */}
-          <p className="text-sm" style={{ color: "var(--color-txt-3)" }}>
+          <p className="text-sm text-txt-3">
             {resolvedDescription}
           </p>
 

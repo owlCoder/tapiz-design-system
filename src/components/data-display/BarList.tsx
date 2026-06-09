@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface BarListItem {
@@ -6,11 +7,10 @@ export interface BarListItem {
   detail?: ReactNode;
 }
 
-export interface BarListProps {
+export interface BarListProps extends BaseProps {
   items: BarListItem[];
   max?: number;
   valueFormatter?: (value: number) => ReactNode;
-  className?: string;
 }
 
 export function BarList({ items, max, valueFormatter = (value) => value, className = "" }: BarListProps) {

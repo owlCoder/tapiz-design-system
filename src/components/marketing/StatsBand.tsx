@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface StatsBandItem {
@@ -6,9 +7,8 @@ export interface StatsBandItem {
   description?: ReactNode;
 }
 
-export interface StatsBandProps {
+export interface StatsBandProps extends BaseProps {
   items: StatsBandItem[];
-  className?: string;
 }
 
 export function StatsBand({ items, className = "" }: StatsBandProps) {

@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 type Variant = "default" | "success" | "warning" | "danger" | "info" | "muted";
@@ -11,10 +12,9 @@ const variantClasses: Record<Variant, string> = {
   muted: "border-txt-3 text-txt-3",
 };
 
-interface BadgeProps {
+interface BadgeProps extends BaseProps {
   children: ReactNode;
   variant?: Variant;
-  className?: string;
 }
 
 export function Badge({ children, variant = "default", className = "" }: BadgeProps) {

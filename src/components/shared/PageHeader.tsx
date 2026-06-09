@@ -1,6 +1,7 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface PageHeaderProps {
+export interface PageHeaderProps extends BaseProps {
   title: string;
   subtitle?: string;
   description?: ReactNode;
@@ -10,7 +11,7 @@ export interface PageHeaderProps {
   banner?: ReactNode;
   breadcrumbs?: ReactNode;
   meta?: ReactNode;
-  className?: string;
+
   variant?: "default" | "enterprise" | "brutal";
 }
 

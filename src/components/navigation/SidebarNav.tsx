@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface SidebarNavItem {
@@ -15,11 +16,10 @@ export interface SidebarNavGroup {
   items: SidebarNavItem[];
 }
 
-export interface SidebarNavProps {
+export interface SidebarNavProps extends BaseProps {
   groups: SidebarNavGroup[];
   header?: ReactNode;
   footer?: ReactNode;
-  className?: string;
 }
 
 export function SidebarNav({ groups, header, footer, className = "" }: SidebarNavProps) {

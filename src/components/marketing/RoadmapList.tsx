@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Badge } from "../shared/Badge";
 
@@ -8,9 +9,8 @@ export interface RoadmapItem {
   quarter?: ReactNode;
 }
 
-export interface RoadmapListProps {
+export interface RoadmapListProps extends BaseProps {
   items: RoadmapItem[];
-  className?: string;
 }
 
 export function RoadmapList({ items, className = "" }: RoadmapListProps) {

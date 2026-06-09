@@ -1,11 +1,11 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface ScoreRingProps {
+export interface ScoreRingProps extends BaseProps {
   value: number;
   max?: number;
   label?: ReactNode;
   size?: number;
-  className?: string;
 }
 
 export function ScoreRing({ value, max = 100, label, size = 112, className = "" }: ScoreRingProps) {

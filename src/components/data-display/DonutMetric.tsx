@@ -1,12 +1,12 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface DonutMetricProps {
+export interface DonutMetricProps extends BaseProps {
   value: number;
   max?: number;
   label?: ReactNode;
   caption?: ReactNode;
   size?: number;
-  className?: string;
 }
 
 export function DonutMetric({ value, max = 100, label, caption, size = 112, className = "" }: DonutMetricProps) {

@@ -1,11 +1,11 @@
+import type { BaseProps } from "../../types";
 import type { InputHTMLAttributes } from "react";
 
-export interface DateRangePickerProps {
+export interface DateRangePickerProps extends BaseProps {
   startLabel?: string;
   endLabel?: string;
   startProps?: InputHTMLAttributes<HTMLInputElement>;
   endProps?: InputHTMLAttributes<HTMLInputElement>;
-  className?: string;
 }
 
 export function DateRangePicker({ startLabel = "From", endLabel = "To", startProps, endProps, className = "" }: DateRangePickerProps) {

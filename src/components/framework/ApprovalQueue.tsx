@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Button } from "../forms/Button";
 import { Badge } from "../shared/Badge";
@@ -9,11 +10,10 @@ export interface ApprovalItem {
   priority?: "low" | "medium" | "high";
 }
 
-export interface ApprovalQueueProps {
+export interface ApprovalQueueProps extends BaseProps {
   items: ApprovalItem[];
   onApprove?: (index: number) => void;
   onReject?: (index: number) => void;
-  className?: string;
 }
 
 export function ApprovalQueue({ items, onApprove, onReject, className = "" }: ApprovalQueueProps) {

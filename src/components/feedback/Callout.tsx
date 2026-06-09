@@ -1,14 +1,14 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export type CalloutTone = "info" | "success" | "warning" | "danger" | "neutral";
 
-export interface CalloutProps {
+export interface CalloutProps extends BaseProps {
   title?: ReactNode;
   children?: ReactNode;
   tone?: CalloutTone;
   icon?: ReactNode;
   actions?: ReactNode;
-  className?: string;
 }
 
 const toneClasses: Record<CalloutTone, string> = {

@@ -1,11 +1,11 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Spinner } from "./Spinner";
 
-export interface LoadingOverlayProps {
+export interface LoadingOverlayProps extends BaseProps {
   visible?: boolean;
   label?: ReactNode;
   children: ReactNode;
-  className?: string;
 }
 
 export function LoadingOverlay({ visible = false, label = "Loading", children, className = "" }: LoadingOverlayProps) {

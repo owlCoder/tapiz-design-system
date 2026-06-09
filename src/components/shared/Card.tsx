@@ -1,20 +1,20 @@
+import type { BaseProps } from "../../types";
 import type { CSSProperties, ReactNode } from "react";
 
 export type CardVariant = "surface" | "raised" | "outlined" | "brutal" | "glass";
 export type CardPadding = "none" | "sm" | "md" | "lg";
 
-export interface CardProps {
+export interface CardProps extends BaseProps {
   children: ReactNode;
-  className?: string;
+
   hover?: boolean;
   style?: CSSProperties;
   variant?: CardVariant;
   padding?: CardPadding;
 }
 
-export interface CardSectionProps {
+export interface CardSectionProps extends BaseProps {
   children: ReactNode;
-  className?: string;
 }
 
 const variantClasses: Record<CardVariant, string> = {

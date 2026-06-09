@@ -1,6 +1,7 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface DrawerProps {
+export interface DrawerProps extends BaseProps {
   open: boolean;
   onClose?: () => void;
   title?: ReactNode;
@@ -8,7 +9,6 @@ export interface DrawerProps {
   children: ReactNode;
   footer?: ReactNode;
   side?: "left" | "right";
-  className?: string;
 }
 
 export function Drawer({ open, onClose, title, description, children, footer, side = "right", className = "" }: DrawerProps) {

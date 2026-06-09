@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Avatar } from "../shared/Avatar";
 
@@ -9,9 +10,8 @@ export interface AuditLogItem {
   initials?: string;
 }
 
-export interface AuditLogProps {
+export interface AuditLogProps extends BaseProps {
   items: AuditLogItem[];
-  className?: string;
 }
 
 export function AuditLog({ items, className = "" }: AuditLogProps) {

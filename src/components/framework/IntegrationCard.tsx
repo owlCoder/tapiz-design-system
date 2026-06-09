@@ -1,16 +1,16 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { StatusBadge } from "../shared/StatusBadge";
 
 export type IntegrationStatus = "connected" | "disconnected" | "syncing" | "error";
 
-export interface IntegrationCardProps {
+export interface IntegrationCardProps extends BaseProps {
   name: ReactNode;
   description?: ReactNode;
   logo?: ReactNode;
   status?: IntegrationStatus;
   lastSync?: ReactNode;
   actions?: ReactNode;
-  className?: string;
 }
 
 const statusLabel: Record<IntegrationStatus, string> = {

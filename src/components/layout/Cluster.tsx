@@ -1,11 +1,11 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface ClusterProps {
+export interface ClusterProps extends BaseProps {
   children: ReactNode;
   gap?: "xs" | "sm" | "md" | "lg";
   align?: "start" | "center" | "end";
   justify?: "start" | "center" | "between" | "end";
-  className?: string;
 }
 
 const gapClasses = { xs: "gap-1", sm: "gap-2", md: "gap-3", lg: "gap-5" };

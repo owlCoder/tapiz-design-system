@@ -1,12 +1,12 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface DataToolbarProps {
+export interface DataToolbarProps extends BaseProps {
   title?: ReactNode;
   description?: ReactNode;
   search?: ReactNode;
   filters?: ReactNode;
   actions?: ReactNode;
-  className?: string;
 }
 
 export function DataToolbar({ title, description, search, filters, actions, className = "" }: DataToolbarProps) {

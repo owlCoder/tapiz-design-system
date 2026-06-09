@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface BreadcrumbItem {
@@ -6,10 +7,9 @@ export interface BreadcrumbItem {
   current?: boolean;
 }
 
-export interface BreadcrumbsProps {
+export interface BreadcrumbsProps extends BaseProps {
   items: BreadcrumbItem[];
   separator?: ReactNode;
-  className?: string;
 }
 
 export function Breadcrumbs({ items, separator = "/", className = "" }: BreadcrumbsProps) {

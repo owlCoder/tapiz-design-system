@@ -1,10 +1,11 @@
+import type { BaseProps } from "../../types";
 import type { CSSProperties, ReactNode } from "react";
 
-export interface ResponsiveGridProps {
+export interface ResponsiveGridProps extends BaseProps {
   children: ReactNode;
   min?: string;
   gap?: "sm" | "md" | "lg" | "xl";
-  className?: string;
+
   style?: CSSProperties;
 }
 

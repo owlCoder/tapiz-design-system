@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 import { Switch } from "../forms/Switch";
 import { Badge } from "../shared/Badge";
@@ -10,10 +11,9 @@ export interface FeatureFlag {
   rollout?: ReactNode;
 }
 
-export interface FeatureFlagTableProps {
+export interface FeatureFlagTableProps extends BaseProps {
   flags: FeatureFlag[];
   onToggle?: (key: string, enabled: boolean) => void;
-  className?: string;
 }
 
 export function FeatureFlagTable({ flags, onToggle, className = "" }: FeatureFlagTableProps) {

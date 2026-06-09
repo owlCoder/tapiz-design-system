@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export type StatusBadgeVariant =
@@ -10,10 +11,9 @@ export type StatusBadgeVariant =
   | "info"
   | "pending";
 
-export interface StatusBadgeProps {
+export interface StatusBadgeProps extends BaseProps {
   label: ReactNode;
   variant?: StatusBadgeVariant;
-  className?: string;
 }
 
 const BASE =

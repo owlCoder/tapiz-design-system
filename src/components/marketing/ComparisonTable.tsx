@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface ComparisonTableRow {
@@ -6,12 +7,11 @@ export interface ComparisonTableRow {
   alternative?: ReactNode;
 }
 
-export interface ComparisonTableProps {
+export interface ComparisonTableProps extends BaseProps {
   rows: ComparisonTableRow[];
   featureHeader?: ReactNode;
   includedHeader?: ReactNode;
   alternativeHeader?: ReactNode;
-  className?: string;
 }
 
 export function ComparisonTable({ rows, featureHeader = "Feature", includedHeader = "Tapiz", alternativeHeader = "Other", className = "" }: ComparisonTableProps) {

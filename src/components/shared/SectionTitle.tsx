@@ -1,8 +1,8 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface SectionTitleProps {
+export interface SectionTitleProps extends BaseProps {
   children: ReactNode;
-  className?: string;
 }
 
 export function SectionTitle({ children, className = "" }: SectionTitleProps) {

@@ -1,10 +1,11 @@
+import type { BaseProps } from "../../types";
 import type { CSSProperties, ReactNode } from "react";
 
-export interface MasonryGridProps {
+export interface MasonryGridProps extends BaseProps {
   children: ReactNode;
   columns?: 2 | 3 | 4;
   gap?: "sm" | "md" | "lg";
-  className?: string;
+
   style?: CSSProperties;
 }
 

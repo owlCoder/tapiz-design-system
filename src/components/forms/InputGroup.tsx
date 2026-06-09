@@ -1,10 +1,10 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface InputGroupProps {
+export interface InputGroupProps extends BaseProps {
   prefix?: ReactNode;
   suffix?: ReactNode;
   children: ReactNode;
-  className?: string;
 }
 
 export function InputGroup({ prefix, suffix, children, className = "" }: InputGroupProps) {

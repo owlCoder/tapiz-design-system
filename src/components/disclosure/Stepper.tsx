@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface StepItem {
@@ -7,10 +8,9 @@ export interface StepItem {
   status?: "complete" | "current" | "upcoming" | "error";
 }
 
-export interface StepperProps {
+export interface StepperProps extends BaseProps {
   steps: StepItem[];
   orientation?: "horizontal" | "vertical";
-  className?: string;
 }
 
 const tone = {

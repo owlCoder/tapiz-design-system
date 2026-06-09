@@ -1,3 +1,4 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
 export interface TopNavLink {
@@ -7,11 +8,11 @@ export interface TopNavLink {
   onClick?: () => void;
 }
 
-export interface TopNavProps {
+export interface TopNavProps extends BaseProps {
   brand?: ReactNode;
   links?: TopNavLink[];
   actions?: ReactNode;
-  className?: string;
+
   sticky?: boolean;
 }
 

@@ -1,14 +1,15 @@
+import type { BaseProps } from "../../types";
 import type { CSSProperties, ReactNode } from "react";
 
 export type SurfaceVariant = "canvas" | "surface" | "raised" | "muted" | "brutal" | "inverse";
 export type SurfacePadding = "none" | "sm" | "md" | "lg" | "xl";
 
-export interface SurfaceProps {
+export interface SurfaceProps extends BaseProps {
   children: ReactNode;
   variant?: SurfaceVariant;
   padding?: SurfacePadding;
   bordered?: boolean;
-  className?: string;
+
   style?: CSSProperties;
 }
 

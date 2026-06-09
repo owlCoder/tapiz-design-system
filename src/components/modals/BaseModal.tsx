@@ -40,33 +40,23 @@ export function BaseModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ background: "rgba(5,6,8,0.75)", backdropFilter: "blur(2px)" }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(5,6,8,0.75)] backdrop-blur-[2px]"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div
-        className={`w-full ${sizeClass[size]} p-6 space-y-4`}
-        style={{
-          background: "var(--color-ink-200)",
-          border: "1px solid var(--color-border-hi)",
-          borderTop: "2px solid var(--color-primary-300)",
-          animation: "var(--animate-scale-in)",
-        }}
+        className={`w-full ${sizeClass[size]} p-6 space-y-4 bg-ink-200 border border-border-hi border-t-2 border-t-primary-300 animate-scale-in`}
       >
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
             {icon && (
-              <div
-                className="flex items-center justify-center w-10 h-10 shrink-0"
-                style={{ background: "var(--color-ink-300)", border: "1px solid var(--color-border-hi)", color: "var(--color-primary-300)" }}
-              >
+              <div className="flex items-center justify-center w-10 h-10 shrink-0 bg-ink-300 border border-border-hi text-primary-300">
                 {icon}
               </div>
             )}
             <div>
-              <h3 id={titleId} style={{ fontFamily: "var(--font-display)", fontSize: 15, fontWeight: 600, color: "var(--color-txt-1)" }}>{title}</h3>
+              <h3 id={titleId} className="font-display text-[15px] font-semibold text-txt-1">{title}</h3>
               {subtitle && (
-                <p style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-primary-300)", marginTop: 2, letterSpacing: "0.1em" }}>
+                <p className="font-mono text-[10px] text-primary-300 mt-0.5 tracking-widest">
                   {subtitle}
                 </p>
               )}
@@ -75,10 +65,7 @@ export function BaseModal({
           {xShown && (
             <button
               onClick={onClose}
-              className="w-7 h-7 flex items-center justify-center"
-              style={{ color: "var(--color-txt-3)", border: "1px solid transparent" }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "var(--color-txt-1)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--color-border-hi)"; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "var(--color-txt-3)"; (e.currentTarget as HTMLElement).style.borderColor = "transparent"; }}
+              className="w-7 h-7 flex items-center justify-center text-txt-3 border border-transparent hover:text-txt-1 hover:border-border-hi transition-colors"
               aria-label={closeLabel}
               title={closeLabel}
             >

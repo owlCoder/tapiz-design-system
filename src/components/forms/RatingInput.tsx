@@ -1,12 +1,12 @@
+import type { BaseProps } from "../../types";
 import type { ReactNode } from "react";
 
-export interface RatingInputProps {
+export interface RatingInputProps extends BaseProps {
   value?: number;
   max?: number;
   icon?: ReactNode;
   onChange?: (value: number) => void;
   label?: string;
-  className?: string;
 }
 
 export function RatingInput({ value = 0, max = 5, icon = "★", onChange, label = "Rating", className = "" }: RatingInputProps) {

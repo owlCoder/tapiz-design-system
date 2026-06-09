@@ -223,10 +223,6 @@ export type { LoadingOverlayProps } from "./components/feedback/LoadingOverlay";
 export { NotificationList } from "./components/feedback/NotificationList";
 export type { NotificationItem, NotificationListProps } from "./components/feedback/NotificationList";
 
-// Built-in docs/showcase page
-export { TapizDocsPage } from "./showcase/TapizDocsPage";
-export type { TapizDocsPageProps } from "./showcase/TapizDocsPage";
-
 // Framework max expansion: layout utilities
 export { MasonryGrid } from "./components/layout/MasonryGrid";
 export type { MasonryGridProps } from "./components/layout/MasonryGrid";

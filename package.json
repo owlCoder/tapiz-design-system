@@ -1,6 +1,6 @@
 {
   "name": "@tapizlabs/ui",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Centralized design system, theming foundation, and reusable React UI components for the Tapiz platform.",
   "license": "MIT",
   "type": "module",

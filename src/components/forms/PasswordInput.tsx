@@ -18,10 +18,12 @@ export function PasswordInput({
     <div
       className={`flex border border-[var(--tapiz-border-strong)] bg-[var(--tapiz-bg-surface)] focus-within:border-[var(--tapiz-border-focus)] focus-within:shadow-[inset_3px_0_0_0_var(--tapiz-signal)] ${className}`}
     >
+      {/* Wrapper već prikazuje focus signal (focus-within); inner input ga ne sme duplirati,
+          inače se signal pomera sa paddingom wrappera (npr. pl-10 zbog ikonice). */}
       <input
         {...props}
         type={visible ? "text" : "password"}
-        className="min-w-0 flex-1 border-0 bg-transparent px-3 py-2 text-sm text-[var(--tapiz-text-primary)] outline-none"
+        className="min-w-0 flex-1 border-0 bg-transparent px-3 py-2 text-sm text-[var(--tapiz-text-primary)] outline-none focus:shadow-none!"
       />
       <button
         type="button"

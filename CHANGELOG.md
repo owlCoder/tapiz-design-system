@@ -15,6 +15,11 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 - shared `ConfirmDialog` supports both `description` and compatibility `message` props
 - consumer apps are now migrated to shared theme, fonts, and shared UI primitives
 
+## [0.2.6] - 2026-06-12
+
+### Fixed
+- `PasswordInput` inner input no longer renders its own focus signal bar; the wrapper's `focus-within` signal stays at the field's left edge even when the wrapper has extra padding (e.g. `pl-10` for an inline icon)
+
 ## [0.2.5] - 2026-06-12
 
 ### Fixed

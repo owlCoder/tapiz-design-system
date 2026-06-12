@@ -4,29 +4,39 @@ interface LogoMarkProps {
   bgClassName?: string;
   bgFill?: string;
   bgOpacity?: number;
+  /** Product glyph: "lms" = T monogram, "boards" = kanban columns */
+  variant?: "lms" | "boards";
 }
 
-// Brutalist square logo – ugaone zagrade + slovo 't' sa eksponentom 'LMS'
+// Solid teal tile with white product glyph in negative space.
+// LMS = T monogram, Boards = kanban columns — same tile, different glyph.
 export const LogoMark = ({
   size = 28,
   className,
+  bgClassName,
+  bgFill = "#1496b3",
+  bgOpacity = 1,
+  variant = "lms",
 }: LogoMarkProps) => (
   <svg
     width={size}
     height={size}
-    className={`${className} w-[${size}px] h-[${size}px]`}
-    viewBox="0 0 32 32"
+    className={className}
+    viewBox="0 0 64 64"
     fill="none"
   >
-    <rect width="32" height="32" rx="8" fill="none" />
-    <path d="M5 9 L5 5 L9 5" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
-    <path d="M23 5 L27 5 L27 9" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
-    <path d="M5 23 L5 27 L9 27" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
-    <path d="M23 27 L27 27 L27 23" stroke="currentColor" strokeWidth="2" strokeLinecap="square" className="opacity-50" />
-
-    <g fill="currentColor">
-      <rect x="15" y="10" width="2" height="14" />
-      <rect x="10" y="10" width="12" height="2" />
-    </g>
+    <rect width="64" height="64" rx="14" fill={bgFill} opacity={bgOpacity} className={bgClassName} />
+    {variant === "lms" ? (
+      <g fill="#fff">
+        <rect x="14" y="14" width="36" height="10" rx="3" />
+        <rect x="27" y="14" width="10" height="36" rx="3" />
+      </g>
+    ) : (
+      <g fill="#fff">
+        <rect x="13" y="15" width="10" height="26" rx="5" />
+        <rect x="27" y="15" width="10" height="34" rx="5" />
+        <rect x="41" y="15" width="10" height="20" rx="5" />
+      </g>
+    )}
   </svg>
 );

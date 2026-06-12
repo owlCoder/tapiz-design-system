@@ -247,6 +247,13 @@ html:not(.dark) {
       transform var(--tapiz-motion-base);
   }
 
+  /* Tokom promene teme per-element tranzicije prave "pola svetlo / pola tamno" lag
+     (svaki element animira boje za sebe). Aplikacija pri toggle-u doda klasu
+     `theme-switching` na <html> i skine je sledeći frame — tema se menja odjednom. */
+  html.theme-switching *:not([class*="animate-"]):not(.sliding-logo):not(.pulse-line) {
+    transition: none !important;
+  }
+
   input, textarea, select {
     background-color: var(--tapiz-bg-surface) !important;
     border-color: var(--tapiz-border-strong) !important;

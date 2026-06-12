@@ -14,3 +14,13 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 - shared `Button` accepts icon component references in addition to rendered nodes
 - shared `ConfirmDialog` supports both `description` and compatibility `message` props
 - consumer apps are now migrated to shared theme, fonts, and shared UI primitives
+
+## [0.2.5] - 2026-06-12
+
+### Fixed
+- `PasswordInput` reveal toggle now works: an Eye/EyeOff icon button switches the input between password and text (previously a static "Show" label with no behavior)
+
+## [0.2.4] - 2026-06-12
+
+### Added
+- `theme.css`: `html.theme-switching` transition guard — apps add the class on `<html>` during a theme toggle (and remove it a frame later) to switch the theme instantly instead of per-element transition lag

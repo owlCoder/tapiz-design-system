@@ -11,8 +11,9 @@ interface LogoMarkProps {
    * - "playground" = T + shell prompt `>_` (SQL/terminal)
    * - "whiteboard" = tabla sa skiciranim potezom
    * - "cloud" = oblak sa T monogramom (Tapiz Cloud Platform / status)
+   * - "specs" = dokument/spec list sa redovima teksta i čekiranom stavkom (Tapiz Specs)
    */
-  variant?: "lms" | "boards" | "playground" | "whiteboard" | "cloud";
+  variant?: "lms" | "boards" | "playground" | "whiteboard" | "cloud" | "specs";
 }
 
 // Solid teal tile with white product glyph in negative space.
@@ -100,6 +101,27 @@ export const LogoMark = ({
           <rect x="25" y="30" width="16" height="3.6" rx="1.6" />
           <rect x="31.2" y="30" width="3.6" height="12" rx="1.6" />
         </g>
+      </>
+    )}
+    {variant === "specs" && (
+      <>
+        {/* Spec list (beli dokument). */}
+        <rect x="16" y="12" width="32" height="40" rx="4" fill="#fff" />
+        {/* Redovi teksta (teal). */}
+        <g fill="#1496b3">
+          <rect x="21" y="19" width="22" height="3.4" rx="1.7" />
+          <rect x="21" y="26" width="22" height="3.4" rx="1.7" />
+          <rect x="21" y="33" width="14" height="3.4" rx="1.7" />
+        </g>
+        {/* Čekirana stavka (signal žuta kvačica). */}
+        <path
+          d="M22 43 L26 47 L34 39"
+          stroke="#d4ff3a"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
       </>
     )}
   </svg>

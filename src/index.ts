@@ -52,6 +52,8 @@ export { EmptyState, ErrorState } from "./components/shared/EmptyState";
 export type { EmptyStateProps } from "./components/shared/EmptyState";
 export { InfoBanner } from "./components/shared/InfoBanner";
 export type { InfoBannerProps } from "./components/shared/InfoBanner";
+export { ThemeIconButton } from "./components/shared/ThemeIconButton";
+export type { ThemeIconButtonProps } from "./components/shared/ThemeIconButton";
 export { PageHeader } from "./components/shared/PageHeader";
 export type { PageHeaderProps } from "./components/shared/PageHeader";
 export { MetricCard } from "./components/shared/MetricCard";

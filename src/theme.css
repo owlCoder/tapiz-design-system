@@ -425,3 +425,56 @@ html:not(.dark) {
   border: 1px solid var(--tapiz-border-subtle);
   box-shadow: var(--tapiz-shadow-md);
 }
+
+@utility tapiz-landing-shell {
+  pointer-events: auto;
+  border: 1px solid var(--tapiz-border-strong);
+  background: color-mix(in srgb, var(--tapiz-bg-surface) 88%, transparent);
+  box-shadow: var(--tapiz-shadow-md);
+  backdrop-filter: blur(22px) saturate(130%);
+}
+
+@utility tapiz-landing-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  background: transparent;
+  color: var(--tapiz-text-muted);
+  transition: color 120ms ease, transform 120ms ease;
+  &:hover,
+  &:focus-visible { color: var(--tapiz-accent); }
+}
+
+@utility tapiz-landing-footer-heading {
+  color: var(--tapiz-text-disabled);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@utility tapiz-landing-footer-link {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--tapiz-text-muted);
+  transition: color 120ms ease, transform 120ms ease;
+  &:hover,
+  &:focus-visible {
+    color: var(--tapiz-accent);
+    transform: translateX(3px);
+  }
+}
+
+@utility tapiz-landing-mobile-drawer {
+  border: 1px solid var(--tapiz-border-strong);
+  background: color-mix(in srgb, var(--tapiz-bg-surface) 94%, transparent);
+  box-shadow: var(--tapiz-shadow-lg);
+  backdrop-filter: blur(22px);
+}

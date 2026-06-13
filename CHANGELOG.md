@@ -10,6 +10,11 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 - npm-ready README with package setup, exports, examples, and publishing guidance
 - shared support for landing icon exports such as `Star`, `AppleIcon`, and `GooglePlayIcon`
 
+## [0.2.9] - 2026-06-13
+
+### Added
+- `LogoMark` gains a `"playground"` variant — Tapiz "T" with a shell prompt `>_` glyph (chevron in signal yellow, white cursor) for the Tapiz Playground product
+
 ### Changed
 - shared `Button` accepts icon component references in addition to rendered nodes
 - shared `ConfirmDialog` supports both `description` and compatibility `message` props

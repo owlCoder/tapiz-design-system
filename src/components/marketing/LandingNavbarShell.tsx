@@ -50,15 +50,26 @@ export function LandingNavbarShell({
   themeLabels,
 }: LandingNavbarShellProps) {
   const [open, setOpen] = useState(false);
+  const [renderDrawer, setRenderDrawer] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    document.body.classList.toggle("tapiz-landing-navbar-open", open);
+    if (open) {
+      setRenderDrawer(true);
+      document.body.style.overflow = "hidden";
+      document.body.classList.add("tapiz-landing-navbar-open");
+      return () => {
+        document.body.style.overflow = "";
+        document.body.classList.remove("tapiz-landing-navbar-open");
+      };
+    }
 
-    return () => {
+    const timeoutId = window.setTimeout(() => {
+      setRenderDrawer(false);
       document.body.style.overflow = "";
       document.body.classList.remove("tapiz-landing-navbar-open");
-    };
+    }, 220);
+
+    return () => window.clearTimeout(timeoutId);
   }, [open]);
 
   const drawerLabel = mobileDialogLabel ?? menuLabel;
@@ -115,17 +126,24 @@ export function LandingNavbarShell({
         </div>
       </header>
 
-      {open ? (
+      {renderDrawer ? (
         <button
           type="button"
           className="tapiz-landing-navbar__scrim"
+          data-state={open ? "open" : "closed"}
           aria-label={resolvedCloseMenuLabel}
           onClick={() => setOpen(false)}
         />
       ) : null}
 
-      {open ? (
-        <div className="tapiz-landing-navbar__drawer" role="dialog" aria-modal="true" aria-label={drawerLabel}>
+      {renderDrawer ? (
+        <div
+          className="tapiz-landing-navbar__drawer"
+          data-state={open ? "open" : "closed"}
+          role="dialog"
+          aria-modal="true"
+          aria-label={drawerLabel}
+        >
           <nav className="tapiz-landing-navbar__drawer-nav" aria-label={resolvedMobileNavLabel}>
             {items.map((item) => (
               <a

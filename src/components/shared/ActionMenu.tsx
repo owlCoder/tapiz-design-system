@@ -1,9 +1,10 @@
 import type { CSSProperties, ReactNode } from "react";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "../forms/Button";
 import { Spinner } from "../feedback/Spinner";
 import { ChevronDown } from "../icons/index";
+import { useMenuPosition } from "./useMenuPosition";
 
 export interface ActionMenuItem {
   key: string;
@@ -39,14 +40,6 @@ const defaultMenuStyle: CSSProperties = {
 const itemBaseClass =
   "flex w-full items-center gap-2.5 border-l-2 border-transparent px-4 py-2.5 text-left text-sm transition-colors duration-100 hover:border-[var(--color-primary-300)] disabled:cursor-not-allowed disabled:opacity-40";
 
-interface MenuPosition {
-  top?: number;
-  bottom?: number;
-  left: number;
-  width: number;
-  maxHeight?: number;
-}
-
 export function ActionMenu({
   label,
   items,
@@ -60,55 +53,9 @@ export function ActionMenu({
   closeLabel,
 }: ActionMenuProps) {
   const [open, setOpen] = useState(false);
-  const [pos, setPos] = useState<MenuPosition | null>(null);
   const btnRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    if (!open || !btnRef.current) return;
-
-    const updatePosition = () => {
-      const buttonElement = btnRef.current;
-      if (!buttonElement) return;
-      const rect = buttonElement.getBoundingClientRect();
-      const viewportPadding = 8;
-      const menuOffset = 4;
-      const menuW = Math.min(320, window.innerWidth - viewportPadding * 2);
-      const left = Math.max(
-        viewportPadding,
-        Math.min(rect.right - menuW, window.innerWidth - menuW - viewportPadding),
-      );
-      const estimatedMenuHeight = Math.min(320, items.length * 44 + 16);
-      const spaceAbove = Math.max(0, rect.top - viewportPadding - menuOffset);
-      const spaceBelow = Math.max(0, window.innerHeight - rect.bottom - viewportPadding - menuOffset);
-      const preferBelow = spaceBelow >= estimatedMenuHeight || spaceBelow >= spaceAbove;
-
-      if (preferBelow) {
-        setPos({
-          top: Math.min(rect.bottom + menuOffset, window.innerHeight - viewportPadding),
-          left,
-          width: menuW,
-          maxHeight: Math.max(120, spaceBelow),
-        });
-        return;
-      }
-
-      setPos({
-        bottom: Math.max(window.innerHeight - rect.top + menuOffset, viewportPadding),
-        left,
-        width: menuW,
-        maxHeight: Math.max(120, spaceAbove),
-      });
-    };
-
-    updatePosition();
-    window.addEventListener("resize", updatePosition);
-    document.addEventListener("scroll", updatePosition, true);
-    return () => {
-      window.removeEventListener("resize", updatePosition);
-      document.removeEventListener("scroll", updatePosition, true);
-    };
-  }, [items.length, open]);
+  const pos = useMenuPosition(open, btnRef, items.length);
 
   useEffect(() => {
     if (!open) return;
@@ -122,6 +69,9 @@ export function ActionMenu({
     document.addEventListener("keydown", handle);
     return () => { document.removeEventListener("mousedown", handle); document.removeEventListener("keydown", handle); };
   }, [open]);
+
+  // closeLabel is accepted for API compatibility but not rendered in the trigger button
+  void closeLabel;
 
   const menuNode = open && pos ? (
     <>

@@ -1,7 +1,9 @@
-import { useMemo, useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { ChevronDown, ChevronUp } from "../icons/index";
 import { DataTableRow } from "./DataTableRow";
-import type { Column, ColumnAlign, ServerSort, SortDirection, SortState } from "./types";
+import { DataTableMobileCard } from "./DataTableMobileCard";
+import { useSortedData } from "./useSortedData";
+import type { Column, ColumnAlign, ServerSort, SortDirection } from "./types";
 
 const ALIGN_CLASS: Record<ColumnAlign, string> = {
   left: "text-left",
@@ -58,19 +60,6 @@ export interface DataTableProps<T> {
   className?: string;
 }
 
-function compareValues(
-  a: ReturnType<NonNullable<Column<unknown>["sortAccessor"]>>,
-  b: ReturnType<NonNullable<Column<unknown>["sortAccessor"]>>,
-): number {
-  if (a == null && b == null) return 0;
-  if (a == null) return -1;
-  if (b == null) return 1;
-  if (a instanceof Date && b instanceof Date) return a.getTime() - b.getTime();
-  if (typeof a === "number" && typeof b === "number") return a - b;
-  if (typeof a === "boolean" && typeof b === "boolean") return Number(a) - Number(b);
-  return String(a).localeCompare(String(b));
-}
-
 function ariaSort(active: boolean, direction: SortDirection): "ascending" | "descending" | "none" {
   if (!active) return "none";
   return direction === "asc" ? "ascending" : "descending";
@@ -105,29 +94,7 @@ export function DataTable<T>({
   striped = true,
   className = "",
 }: DataTableProps<T>) {
-  const [sort, setSort] = useState<SortState | null>(null);
-
-  // When serverSort is active, skip client-side sort entirely.
-  const sortedData = useMemo(() => {
-    if (serverSort) return data;
-    if (!sort) return data;
-    const column = columns.find((c) => c.id === sort.columnId);
-    if (!column?.sortAccessor) return data;
-    const accessor = column.sortAccessor;
-    const factor = sort.direction === "asc" ? 1 : -1;
-    return [...data].sort((a, b) => compareValues(accessor(a), accessor(b)) * factor);
-  }, [data, columns, sort, serverSort]);
-
-  const toggleSort = (columnId: string) => {
-    if (serverSort) {
-      serverSort.onSort(columnId);
-      return;
-    }
-    setSort((prev) => {
-      if (prev?.columnId !== columnId) return { columnId, direction: "asc" };
-      return { columnId, direction: prev.direction === "asc" ? "desc" : "asc" };
-    });
-  };
+  const { sortedData, sort, toggleSort } = useSortedData(data, columns, serverSort);
 
   const hasActions = rowActions !== undefined;
   const colCount = columns.length + (hasActions ? 1 : 0);
@@ -145,17 +112,14 @@ export function DataTable<T>({
     <div className={wrapperClass}>
       {/* Mobile card slot — only present when mobileCard is provided */}
       {mobileCard !== undefined && (
-        <div className="md:hidden">
-          {isLoading
-            ? Array.from({ length: loadingRows }).map((_, i) => (
-                <div key={i} className="h-16 animate-pulse bg-ink-300" />
-              ))
-            : sortedData.length === 0
-              ? emptyState
-              : sortedData.map((row) => (
-                  <div key={rowKey(row)}>{mobileCard(row)}</div>
-                ))}
-        </div>
+        <DataTableMobileCard
+          data={sortedData}
+          isLoading={isLoading}
+          loadingRows={loadingRows}
+          emptyState={emptyState}
+          rowKey={rowKey}
+          mobileCard={mobileCard}
+        />
       )}
 
       <table className={tableClass}>

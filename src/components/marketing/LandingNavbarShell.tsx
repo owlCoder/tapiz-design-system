@@ -1,6 +1,7 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { Menu, Moon, Sun, X } from "../icons/index";
 import type { BaseProps } from "../../types";
+import { useDrawerState } from "./useDrawerState";
 
 export interface LandingNavbarItem {
   href: string;
@@ -49,28 +50,7 @@ export function LandingNavbarShell({
   theme,
   themeLabels,
 }: LandingNavbarShellProps) {
-  const [open, setOpen] = useState(false);
-  const [renderDrawer, setRenderDrawer] = useState(false);
-
-  useEffect(() => {
-    if (open) {
-      setRenderDrawer(true);
-      document.body.style.overflow = "hidden";
-      document.body.classList.add("tapiz-landing-navbar-open");
-      return () => {
-        document.body.style.overflow = "";
-        document.body.classList.remove("tapiz-landing-navbar-open");
-      };
-    }
-
-    const timeoutId = window.setTimeout(() => {
-      setRenderDrawer(false);
-      document.body.style.overflow = "";
-      document.body.classList.remove("tapiz-landing-navbar-open");
-    }, 220);
-
-    return () => window.clearTimeout(timeoutId);
-  }, [open]);
+  const { open, setOpen, renderDrawer } = useDrawerState();
 
   const drawerLabel = mobileDialogLabel ?? menuLabel;
   const resolvedCloseMenuLabel = closeMenuLabel ?? menuLabel;

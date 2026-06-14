@@ -128,6 +128,8 @@ export type { TopNavLink, TopNavProps } from "./components/navigation/TopNav";
 // Disclosure and workflow
 export { Tabs } from "./components/disclosure/Tabs";
 export type { TabItem, TabsProps } from "./components/disclosure/Tabs";
+export { SegmentedTabs } from "./components/disclosure/SegmentedTabs";
+export type { SegmentedTabItem, SegmentedTabsProps } from "./components/disclosure/SegmentedTabs";
 export { Accordion } from "./components/disclosure/Accordion";
 export type { AccordionItem, AccordionProps } from "./components/disclosure/Accordion";
 export { Stepper } from "./components/disclosure/Stepper";

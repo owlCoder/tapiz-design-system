@@ -42,6 +42,7 @@ export {
   Pdf,
   Printer,
   ExternalLink,
+  GitHubIcon,
   Menu,
   Image,
   Star,

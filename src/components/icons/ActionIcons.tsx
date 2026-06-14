@@ -149,6 +149,19 @@ export const ExternalLink = ({ size = 14, className, style }: IconProps) => (
   </svg>
 );
 
+export const GitHubIcon = ({ size = 14, className, style }: IconProps) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    style={style}
+    className={className}
+  >
+    <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.08 1.84 2.81 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.31-5.47-1.33-5.47-5.93 0-1.31.47-2.39 1.24-3.23-.12-.3-.54-1.54.12-3.2 0 0 1.01-.32 3.3 1.23a11.38 11.38 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.9.12 3.2.77.84 1.23 1.92 1.23 3.23 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.21 0 1.6-.01 2.88-.01 3.27 0 .32.21.7.83.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5Z" />
+  </svg>
+);
+
 export const Image = ({ size = 14, className, style }: IconProps) => (
   <svg {...base(null, size, style)} className={className}>
     <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />

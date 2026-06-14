@@ -20,8 +20,9 @@ interface LogoMarkProps {
    * - "whiteboard" = tabla sa skiciranim potezom
    * - "cloud" = oblak sa T monogramom (Tapiz Cloud Platform / status)
    * - "specs" = dokument/spec list sa redovima teksta i čekiranom stavkom (Tapiz Specs)
+   * - "pulse" = EKG kriva sa T monogramom (Tapiz Pulse — interni monitoring)
    */
-  variant?: "lms" | "boards" | "playground" | "whiteboard" | "cloud" | "specs";
+  variant?: "lms" | "boards" | "playground" | "whiteboard" | "cloud" | "specs" | "pulse";
 }
 
 // Solid teal tile with white product glyph in negative space (default tone).
@@ -149,6 +150,21 @@ export const LogoMark = ({
             strokeLinejoin="round"
             fill="none"
           />
+        </>
+      )}
+      {variant === "pulse" && (
+        <>
+          {/* EKG / heartbeat kriva — flatline → spike → flatline. */}
+          <path
+            d="M10 34 L20 34 L25 20 L30 46 L35 28 L39 34 L54 34"
+            stroke={glyph}
+            strokeWidth="4.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+          />
+          {/* Mali teal dot na vrhu spike-a (monitoring signal). */}
+          <circle cx="30" cy="20" r="3.5" fill={accentDetail} />
         </>
       )}
     </svg>

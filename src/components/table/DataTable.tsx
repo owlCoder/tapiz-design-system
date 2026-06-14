@@ -103,7 +103,7 @@ export function DataTable<T>({
   const densityCellClass = density === "compact" ? "px-3 py-2" : density === "spacious" ? "px-4 py-4" : "px-3 py-2.5";
   const wrapperClass = [
     "overflow-x-auto",
-    variant === "brutal" ? "border-2 border-[var(--tapiz-border-strong)] shadow-[var(--tapiz-shadow-brutal)]" : "border border-[var(--tapiz-border-subtle)]",
+    variant === "brutal" ? "border-2 border-[var(--tapiz-border-strong)] shadow-[var(--tapiz-shadow-brutal)]" : "border border-(--tapiz-border-subtle)",
     variant === "enterprise" ? "bg-[var(--tapiz-bg-surface)] shadow-[var(--tapiz-shadow-md)]" : "",
     className,
   ].filter(Boolean).join(" ");
@@ -173,10 +173,10 @@ export function DataTable<T>({
         <tbody>
           {isLoading ? (
             Array.from({ length: loadingRows }).map((_, rowIndex) => (
-              <tr key={rowIndex} className="border-b border-[var(--tapiz-border-subtle)]">
+              <tr key={rowIndex} className="border-b border-(--tapiz-border-subtle)">
                 {Array.from({ length: colCount }).map((__, colIndex) => (
                   <td key={colIndex} className={densityCellClass}>
-                    <div className="h-4 w-24 animate-pulse bg-[var(--tapiz-bg-surface-muted)]" />
+                    <div className="h-4 w-24 animate-pulse bg-(--tapiz-bg-surface-muted)" />
                   </td>
                 ))}
               </tr>

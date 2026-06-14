@@ -82,20 +82,29 @@ export type {
   SortState,
 } from "./components/table/types";
 
-export { MarketingShell } from "./components/marketing/MarketingShell";
-export type { MarketingShellProps } from "./components/marketing/MarketingShell";
-export { HeroFrame } from "./components/marketing/HeroFrame";
-export type { HeroFrameProps } from "./components/marketing/HeroFrame";
-export { FeatureCard } from "./components/marketing/FeatureCard";
-export type { FeatureCardProps } from "./components/marketing/FeatureCard";
-export { FeatureGrid } from "./components/marketing/FeatureGrid";
-export type { FeatureGridProps } from "./components/marketing/FeatureGrid";
-export { CTASection } from "./components/marketing/CTASection";
-export type { CTASectionProps } from "./components/marketing/CTASection";
-export { MockupFrame } from "./components/marketing/MockupFrame";
-export type { MockupFrameProps } from "./components/marketing/MockupFrame";
-export { ComparisonTable } from "./components/marketing/ComparisonTable";
-export type { ComparisonTableProps, ComparisonTableRow } from "./components/marketing/ComparisonTable";
+export {
+  CTASection,
+  ComparisonTable,
+  FeatureCard,
+  FeatureGrid,
+  HeroFrame,
+  LandingNavbarShell,
+  MarketingShell,
+  MockupFrame,
+} from "./components/marketing/index";
+export type {
+  CTASectionProps,
+  ComparisonTableProps,
+  ComparisonTableRow,
+  FeatureCardProps,
+  FeatureGridProps,
+  HeroFrameProps,
+  LandingNavbarItem,
+  LandingNavbarShellProps,
+  LandingNavbarThemeLabels,
+  MarketingShellProps,
+  MockupFrameProps,
+} from "./components/marketing/index";
 
 
 // Framework layout

@@ -138,6 +138,8 @@ export type { StepItem, StepperProps } from "./components/disclosure/Stepper";
 // Overlays
 export { Drawer } from "./components/overlays/Drawer";
 export type { DrawerProps } from "./components/overlays/Drawer";
+export { SidePanel } from "./components/overlays/SidePanel";
+export type { SidePanelProps } from "./components/overlays/SidePanel";
 export { Popover } from "./components/overlays/Popover";
 export type { PopoverProps } from "./components/overlays/Popover";
 export { CommandMenu } from "./components/overlays/CommandMenu";

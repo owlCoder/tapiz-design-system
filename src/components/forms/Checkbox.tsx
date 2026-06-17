@@ -66,7 +66,7 @@ export function Checkbox({
               height={s.icon}
               viewBox="0 0 12 12"
               fill="none"
-              stroke="#000"
+              stroke="var(--color-ink-000)"
               strokeWidth="2.2"
               strokeLinecap="square"
             >

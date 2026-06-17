@@ -30,6 +30,12 @@ const widthRem: Record<NonNullable<SidePanelProps["width"]>, number> = {
 const MOBILE_QUERY = "(max-width: 639px)";
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
+// Single source of truth for enter/exit timing. The slide transition and the
+// unmount timer share this duration so open and close feel identical and the
+// panel never unmounts before the exit transition finishes.
+const TRANSITION_MS = 240;
+const TRANSITION_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
+
 /**
  * Right-side slide-in panel for create/edit forms — the panel counterpart to BaseModal.
  * Enter/exit use CSS transitions (translate + opacity): deterministic, no keyframe replay
@@ -67,7 +73,7 @@ export function SidePanel({
       const raf = requestAnimationFrame(() => requestAnimationFrame(() => setShown(true)));
       return () => cancelAnimationFrame(raf);
     }
-    const timer = setTimeout(() => setMounted(false), 250);
+    const timer = setTimeout(() => setMounted(false), TRANSITION_MS);
     return () => clearTimeout(timer);
   }, [isOpen]);
 
@@ -112,7 +118,7 @@ export function SidePanel({
   const panelStyle: React.CSSProperties = {
     maxWidth: isMobile ? "100%" : `${widthRem[width]}rem`,
     transform: shown ? "translateX(0)" : `translateX(${hiddenOffset})`,
-    transition: reduceMotion ? "none" : "transform 200ms ease-out",
+    transition: reduceMotion ? "none" : `transform ${TRANSITION_MS}ms ${TRANSITION_EASE}`,
     willChange: "transform",
   };
 
@@ -124,7 +130,7 @@ export function SidePanel({
       className={`fixed inset-0 z-50 flex bg-[rgba(5,6,8,0.75)] backdrop-blur-[2px] ${
         side === "right" ? "justify-end" : "justify-start"
       } ${shown ? "opacity-100" : "opacity-0"}`}
-      style={{ transition: reduceMotion ? "none" : "opacity 200ms ease" }}
+      style={{ transition: reduceMotion ? "none" : `opacity ${TRANSITION_MS}ms ${TRANSITION_EASE}` }}
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div

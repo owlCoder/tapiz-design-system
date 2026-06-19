@@ -1,5 +1,10 @@
 # @tapizlabs/ui
 
+[![npm version](https://img.shields.io/npm/v/@tapizlabs/ui.svg)](https://www.npmjs.com/package/@tapizlabs/ui)
+[![CI](https://github.com/owlCoder/tapiz-design-system/actions/workflows/ci.yml/badge.svg)](https://github.com/owlCoder/tapiz-design-system/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/@tapizlabs/ui.svg)](./LICENSE)
+[![types](https://img.shields.io/npm/types/@tapizlabs/ui.svg)](https://www.npmjs.com/package/@tapizlabs/ui)
+
 Shared Tapiz design system package for React applications.
 
 Repository: `https://github.com/owlCoder/tapiz-design-system`

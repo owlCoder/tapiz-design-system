@@ -21,8 +21,9 @@ interface LogoMarkProps {
    * - "cloud" = oblak sa T monogramom (Tapiz Cloud Platform / status)
    * - "specs" = dokument/spec list sa redovima teksta i čekiranom stavkom (Tapiz Specs)
    * - "pulse" = EKG kriva sa T monogramom (Tapiz Pulse — interni monitoring)
+   * - "sentinel" = štit sa okom (Tapiz Sentinel — error monitoring / nadzor)
    */
-  variant?: "lms" | "boards" | "playground" | "whiteboard" | "cloud" | "specs" | "pulse";
+  variant?: "lms" | "boards" | "playground" | "whiteboard" | "cloud" | "specs" | "pulse" | "sentinel";
 }
 
 // Solid teal tile with white product glyph in negative space (default tone).
@@ -165,6 +166,22 @@ export const LogoMark = ({
           />
           {/* Mali teal dot na vrhu spike-a (monitoring signal). */}
           <circle cx="30" cy="20" r="3.5" fill={accentDetail} />
+        </>
+      )}
+      {variant === "sentinel" && (
+        <>
+          {/* Štit silueta (beli / accent u outline tonu) — zaštita/nadzor. */}
+          <path
+            fill={glyph}
+            d="M32 11 L50 18 V33 q0 13-18 20 Q14 46 14 33 V18 Z"
+          />
+          {/* Oko unutar štita (teal / fill u outline tonu) — „watcher". */}
+          <path
+            d="M21 32 q11-11 22 0 q-11 11-22 0Z"
+            fill={accentDetail}
+          />
+          {/* Zenica (signal žuta) — aktivni monitoring signal. */}
+          <circle cx="32" cy="32" r="4.2" fill="#d4ff3a" />
         </>
       )}
     </svg>

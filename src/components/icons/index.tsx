@@ -18,6 +18,7 @@ export {
   Faculty,
   Globe,
   CreditCard,
+  Receipt,
   HelpCircle,
   NavQrAttendance,
   NavScoresheet,

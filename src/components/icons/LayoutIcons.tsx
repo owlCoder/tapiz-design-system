@@ -1,6 +1,6 @@
 import { X, Grid, UserMinus, UserCog, History, ExternalLink } from "./ActionIcons";
 import { LockIcon, LogOut, User, UserCheck, EyeOff } from "./AuthIcons";
-import { BarChart, Book, Calendar, CheckSquare, Clipboard, Faculty, Home, Layers, OfficeHours, QrCode, Report, Scan, Table, University, Users } from "./NavigationIcons";
+import { BarChart, Book, Calendar, CheckSquare, Clipboard, Faculty, Home, Layers, OfficeHours, QrCode, Receipt, Report, Scan, Table, University, Users } from "./NavigationIcons";
 import { ActivityMenu, Compare, Info, Intersect, Megaphone, Repeat, FileText } from "./FeedbackIcons";
 import { Gear } from "./SettingsIcons";
 import { CalendarWeek, FormIcon } from "./FormsIcons";
@@ -56,5 +56,6 @@ export const Icons = {
   userCheck:   <UserCheck size={18} />,
   fm:          <UserCog size={18} />,
   history:     <History size={18} />,
+  receipt:     <Receipt size={18} />,
   externalLink: <ExternalLink size={18} />
 };

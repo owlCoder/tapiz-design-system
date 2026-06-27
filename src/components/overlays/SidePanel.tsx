@@ -129,6 +129,8 @@ export function SidePanel({
       } ${shown ? "opacity-100" : "opacity-0"}`}
       style={{ transition: reduceMotion ? "none" : `opacity ${TRANSITION_MS}ms ${TRANSITION_EASE}` }}
       onClick={(e) => e.target === e.currentTarget && onClose()}
+      onWheel={(e) => e.preventDefault()}
+      onTouchMove={(e) => e.preventDefault()}
     >
       <div
         className={`flex h-full max-sm:h-dvh w-full flex-col overflow-hidden border-t-2 border-t-primary-300 bg-ink-200 ${
@@ -160,7 +162,13 @@ export function SidePanel({
             <X size={16} />
           </button>
         </div>
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-5">{children}</div>
+        <div
+          className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-5"
+          onWheel={(e) => e.stopPropagation()}
+          onTouchMove={(e) => e.stopPropagation()}
+        >
+          {children}
+        </div>
         {footer && <div className="shrink-0 border-t border-border px-4 py-3 sm:px-5">{footer}</div>}
       </div>
     </div>,

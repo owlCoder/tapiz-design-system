@@ -1,6 +1,7 @@
 import { ReactNode, useEffect, useId, useState } from "react";
 import { createPortal } from "react-dom";
 import { X } from "../icons/index";
+import { acquireBodyScrollLock } from "./scrollLock";
 
 export interface SidePanelProps {
   isOpen: boolean;
@@ -95,17 +96,13 @@ export function SidePanel({
 
   useEffect(() => {
     if (!isOpen) return;
-    const html = document.documentElement.style.overflow;
-    const body = document.body.style.overflow;
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
+    const releaseBodyScrollLock = acquireBodyScrollLock();
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     document.addEventListener("keydown", onKeyDown);
     return () => {
-      document.documentElement.style.overflow = html;
-      document.body.style.overflow = body;
+      releaseBodyScrollLock();
       document.removeEventListener("keydown", onKeyDown);
     };
   }, [isOpen, onClose]);

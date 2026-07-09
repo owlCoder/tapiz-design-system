@@ -219,6 +219,12 @@ html:not(.dark) {
 @layer base {
   *, ::after, ::before, ::backdrop, ::file-selector-button {
     border-color: var(--tapiz-border-subtle, currentcolor);
+  }
+
+  /* Flat-brand corner reset. Skipped inside `.lp-page` — the LMS ecosystem
+     landing is a sanctioned GitLab-style one-off that owns its own radii.
+     `:where()` adds no specificity, so behavior elsewhere is unchanged. */
+  *:where(:not(.lp-page):not(.lp-page *)), ::after, ::before, ::backdrop, ::file-selector-button {
     border-radius: 0 !important;
   }
 
@@ -236,7 +242,7 @@ html:not(.dark) {
     letter-spacing: -0.03em;
   }
 
-  [class*="rounded"] { border-radius: 0 !important; }
+  [class*="rounded"]:where(:not(.lp-page *)) { border-radius: 0 !important; }
 
   html *:not([class*="animate-"]):not(.sliding-logo):not(.pulse-line) {
     transition:

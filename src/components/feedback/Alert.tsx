@@ -12,11 +12,11 @@ export interface AlertProps extends BaseProps {
 }
 
 const toneClasses: Record<AlertTone, string> = {
-  info: "border-[var(--tapiz-info)] bg-[var(--tapiz-info-soft)] text-[var(--tapiz-info)]",
-  success: "border-[var(--tapiz-success)] bg-[var(--tapiz-success-soft)] text-[var(--tapiz-success)]",
-  warning: "border-[var(--tapiz-warning)] bg-[var(--tapiz-warning-soft)] text-[var(--tapiz-warning)]",
-  danger: "border-[var(--tapiz-danger)] bg-[var(--tapiz-danger-soft)] text-[var(--tapiz-danger)]",
-  neutral: "border-[var(--tapiz-border-subtle)] bg-[var(--tapiz-bg-surface)] text-[var(--tapiz-text-secondary)]",
+  info: "border-(--tapiz-info) bg-(--tapiz-info-soft) text-(--tapiz-info)",
+  success: "border-(--tapiz-success) bg-(--tapiz-success-soft) text-(--tapiz-success)",
+  warning: "border-(--tapiz-warning) bg-(--tapiz-warning-soft) text-(--tapiz-warning)",
+  danger: "border-(--tapiz-danger) bg-(--tapiz-danger-soft) text-(--tapiz-danger)",
+  neutral: "border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) text-(--tapiz-text-secondary)",
 };
 
 export function Alert({ tone = "info", title, children, icon, actions, className = "" }: AlertProps) {
@@ -24,8 +24,8 @@ export function Alert({ tone = "info", title, children, icon, actions, className
     <div className={`flex gap-3 border p-4 ${toneClasses[tone]} ${className}`}>
       {icon ? <div className="mt-0.5 shrink-0">{icon}</div> : null}
       <div className="min-w-0 flex-1">
-        {title ? <div className="font-semibold text-[var(--tapiz-text-primary)]">{title}</div> : null}
-        {children ? <div className="mt-1 text-sm text-[var(--tapiz-text-secondary)]">{children}</div> : null}
+        {title ? <div className="font-semibold text-(--tapiz-text-primary)">{title}</div> : null}
+        {children ? <div className="mt-1 text-sm text-(--tapiz-text-secondary)">{children}</div> : null}
       </div>
       {actions ? <div className="shrink-0">{actions}</div> : null}
     </div>

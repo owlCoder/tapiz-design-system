@@ -12,7 +12,7 @@ const ALIGN_CLASS: Record<ColumnAlign, string> = {
 };
 
 export type DataTableDensity = "compact" | "comfortable" | "spacious";
-export type DataTableVariant = "default" | "enterprise" | "brutal";
+export type DataTableVariant = "default" | "enterprise";
 
 export interface DataTableProps<T> {
   data: T[];
@@ -51,7 +51,7 @@ export interface DataTableProps<T> {
   mobileCard?: (row: T) => ReactNode;
   /** Visual density of header and cells. Defaults to comfortable. */
   density?: DataTableDensity;
-  /** Enterprise adds stronger surface treatment; brutal adds 2px border + hard shadow. */
+  /** Enterprise adds stronger surface treatment. */
   variant?: DataTableVariant;
   /** Makes the table header sticky inside the scroll container. */
   stickyHeader?: boolean;
@@ -103,8 +103,8 @@ export function DataTable<T>({
   const densityCellClass = density === "compact" ? "px-3 py-2" : density === "spacious" ? "px-4 py-4" : "px-3 py-2.5";
   const wrapperClass = [
     "overflow-x-auto",
-    variant === "brutal" ? "border-2 border-[var(--tapiz-border-strong)] shadow-[var(--tapiz-shadow-brutal)]" : "border border-(--tapiz-border-subtle)",
-    variant === "enterprise" ? "bg-[var(--tapiz-bg-surface)] shadow-[var(--tapiz-shadow-md)]" : "",
+    "border border-(--tapiz-border-subtle)",
+    variant === "enterprise" ? "bg-(--tapiz-bg-surface) shadow-(--tapiz-shadow-md)" : "",
     className,
   ].filter(Boolean).join(" ");
 

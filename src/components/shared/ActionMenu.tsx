@@ -39,7 +39,7 @@ const defaultMenuStyle: CSSProperties = {
 };
 
 const itemBaseClass =
-  "flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 text-left text-sm transition-colors duration-100 hover:bg-[var(--color-ink-300)] disabled:cursor-not-allowed disabled:opacity-40";
+  "flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 text-left text-sm transition-colors duration-100 hover:bg-ink-300 disabled:cursor-not-allowed disabled:opacity-40";
 
 export function ActionMenu({
   label,
@@ -107,7 +107,7 @@ export function ActionMenu({
               }}
             >
               {item.loading ? (
-                <Spinner color="text-[var(--color-txt-3)]" />
+                <Spinner color="text-txt-3" />
               ) : (
                 <span className={item.danger ? "shrink-0 text-warn" : "shrink-0 text-primary-300"}>{item.icon}</span>
               )}

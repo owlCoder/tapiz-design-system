@@ -12,7 +12,7 @@ export function MarketingShell({ children, className = "", grid = true, noise = 
   return (
     <main
       className={[
-        "min-h-screen overflow-hidden bg-[var(--tapiz-bg-page)] text-[var(--tapiz-text-primary)]",
+        "min-h-screen overflow-hidden bg-(--tapiz-bg-page) text-(--tapiz-text-primary)",
         grid ? "tapiz-grid-bg" : "",
         noise ? "tapiz-noise-bg" : "",
         className,

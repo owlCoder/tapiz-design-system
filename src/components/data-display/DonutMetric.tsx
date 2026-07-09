@@ -31,14 +31,14 @@ export function DonutMetric({ value, max = 100, label, caption, size = 112, clas
           strokeLinecap="square"
           transform="rotate(-90 56 56)"
         />
-        <text x="56" y="61" textAnchor="middle" className="fill-[var(--tapiz-text-primary)] font-mono text-lg font-bold">
+        <text x="56" y="61" textAnchor="middle" className="fill-(--tapiz-text-primary) font-mono text-lg font-bold">
           {Math.round(ratio * 100)}%
         </text>
       </svg>
       {(label || caption) ? (
         <div>
-          {label ? <div className="text-sm font-semibold text-[var(--tapiz-text-primary)]">{label}</div> : null}
-          {caption ? <div className="mt-1 text-xs leading-5 text-[var(--tapiz-text-muted)]">{caption}</div> : null}
+          {label ? <div className="text-sm font-semibold text-(--tapiz-text-primary)">{label}</div> : null}
+          {caption ? <div className="mt-1 text-xs leading-5 text-(--tapiz-text-muted)">{caption}</div> : null}
         </div>
       ) : null}
     </div>

@@ -9,14 +9,14 @@ export interface MockupFrameProps extends BaseProps {
 
 export function MockupFrame({ children, title, toolbar, className = "" }: MockupFrameProps) {
   return (
-    <div className={`overflow-hidden border-2 border-[var(--tapiz-border-strong)] bg-[var(--tapiz-bg-surface)] shadow-[var(--tapiz-shadow-brutal)] ${className}`}>
-      <div className="flex items-center justify-between border-b border-[var(--tapiz-border-strong)] bg-[var(--tapiz-bg-surface-muted)] px-3 py-2">
+    <div className={`overflow-hidden border-2 border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) shadow-(--tapiz-shadow-brutal) ${className}`}>
+      <div className="flex items-center justify-between border-b border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted) px-3 py-2">
         <div className="flex items-center gap-1.5">
-          <span className="h-2.5 w-2.5 border border-[var(--tapiz-border-strong)] bg-[var(--tapiz-danger)]" />
-          <span className="h-2.5 w-2.5 border border-[var(--tapiz-border-strong)] bg-[var(--tapiz-warning)]" />
-          <span className="h-2.5 w-2.5 border border-[var(--tapiz-border-strong)] bg-[var(--tapiz-success)]" />
+          <span className="h-2.5 w-2.5 border border-(--tapiz-border-strong) bg-(--tapiz-danger)" />
+          <span className="h-2.5 w-2.5 border border-(--tapiz-border-strong) bg-(--tapiz-warning)" />
+          <span className="h-2.5 w-2.5 border border-(--tapiz-border-strong) bg-(--tapiz-success)" />
         </div>
-        {title ? <div className="text-[11px] font-medium text-[var(--tapiz-text-muted)]">{title}</div> : null}
+        {title ? <div className="text-[11px] font-medium text-(--tapiz-text-muted)">{title}</div> : null}
         <div>{toolbar}</div>
       </div>
       <div className="p-4">{children}</div>

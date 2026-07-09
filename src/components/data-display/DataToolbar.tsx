@@ -11,11 +11,11 @@ export interface DataToolbarProps extends BaseProps {
 
 export function DataToolbar({ title, description, search, filters, actions, className = "" }: DataToolbarProps) {
   return (
-    <div className={`border border-[var(--tapiz-border-subtle)] bg-[var(--tapiz-bg-surface)] p-4 ${className}`}>
+    <div className={`border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) p-4 ${className}`}>
       <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div>
-          {title ? <h3 className="text-base font-semibold text-[var(--tapiz-text-primary)]">{title}</h3> : null}
-          {description ? <p className="mt-1 text-sm text-[var(--tapiz-text-muted)]">{description}</p> : null}
+          {title ? <h3 className="text-base font-semibold text-(--tapiz-text-primary)">{title}</h3> : null}
+          {description ? <p className="mt-1 text-sm text-(--tapiz-text-muted)">{description}</p> : null}
         </div>
         {actions ? <div className="flex flex-wrap gap-2">{actions}</div> : null}
       </div>

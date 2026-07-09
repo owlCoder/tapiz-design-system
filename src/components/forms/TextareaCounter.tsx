@@ -10,7 +10,7 @@ export function TextareaCounter({ maxLength, value = "", className = "", ...prop
   return (
     <div className={className}>
       <textarea {...props} value={value} maxLength={maxLength} className="input-field min-h-28" />
-      <div className="mt-1 text-right font-mono text-[11px] text-[var(--tapiz-text-muted)]">{count}/{maxLength}</div>
+      <div className="mt-1 text-right font-mono text-[11px] text-(--tapiz-text-muted)">{count}/{maxLength}</div>
     </div>
   );
 }

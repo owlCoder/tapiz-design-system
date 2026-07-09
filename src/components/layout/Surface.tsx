@@ -1,7 +1,7 @@
 import type { BaseProps } from "../../types";
 import type { CSSProperties, ReactNode } from "react";
 
-export type SurfaceVariant = "canvas" | "surface" | "raised" | "muted" | "brutal" | "inverse";
+export type SurfaceVariant = "canvas" | "surface" | "raised" | "muted" | "inverse";
 export type SurfacePadding = "none" | "sm" | "md" | "lg" | "xl";
 
 export interface SurfaceProps extends BaseProps {
@@ -14,12 +14,11 @@ export interface SurfaceProps extends BaseProps {
 }
 
 const variantClasses: Record<SurfaceVariant, string> = {
-  canvas: "bg-[var(--tapiz-bg-page)] text-[var(--tapiz-text-primary)]",
-  surface: "bg-[var(--tapiz-bg-surface)] text-[var(--tapiz-text-primary)]",
-  raised: "bg-[var(--tapiz-bg-surface-raised)] text-[var(--tapiz-text-primary)] shadow-[var(--tapiz-shadow-md)]",
-  muted: "bg-[var(--tapiz-bg-surface-muted)] text-[var(--tapiz-text-primary)]",
-  brutal: "bg-[var(--tapiz-bg-surface)] text-[var(--tapiz-text-primary)] border-2 border-[var(--tapiz-border-strong)] shadow-[var(--tapiz-shadow-brutal)]",
-  inverse: "bg-[var(--tapiz-bg-surface-inverse)] text-[var(--tapiz-text-inverse)]",
+  canvas: "bg-(--tapiz-bg-page) text-(--tapiz-text-primary)",
+  surface: "bg-(--tapiz-bg-surface) text-(--tapiz-text-primary)",
+  raised: "bg-(--tapiz-bg-surface-raised) text-(--tapiz-text-primary) shadow-(--tapiz-shadow-md)",
+  muted: "bg-(--tapiz-bg-surface-muted) text-(--tapiz-text-primary)",
+  inverse: "bg-(--tapiz-bg-surface-inverse) text-(--tapiz-text-inverse)",
 };
 
 const paddingClasses: Record<SurfacePadding, string> = {
@@ -33,7 +32,7 @@ const paddingClasses: Record<SurfacePadding, string> = {
 export function Surface({ children, variant = "surface", padding = "md", bordered = true, className = "", style }: SurfaceProps) {
   return (
     <section
-      className={[variantClasses[variant], paddingClasses[padding], bordered && variant !== "brutal" ? "border border-[var(--tapiz-border-subtle)]" : "", className]
+      className={[variantClasses[variant], paddingClasses[padding], bordered ? "border border-(--tapiz-border-subtle)" : "", className]
         .filter(Boolean)
         .join(" ")}
       style={style}

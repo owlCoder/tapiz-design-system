@@ -36,7 +36,8 @@ export function ConfirmDialog({
   if (!open) return null;
   return createPortal(
     <div
-      className="fixed inset-0 z-300 flex items-center justify-center px-4 bg-[rgba(5,6,8,0.4)] backdrop-blur-sm"
+      className="fixed inset-0 z-300 flex items-center justify-center px-4 backdrop-blur-sm"
+      style={{ background: "color-mix(in srgb, var(--color-ink-000) 45%, transparent)" }}
       onClick={onCancel}
     >
       <div
@@ -48,7 +49,7 @@ export function ConfirmDialog({
           <div className="flex items-center gap-3">
             {icon && (
               <div
-                className={`flex items-center justify-center w-9 h-9 shrink-0 rounded-md border ${danger ? "bg-[rgba(248,113,113,0.1)] border-[rgba(248,113,113,0.25)] text-(--color-danger,#f87171)" : "bg-primary-300/8 border-primary-300/15 text-primary-300"}`}
+                className={`flex items-center justify-center w-9 h-9 shrink-0 rounded-md border ${danger ? "bg-warn/10 border-warn/25 text-warn" : "bg-primary-300/8 border-primary-300/15 text-primary-300"}`}
               >
                 {icon}
               </div>

@@ -39,11 +39,11 @@ export function SegmentedTabs({
 
   return (
     <div
-      className={`relative inline-flex w-fit max-w-full flex-wrap items-center gap-1 rounded-[11px] border border-[var(--tapiz-border-subtle)] bg-[var(--tapiz-bg-surface-muted)] px-1.5 py-1 ${className}`}
+      className={`relative inline-flex w-fit max-w-full flex-wrap items-center gap-1 rounded-lg border border-border bg-ink-300 px-1.5 py-1 ${className}`}
     >
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-1 top-1 rounded-[8px] border border-[color:color-mix(in_srgb,var(--tapiz-accent)_50%,transparent)] bg-[color:color-mix(in_srgb,var(--tapiz-accent)_12%,transparent)] shadow-[0_0_0_1px_color-mix(in_srgb,var(--tapiz-accent)_8%,transparent)] transition-[left,width] duration-300 ease-out"
+        className="pointer-events-none absolute bottom-1 top-1 rounded-md border border-primary-300/50 bg-primary-300/12 shadow-[0_0_0_1px_color-mix(in_srgb,var(--color-primary-300)_8%,transparent)] transition-[left,width] duration-300 ease-out"
         style={{ left: indicator.left, width: indicator.width }}
       />
       {items.map((item, index) => {
@@ -57,18 +57,18 @@ export function SegmentedTabs({
             }}
             type="button"
             onClick={() => onChange(item.id)}
-            className={`group relative z-10 inline-flex items-center gap-2 rounded-[8px] border px-4 py-1 text-sm font-medium transition-[color,border-color,background-color,box-shadow] duration-200 ease-out ${
+            className={`group relative z-10 inline-flex items-center gap-2 rounded-md border px-4 py-1 text-sm font-medium transition-[color,border-color,background-color,box-shadow] duration-200 ease-out ${
               active
-                ? "border-transparent bg-transparent text-[var(--tapiz-accent)]"
-                : "border-transparent text-[var(--tapiz-text-muted)] hover:border-[var(--tapiz-border-subtle)] hover:bg-[var(--tapiz-bg-surface)] hover:text-[var(--tapiz-text-primary)]"
+                ? "border-transparent bg-transparent text-primary-300"
+                : "border-transparent text-txt-3 hover:border-border hover:bg-ink-200 hover:text-txt-1"
             } ${buttonClassName}`}
           >
             {item.icon ? (
               <span
                 className={
                   active
-                    ? "text-[var(--tapiz-accent)]"
-                    : "text-[var(--tapiz-text-subtle)] transition-colors duration-200 group-hover:text-[var(--tapiz-text-primary)]"
+                    ? "text-primary-300"
+                    : "text-txt-4 transition-colors duration-200 group-hover:text-txt-1"
                 }
               >
                 {item.icon}
@@ -77,10 +77,10 @@ export function SegmentedTabs({
             <span className="flex items-center gap-2.5">{item.label}</span>
             {item.badge ? (
               <span
-                className={`inline-flex min-w-7 items-center justify-center rounded-[6px] border px-1.5 py-[2px] text-xs font-semibold tabular-nums ${
+                className={`inline-flex min-w-7 items-center justify-center rounded-sm border px-1.5 py-0.5 text-xs font-semibold tabular-nums ${
                   active
-                    ? "border-[color:color-mix(in_srgb,var(--tapiz-accent)_30%,transparent)] bg-[color:color-mix(in_srgb,var(--tapiz-accent)_14%,transparent)] text-[var(--tapiz-accent)]"
-                    : "border-[var(--tapiz-border-subtle)] bg-[var(--tapiz-bg-surface)] text-[var(--tapiz-text-muted)]"
+                    ? "border-primary-300/30 bg-primary-300/14 text-primary-300"
+                    : "border-border bg-ink-200 text-txt-3"
                 }`}
               >
                 {item.badge}

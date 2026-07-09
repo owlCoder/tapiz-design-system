@@ -12,14 +12,14 @@ export interface MetricCardProps extends BaseProps {
   trend?: ReactNode;
   trendTone?: MetricTrendTone;
 
-  variant?: "surface" | "raised" | "brutal";
+  variant?: "surface" | "raised";
 }
 
 const trendClasses: Record<MetricTrendTone, string> = {
-  positive: "border-[var(--tapiz-success)] text-[var(--tapiz-success)] bg-[var(--tapiz-success-soft)]",
-  negative: "border-[var(--tapiz-danger)] text-[var(--tapiz-danger)] bg-[var(--tapiz-danger-soft)]",
-  warning: "border-[var(--tapiz-warning)] text-[var(--tapiz-warning)] bg-[var(--tapiz-warning-soft)]",
-  neutral: "border-[var(--tapiz-border-strong)] text-[var(--tapiz-text-muted)] bg-[var(--tapiz-bg-surface-muted)]",
+  positive: "border-good text-good bg-good/12",
+  negative: "border-warn text-warn bg-warn/12",
+  warning: "border-signal-400 text-signal-400 bg-signal-400/12",
+  neutral: "border-border-hi text-txt-3 bg-ink-300",
 };
 
 export function MetricCard({
@@ -36,15 +36,15 @@ export function MetricCard({
     <Card variant={variant} padding="md" hover className={`relative overflow-hidden ${className}`}>
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <p className="text-[11px] font-semibold text-[var(--tapiz-text-muted)]">
+          <p className="text-[11px] font-semibold text-txt-3">
             {label}
           </p>
-          <div className="mt-2 font-display text-3xl font-semibold tracking-[-0.05em] text-[var(--tapiz-text-primary)]">
+          <div className="mt-2 font-display text-3xl font-semibold tracking-tighter text-txt-1">
             {value}
           </div>
         </div>
         {icon ? (
-          <div className="grid h-10 w-10 shrink-0 place-items-center border border-[var(--tapiz-border-strong)] bg-[var(--color-icon-bg)] text-[var(--tapiz-accent)]">
+          <div className="grid h-10 w-10 shrink-0 place-items-center border border-border-hi bg-(--color-icon-bg) text-primary-300">
             {icon}
           </div>
         ) : null}
@@ -56,7 +56,7 @@ export function MetricCard({
               {trend}
             </span>
           ) : null}
-          {description ? <p className="text-xs text-[var(--tapiz-text-muted)]">{description}</p> : null}
+          {description ? <p className="text-xs text-txt-3">{description}</p> : null}
         </div>
       ) : null}
     </Card>

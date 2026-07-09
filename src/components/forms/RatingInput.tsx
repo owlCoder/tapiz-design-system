@@ -15,7 +15,7 @@ export function RatingInput({ value = 0, max = 5, icon = "★", onChange, label 
       {Array.from({ length: max }, (_, index) => {
         const score = index + 1;
         const active = score <= value;
-        return <button key={score} type="button" role="radio" aria-checked={active} onClick={() => onChange?.(score)} className={["grid h-9 w-9 place-items-center border text-base transition", active ? "border-[var(--tapiz-border-strong)] bg-[var(--tapiz-accent-soft)] text-[var(--tapiz-accent)]" : "border-[var(--tapiz-border-subtle)] text-[var(--tapiz-text-muted)] hover:border-[var(--tapiz-border-strong)]"].join(" ")}>{icon}</button>;
+        return <button key={score} type="button" role="radio" aria-checked={active} onClick={() => onChange?.(score)} className={["grid h-9 w-9 place-items-center border text-base transition", active ? "border-(--tapiz-border-strong) bg-(--tapiz-accent-soft) text-(--tapiz-accent)" : "border-(--tapiz-border-subtle) text-(--tapiz-text-muted) hover:border-(--tapiz-border-strong)"].join(" ")}>{icon}</button>;
       })}
     </div>
   );

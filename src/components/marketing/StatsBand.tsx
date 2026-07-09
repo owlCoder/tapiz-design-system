@@ -13,8 +13,8 @@ export interface StatsBandProps extends BaseProps {
 
 export function StatsBand({ items, className = "" }: StatsBandProps) {
   return (
-    <section className={`border-y border-[var(--tapiz-border-strong)] bg-[var(--tapiz-bg-surface-inverse)] text-[var(--tapiz-text-inverse)] ${className}`}>
-      <div className="mx-auto grid max-w-7xl divide-y divide-[color-mix(in_srgb,var(--tapiz-text-inverse)_24%,transparent)] px-[var(--tapiz-space-page-x)] md:grid-cols-3 md:divide-x md:divide-y-0">
+    <section className={`border-y border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-inverse) text-(--tapiz-text-inverse) ${className}`}>
+      <div className="mx-auto grid max-w-7xl divide-y divide-[color-mix(in_srgb,var(--tapiz-text-inverse)_24%,transparent)] px-(--tapiz-space-page-x) md:grid-cols-3 md:divide-x md:divide-y-0">
         {items.map((item, index) => (
           <div key={index} className="p-6 md:p-8">
             <div className="text-3xl font-semibold tracking-tight">{item.value}</div>

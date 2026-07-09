@@ -18,12 +18,12 @@ export interface TopNavProps extends BaseProps {
 
 export function TopNav({ brand, links = [], actions, className = "", sticky = true }: TopNavProps) {
   return (
-    <header className={`${sticky ? "sticky top-0 z-40" : ""} border-b border-[var(--tapiz-border-subtle)] bg-[color-mix(in_srgb,var(--tapiz-bg-surface)_88%,transparent)] backdrop-blur-xl ${className}`}>
-      <div className="mx-auto flex h-16 max-w-[1600px] items-center gap-6 px-[var(--tapiz-space-page-x)]">
+    <header className={`${sticky ? "sticky top-0 z-40" : ""} border-b border-(--tapiz-border-subtle) bg-[color-mix(in_srgb,var(--tapiz-bg-surface)_88%,transparent)] backdrop-blur-xl ${className}`}>
+      <div className="mx-auto flex h-16 max-w-[1600px] items-center gap-6 px-(--tapiz-space-page-x)">
         {brand ? <div className="shrink-0">{brand}</div> : null}
         <nav className="hidden items-center gap-1 md:flex">
           {links.map((link, index) => {
-            const cls = `border px-3 py-1.5 text-sm font-medium ${link.active ? "border-[var(--tapiz-border-strong)] bg-[var(--tapiz-bg-surface-muted)] text-[var(--tapiz-text-primary)]" : "border-transparent text-[var(--tapiz-text-secondary)] hover:border-[var(--tapiz-border-subtle)] hover:text-[var(--tapiz-text-primary)]"}`;
+            const cls = `border px-3 py-1.5 text-sm font-medium ${link.active ? "border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted) text-(--tapiz-text-primary)" : "border-transparent text-(--tapiz-text-secondary) hover:border-(--tapiz-border-subtle) hover:text-(--tapiz-text-primary)"}`;
             return link.href ? <a key={index} href={link.href} className={cls}>{link.label}</a> : <button key={index} type="button" onClick={link.onClick} className={cls}>{link.label}</button>;
           })}
         </nav>

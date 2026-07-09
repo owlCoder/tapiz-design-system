@@ -14,15 +14,15 @@ export interface BreadcrumbsProps extends BaseProps {
 
 export function Breadcrumbs({ items, separator = "/", className = "" }: BreadcrumbsProps) {
   return (
-    <nav aria-label="Breadcrumb" className={`text-[11px] font-medium text-[var(--tapiz-text-muted)] ${className}`}>
+    <nav aria-label="Breadcrumb" className={`text-[11px] font-medium text-(--tapiz-text-muted) ${className}`}>
       <ol className="flex flex-wrap items-center gap-2">
         {items.map((item, index) => (
           <li key={index} className="flex items-center gap-2">
-            {index > 0 ? <span aria-hidden="true" className="text-[var(--tapiz-text-disabled)]">{separator}</span> : null}
+            {index > 0 ? <span aria-hidden="true" className="text-(--tapiz-text-disabled)">{separator}</span> : null}
             {item.href && !item.current ? (
-              <a className="hover:text-[var(--tapiz-accent)]" href={item.href}>{item.label}</a>
+              <a className="hover:text-(--tapiz-accent)" href={item.href}>{item.label}</a>
             ) : (
-              <span aria-current={item.current ? "page" : undefined} className={item.current ? "text-[var(--tapiz-text-primary)]" : ""}>{item.label}</span>
+              <span aria-current={item.current ? "page" : undefined} className={item.current ? "text-(--tapiz-text-primary)" : ""}>{item.label}</span>
             )}
           </li>
         ))}

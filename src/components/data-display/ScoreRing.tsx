@@ -19,7 +19,7 @@ export function ScoreRing({ value, max = 100, label, size = 112, className = "" 
         <circle cx="50" cy="50" r={radius} fill="none" stroke="var(--tapiz-border-subtle)" strokeWidth="10" />
         <circle cx="50" cy="50" r={radius} fill="none" stroke="var(--tapiz-accent)" strokeWidth="10" strokeLinecap="square" strokeDasharray={`${dash} ${circumference - dash}`} />
       </svg>
-      <div className="absolute text-center"><div className="font-display text-2xl font-semibold text-[var(--tapiz-text-primary)]">{Math.round(normalized * 100)}%</div>{label ? <div className="text-[11px] font-medium text-[var(--tapiz-text-muted)]">{label}</div> : null}</div>
+      <div className="absolute text-center"><div className="font-display text-2xl font-semibold text-(--tapiz-text-primary)">{Math.round(normalized * 100)}%</div>{label ? <div className="text-[11px] font-medium text-(--tapiz-text-muted)">{label}</div> : null}</div>
     </div>
   );
 }

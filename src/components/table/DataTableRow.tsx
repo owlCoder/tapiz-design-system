@@ -21,14 +21,14 @@ function DataTableRowInner<T>({ row, columns, onRowClick, rowActions, densityCel
   return (
     <tr
       onClick={clickable ? () => onRowClick?.(row) : undefined}
-      className={`border-b border-[var(--tapiz-border-subtle)] transition-colors hover:bg-[var(--tapiz-bg-surface-muted)] ${striped ? "even:bg-[color-mix(in_srgb,var(--tapiz-bg-surface-muted)_35%,var(--tapiz-bg-surface))]" : ""} ${
+      className={`border-b border-(--tapiz-border-subtle) transition-colors hover:bg-(--tapiz-bg-surface-muted) ${striped ? "even:bg-[color-mix(in_srgb,var(--tapiz-bg-surface-muted)_35%,var(--tapiz-bg-surface))]" : ""} ${
         clickable ? "cursor-pointer" : ""
       }`}
     >
       {columns.map((column) => (
         <td
           key={column.id}
-          className={`${densityCellClass} text-xs text-[var(--tapiz-text-secondary)] ${ALIGN_CLASS[column.align ?? "left"]} ${
+          className={`${densityCellClass} text-xs text-(--tapiz-text-secondary) ${ALIGN_CLASS[column.align ?? "left"]} ${
             column.className ?? ""
           }`}
         >

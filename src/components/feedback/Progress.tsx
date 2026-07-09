@@ -8,10 +8,10 @@ export interface ProgressProps extends BaseProps {
 }
 
 const tones = {
-  accent: "bg-[var(--tapiz-accent)]",
-  success: "bg-[var(--tapiz-success)]",
-  warning: "bg-[var(--tapiz-warning)]",
-  danger: "bg-[var(--tapiz-danger)]",
+  accent: "bg-(--tapiz-accent)",
+  success: "bg-(--tapiz-success)",
+  warning: "bg-(--tapiz-warning)",
+  danger: "bg-(--tapiz-danger)",
 };
 
 export function Progress({ value, max = 100, label, showValue = false, tone = "accent", className = "" }: ProgressProps) {
@@ -19,12 +19,12 @@ export function Progress({ value, max = 100, label, showValue = false, tone = "a
   return (
     <div className={className}>
       {(label || showValue) ? (
-        <div className="mb-1 flex items-center justify-between gap-3 text-xs text-[var(--tapiz-text-muted)]">
+        <div className="mb-1 flex items-center justify-between gap-3 text-xs text-(--tapiz-text-muted)">
           {label ? <span>{label}</span> : <span />}
           {showValue ? <span className="font-mono">{Math.round(percentage)}%</span> : null}
         </div>
       ) : null}
-      <div className="h-2 border border-[var(--tapiz-border-strong)] bg-[var(--tapiz-bg-surface-muted)]">
+      <div className="h-2 border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted)">
         <div className={`h-full ${tones[tone]}`} style={{ width: `${percentage}%` }} />
       </div>
     </div>

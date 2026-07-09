@@ -10,10 +10,10 @@ export interface HealthIndicatorProps extends BaseProps {
 }
 
 const toneClasses: Record<HealthTone, string> = {
-  operational: "bg-[var(--tapiz-success)]",
-  degraded: "bg-[var(--tapiz-warning)]",
-  outage: "bg-[var(--tapiz-danger)]",
-  unknown: "bg-[var(--tapiz-text-disabled)]",
+  operational: "bg-(--tapiz-success)",
+  degraded: "bg-(--tapiz-warning)",
+  outage: "bg-(--tapiz-danger)",
+  unknown: "bg-(--tapiz-text-disabled)",
 };
 
 const defaultLabel: Record<HealthTone, string> = {
@@ -25,10 +25,10 @@ const defaultLabel: Record<HealthTone, string> = {
 
 export function HealthIndicator({ tone = "unknown", label, detail, className = "" }: HealthIndicatorProps) {
   return (
-    <div className={`inline-flex items-center gap-3 border border-[var(--tapiz-border-subtle)] bg-[var(--tapiz-bg-surface)] px-3 py-2 ${className}`}>
+    <div className={`inline-flex items-center gap-3 border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) px-3 py-2 ${className}`}>
       <span className={`size-2.5 ${toneClasses[tone]}`} aria-hidden="true" />
-      <span className="text-sm font-medium text-[var(--tapiz-text-primary)]">{label ?? defaultLabel[tone]}</span>
-      {detail ? <span className="font-mono text-xs text-[var(--tapiz-text-muted)]">{detail}</span> : null}
+      <span className="text-sm font-medium text-(--tapiz-text-primary)">{label ?? defaultLabel[tone]}</span>
+      {detail ? <span className="font-mono text-xs text-(--tapiz-text-muted)">{detail}</span> : null}
     </div>
   );
 }

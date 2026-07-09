@@ -45,8 +45,8 @@ function SidebarNavLink({ item }: { item: SidebarNavItem }) {
   const className = [
     "flex w-full items-center gap-3 border px-3 py-2 text-left text-sm font-medium",
     item.active
-      ? "border-[var(--tapiz-border-strong)] bg-[var(--tapiz-accent-soft)] text-[var(--tapiz-text-primary)] shadow-[inset_3px_0_0_var(--tapiz-accent)]"
-      : "border-transparent text-[var(--tapiz-text-secondary)] hover:border-(--tapiz-border-subtle) hover:bg-[var(--tapiz-bg-surface-muted)] hover:text-[var(--tapiz-text-primary)]",
+      ? "border-(--tapiz-border-strong) bg-(--tapiz-accent-soft) text-(--tapiz-text-primary) shadow-[inset_3px_0_0_var(--tapiz-accent)]"
+      : "border-transparent text-(--tapiz-text-secondary) hover:border-(--tapiz-border-subtle) hover:bg-(--tapiz-bg-surface-muted) hover:text-(--tapiz-text-primary)",
     item.disabled ? "pointer-events-none opacity-40" : "",
   ].filter(Boolean).join(" ");
 

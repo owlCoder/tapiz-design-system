@@ -10,8 +10,8 @@ const sizes = { xs: "size-6 text-[10px]", sm: "size-8 text-xs", md: "size-10 tex
 export function Avatar({ src, name = "?", size = "md", className = "" }: AvatarProps) {
   const initials = name.split(" ").filter(Boolean).slice(0, 2).map((part) => part[0]?.toUpperCase()).join("") || "?";
   return src ? (
-    <img src={src} alt={name} className={`border border-[var(--tapiz-border-strong)] object-cover ${sizes[size]} ${className}`} />
+    <img src={src} alt={name} className={`border border-(--tapiz-border-strong) object-cover ${sizes[size]} ${className}`} />
   ) : (
-    <span className={`inline-grid place-items-center border border-[var(--tapiz-border-strong)] bg-[var(--tapiz-accent-soft)] font-mono font-bold text-[var(--tapiz-accent)] ${sizes[size]} ${className}`}>{initials}</span>
+    <span className={`inline-grid place-items-center border border-(--tapiz-border-strong) bg-(--tapiz-accent-soft) font-mono font-bold text-(--tapiz-accent) ${sizes[size]} ${className}`}>{initials}</span>
   );
 }

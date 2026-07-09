@@ -23,13 +23,13 @@ export function BarList({ items, max, valueFormatter = (value) => value, classNa
         return (
           <div key={index}>
             <div className="mb-1 flex items-center justify-between gap-3 text-sm">
-              <span className="font-medium text-[var(--tapiz-text-secondary)]">{item.label}</span>
-              <span className="font-mono text-xs text-[var(--tapiz-text-muted)]">{valueFormatter(item.value)}</span>
+              <span className="font-medium text-(--tapiz-text-secondary)">{item.label}</span>
+              <span className="font-mono text-xs text-(--tapiz-text-muted)">{valueFormatter(item.value)}</span>
             </div>
-            <div className="h-2 border border-[var(--tapiz-border-subtle)] bg-[var(--tapiz-bg-surface-muted)]">
-              <div className="h-full bg-[var(--tapiz-accent)]" style={{ width: `${percent}%` }} />
+            <div className="h-2 border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface-muted)">
+              <div className="h-full bg-(--tapiz-accent)" style={{ width: `${percent}%` }} />
             </div>
-            {item.detail ? <div className="mt-1 text-xs text-[var(--tapiz-text-muted)]">{item.detail}</div> : null}
+            {item.detail ? <div className="mt-1 text-xs text-(--tapiz-text-muted)">{item.detail}</div> : null}
           </div>
         );
       })}

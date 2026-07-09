@@ -13,14 +13,14 @@ export function FilterChip({ children, active = false, onRemove, className = "" 
       className={[
         "inline-flex items-center gap-2 border px-2.5 py-1 text-[11px] font-medium",
         active
-          ? "border-[var(--tapiz-border-strong)] bg-[var(--tapiz-accent-soft)] text-[var(--tapiz-text-primary)]"
-          : "border-[var(--tapiz-border-subtle)] bg-[var(--tapiz-bg-surface)] text-[var(--tapiz-text-muted)]",
+          ? "border-(--tapiz-border-strong) bg-(--tapiz-accent-soft) text-(--tapiz-text-primary)"
+          : "border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) text-(--tapiz-text-muted)",
         className,
       ].join(" ")}
     >
       {children}
       {onRemove ? (
-        <button type="button" onClick={onRemove} className="text-[var(--tapiz-text-muted)] hover:text-[var(--tapiz-danger)]" aria-label="Remove filter">
+        <button type="button" onClick={onRemove} className="text-(--tapiz-text-muted) hover:text-(--tapiz-danger)" aria-label="Remove filter">
           ×
         </button>
       ) : null}

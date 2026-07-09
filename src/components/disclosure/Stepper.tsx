@@ -14,10 +14,10 @@ export interface StepperProps extends BaseProps {
 }
 
 const tone = {
-  complete: "border-[var(--tapiz-success)] bg-[var(--tapiz-success-soft)] text-[var(--tapiz-success)]",
-  current: "border-[var(--tapiz-accent)] bg-[var(--tapiz-accent-soft)] text-[var(--tapiz-accent)]",
-  upcoming: "border-[var(--tapiz-border-subtle)] bg-[var(--tapiz-bg-surface)] text-[var(--tapiz-text-muted)]",
-  error: "border-[var(--tapiz-danger)] bg-[var(--tapiz-danger-soft)] text-[var(--tapiz-danger)]",
+  complete: "border-(--tapiz-success) bg-(--tapiz-success-soft) text-(--tapiz-success)",
+  current: "border-(--tapiz-accent) bg-(--tapiz-accent-soft) text-(--tapiz-accent)",
+  upcoming: "border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) text-(--tapiz-text-muted)",
+  error: "border-(--tapiz-danger) bg-(--tapiz-danger-soft) text-(--tapiz-danger)",
 };
 
 export function Stepper({ steps, orientation = "horizontal", className = "" }: StepperProps) {
@@ -29,8 +29,8 @@ export function Stepper({ steps, orientation = "horizontal", className = "" }: S
           <li key={step.id} className="flex gap-3">
             <span className={`grid size-8 shrink-0 place-items-center rounded-full border text-xs font-bold ${tone[status]}`}>{status === "complete" ? "✓" : index + 1}</span>
             <span className="min-w-0">
-              <span className="block text-sm font-semibold text-[var(--tapiz-text-primary)]">{step.label}</span>
-              {step.description ? <span className="mt-1 block text-xs text-[var(--tapiz-text-muted)]">{step.description}</span> : null}
+              <span className="block text-sm font-semibold text-(--tapiz-text-primary)">{step.label}</span>
+              {step.description ? <span className="mt-1 block text-xs text-(--tapiz-text-muted)">{step.description}</span> : null}
             </span>
           </li>
         );

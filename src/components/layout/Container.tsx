@@ -22,7 +22,7 @@ const sizeClasses: Record<ContainerSize, string> = {
 export function Container({ children, size = "lg", padded = true, className = "", style }: ContainerProps) {
   return (
     <div
-      className={["mx-auto w-full", sizeClasses[size], padded ? "px-[var(--tapiz-space-page-x)]" : "", className]
+      className={["mx-auto w-full", sizeClasses[size], padded ? "px-(--tapiz-space-page-x)" : "", className]
         .filter(Boolean)
         .join(" ")}
       style={style}

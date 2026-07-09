@@ -16,7 +16,6 @@ type Variant =
   | "outline-secondary"
   | "outline-danger"
   | "outline-success"
-  | "brutal"
   | "link";
 
 type Size = "xs" | "sm" | "md" | "lg" | "xl";
@@ -50,36 +49,33 @@ const variantClasses: Record<Variant, string> = {
   danger: "btn-danger",
 
   ghost: `${TOKEN_BASE} font-medium border border-transparent
-    text-[var(--color-txt-3)] hover:border-[var(--color-primary-300)] hover:text-[var(--color-primary-300)]`,
+    text-txt-3 hover:border-primary-300 hover:text-primary-300`,
 
-  success: `${TOKEN_BASE} border border-[var(--color-good)] text-[var(--color-good)]
-    bg-transparent hover:bg-[var(--tapiz-success-soft)]`,
+  success: `${TOKEN_BASE} border border-good text-good
+    bg-transparent hover:bg-good/12`,
 
-  warning: `${TOKEN_BASE} border border-[var(--color-warn)] text-[var(--color-warn)]
-    bg-transparent hover:bg-[var(--tapiz-danger-soft)]`,
+  warning: `${TOKEN_BASE} border border-warn text-warn
+    bg-transparent hover:bg-warn/12`,
 
-  info: `${TOKEN_BASE} border border-[var(--color-primary-300)] text-[var(--color-primary-300)]
-    bg-transparent hover:bg-[var(--tapiz-accent-soft)]`,
+  info: `${TOKEN_BASE} border border-primary-300 text-primary-300
+    bg-transparent hover:bg-primary-300/12`,
 
-  "muted-primary": `${TOKEN_BASE} border border-[var(--color-primary-300)] text-[var(--color-primary-300)]
-    bg-[var(--tapiz-accent-soft)] hover:bg-[var(--tapiz-accent-soft)]`,
+  "muted-primary": `${TOKEN_BASE} border border-primary-300 text-primary-300
+    bg-primary-300/12 hover:bg-primary-300/12`,
 
-  "outline-primary": `${TOKEN_BASE} border border-[var(--color-primary-300)] text-[var(--color-primary-300)]
-    hover:bg-[var(--tapiz-accent-soft)]`,
+  "outline-primary": `${TOKEN_BASE} border border-primary-300 text-primary-300
+    hover:bg-primary-300/12`,
 
-  "outline-secondary": `${TOKEN_BASE} border border-[var(--color-border-hi)] text-[var(--color-txt-2)]
-    hover:border-[var(--color-txt-2)] hover:text-[var(--color-txt-1)]`,
+  "outline-secondary": `${TOKEN_BASE} border border-border-hi text-txt-2
+    hover:border-txt-2 hover:text-txt-1`,
 
-  "outline-danger": `${TOKEN_BASE} border border-[var(--color-warn)] text-[var(--color-warn)]
-    hover:bg-[var(--tapiz-danger-soft)]`,
+  "outline-danger": `${TOKEN_BASE} border border-warn text-warn
+    hover:bg-warn/12`,
 
-  "outline-success": `${TOKEN_BASE} border border-[var(--color-good)] text-[var(--color-good)]
-    hover:bg-[var(--tapiz-success-soft)]`,
+  "outline-success": `${TOKEN_BASE} border border-good text-good
+    hover:bg-good/12`,
 
-  brutal: `${TOKEN_BASE} border border-[var(--tapiz-border-strong)] bg-[var(--tapiz-bg-surface)] text-[var(--tapiz-text-primary)]
-    font-bold shadow-[var(--tapiz-shadow-sm)] hover:bg-[var(--tapiz-bg-surface-muted)]`,
-
-  link: "text-[var(--color-primary-300)] hover:text-[var(--color-primary-400)] disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center gap-1",
+  link: "text-primary-300 hover:text-primary-400 disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center gap-1",
 };
 
 const sizeClasses: Record<Size, string> = {
@@ -124,7 +120,7 @@ export function Button({
       ].filter(Boolean).join(" ")}
     >
       {loading
-        ? <Spinner color={variant === "primary" ? "text-black" : "text-[var(--color-txt-2)]"} />
+        ? <Spinner color={variant === "primary" ? "text-black" : "text-txt-2"} />
         : renderedIcon ? <span>{renderedIcon}</span> : null}
       {children}
       {!loading && renderedIconRight}

@@ -16,7 +16,7 @@ export interface ComparisonTableProps extends BaseProps {
 
 export function ComparisonTable({ rows, featureHeader = "Feature", includedHeader = "Tapiz", alternativeHeader = "Other", className = "" }: ComparisonTableProps) {
   return (
-    <div className={`overflow-x-auto border border-[var(--tapiz-border-strong)] ${className}`}>
+    <div className={`overflow-x-auto border border-(--tapiz-border-strong) ${className}`}>
       <table className="w-full text-sm">
         <thead>
           <tr>
@@ -27,10 +27,10 @@ export function ComparisonTable({ rows, featureHeader = "Feature", includedHeade
         </thead>
         <tbody>
           {rows.map((row, index) => (
-            <tr key={index} className="border-t border-[var(--tapiz-border-subtle)]">
-              <td className="px-4 py-3 font-medium text-[var(--tapiz-text-primary)]">{row.feature}</td>
-              <td className="px-4 py-3 text-[var(--tapiz-text-secondary)]">{row.included}</td>
-              <td className="px-4 py-3 text-[var(--tapiz-text-muted)]">{row.alternative}</td>
+            <tr key={index} className="border-t border-(--tapiz-border-subtle)">
+              <td className="px-4 py-3 font-medium text-(--tapiz-text-primary)">{row.feature}</td>
+              <td className="px-4 py-3 text-(--tapiz-text-secondary)">{row.included}</td>
+              <td className="px-4 py-3 text-(--tapiz-text-muted)">{row.alternative}</td>
             </tr>
           ))}
         </tbody>

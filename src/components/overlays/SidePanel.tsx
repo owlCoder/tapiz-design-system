@@ -124,10 +124,13 @@ export function SidePanel({
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
-      className={`fixed inset-0 z-50 flex bg-[rgba(5,6,8,0.75)] backdrop-blur-[2px] ${
+      className={`fixed inset-0 z-50 flex backdrop-blur-xs ${
         side === "right" ? "justify-end" : "justify-start"
       } ${shown ? "opacity-100" : "opacity-0"}`}
-      style={{ transition: reduceMotion ? "none" : `opacity ${TRANSITION_MS}ms ${TRANSITION_EASE}` }}
+      style={{
+        background: "color-mix(in srgb, var(--color-ink-000) 45%, transparent)",
+        transition: reduceMotion ? "none" : `opacity ${TRANSITION_MS}ms ${TRANSITION_EASE}`,
+      }}
       onClick={(e) => e.target === e.currentTarget && onClose()}
       onWheel={(e) => e.preventDefault()}
       onTouchMove={(e) => e.preventDefault()}

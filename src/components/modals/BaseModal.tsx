@@ -40,7 +40,8 @@ export function BaseModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(5,6,8,0.75)] backdrop-blur-[2px]"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-xs"
+      style={{ background: "color-mix(in srgb, var(--color-ink-000) 45%, transparent)" }}
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div

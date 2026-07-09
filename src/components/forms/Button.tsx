@@ -42,7 +42,7 @@ type ButtonIcon = ReactNode | ComponentType<{
   className?: string;
 }>;
 
-const TOKEN_BASE = "inline-flex items-center justify-center gap-2 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-150";
+const TOKEN_BASE = "inline-flex items-center justify-center gap-2 rounded-sm cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-150";
 
 const variantClasses: Record<Variant, string> = {
   primary: "btn-primary",
@@ -53,31 +53,31 @@ const variantClasses: Record<Variant, string> = {
     text-[var(--color-txt-3)] hover:border-[var(--color-primary-300)] hover:text-[var(--color-primary-300)]`,
 
   success: `${TOKEN_BASE} border border-[var(--color-good)] text-[var(--color-good)]
-    bg-transparent hover:bg-[rgba(77,214,163,0.08)]`,
+    bg-transparent hover:bg-[var(--tapiz-success-soft)]`,
 
   warning: `${TOKEN_BASE} border border-[var(--color-warn)] text-[var(--color-warn)]
-    bg-transparent hover:bg-[rgba(255,122,77,0.08)]`,
+    bg-transparent hover:bg-[var(--tapiz-danger-soft)]`,
 
   info: `${TOKEN_BASE} border border-[var(--color-primary-300)] text-[var(--color-primary-300)]
-    bg-transparent hover:bg-[rgba(94,231,255,0.08)]`,
+    bg-transparent hover:bg-[var(--tapiz-accent-soft)]`,
 
   "muted-primary": `${TOKEN_BASE} border border-[var(--color-primary-300)] text-[var(--color-primary-300)]
-    bg-[rgba(94,231,255,0.06)] hover:bg-[rgba(94,231,255,0.12)]`,
+    bg-[var(--tapiz-accent-soft)] hover:bg-[var(--tapiz-accent-soft)]`,
 
   "outline-primary": `${TOKEN_BASE} border border-[var(--color-primary-300)] text-[var(--color-primary-300)]
-    hover:bg-[rgba(94,231,255,0.08)]`,
+    hover:bg-[var(--tapiz-accent-soft)]`,
 
   "outline-secondary": `${TOKEN_BASE} border border-[var(--color-border-hi)] text-[var(--color-txt-2)]
     hover:border-[var(--color-txt-2)] hover:text-[var(--color-txt-1)]`,
 
   "outline-danger": `${TOKEN_BASE} border border-[var(--color-warn)] text-[var(--color-warn)]
-    hover:bg-[rgba(255,122,77,0.08)]`,
+    hover:bg-[var(--tapiz-danger-soft)]`,
 
   "outline-success": `${TOKEN_BASE} border border-[var(--color-good)] text-[var(--color-good)]
-    hover:bg-[rgba(77,214,163,0.08)]`,
+    hover:bg-[var(--tapiz-success-soft)]`,
 
-  brutal: `${TOKEN_BASE} border-2 border-[var(--tapiz-border-strong)] bg-[var(--tapiz-bg-surface)] text-[var(--tapiz-text-primary)]
-    shadow-[var(--tapiz-shadow-brutal)] font-bold hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[var(--tapiz-shadow-brutal-lg)]`,
+  brutal: `${TOKEN_BASE} border border-[var(--tapiz-border-strong)] bg-[var(--tapiz-bg-surface)] text-[var(--tapiz-text-primary)]
+    font-bold shadow-[var(--tapiz-shadow-sm)] hover:bg-[var(--tapiz-bg-surface-muted)]`,
 
   link: "text-[var(--color-primary-300)] hover:text-[var(--color-primary-400)] disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center gap-1",
 };

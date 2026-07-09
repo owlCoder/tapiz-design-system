@@ -29,7 +29,7 @@ export function SidebarNav({ groups, header, footer, className = "" }: SidebarNa
       <nav className="flex-1 space-y-6 p-3">
         {groups.map((group, groupIndex) => (
           <div key={groupIndex}>
-            {group.label ? <div className="mb-2 px-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-(--tapiz-text-muted)">{group.label}</div> : null}
+            {group.label ? <div className="mb-2 px-2 text-[11px] font-semibold text-(--tapiz-text-muted)">{group.label}</div> : null}
             <div className="space-y-1">
               {group.items.map((item, itemIndex) => <SidebarNavLink key={itemIndex} item={item} />)}
             </div>

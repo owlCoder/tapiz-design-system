@@ -37,7 +37,7 @@ export function PageHeader({
 
   return (
     <div className={`page-header mb-5 flex flex-col gap-3 animate-fade-in-up ${variantClass} ${className}`.trim()}>
-      {breadcrumbs ? <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--tapiz-text-muted)]">{breadcrumbs}</div> : null}
+      {breadcrumbs ? <div className="text-[11px] font-medium text-[var(--tapiz-text-muted)]">{breadcrumbs}</div> : null}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
           {subtitle ? <div className="kicker mb-1.5">{subtitle}</div> : null}

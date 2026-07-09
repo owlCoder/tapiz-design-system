@@ -20,7 +20,7 @@ interface BadgeProps extends BaseProps {
 export function Badge({ children, variant = "default", className = "" }: BadgeProps) {
   return (
     <span
-      className={`inline-flex items-center border px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest ${variantClasses[variant]} ${className}`}
+      className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[11px] font-semibold ${variantClasses[variant]} ${className}`}
     >
       {children}
     </span>

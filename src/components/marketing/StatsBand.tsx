@@ -18,7 +18,7 @@ export function StatsBand({ items, className = "" }: StatsBandProps) {
         {items.map((item, index) => (
           <div key={index} className="p-6 md:p-8">
             <div className="text-3xl font-semibold tracking-tight">{item.value}</div>
-            <div className="mt-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] opacity-70">{item.label}</div>
+            <div className="mt-2 text-[11px] font-semibold opacity-70">{item.label}</div>
             {item.description ? <div className="mt-3 text-sm opacity-70">{item.description}</div> : null}
           </div>
         ))}

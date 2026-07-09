@@ -17,7 +17,7 @@ export interface StatusBadgeProps extends BaseProps {
 }
 
 const BASE =
-  "inline-flex items-center border px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.15em]";
+  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-[11px] font-semibold";
 
 const variantStyles: Record<StatusBadgeVariant, string> = {
   default: "border-[var(--tapiz-border-strong)] text-[var(--tapiz-text-secondary)] bg-[var(--tapiz-bg-surface-muted)]",

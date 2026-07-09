@@ -9,10 +9,10 @@ export function FormError({ message, className = "" }: FormErrorProps) {
   if (!message) return null;
   return (
     <div
-      className={`flex items-start gap-2 px-3 py-2.5 text-sm text-warn bg-warn/8 border border-warn/25 border-l-[3px] border-l-warn animate-scale-in ${className}`}
+      className={`flex items-start gap-2.5 px-3.5 py-2.5 text-sm text-warn bg-warn/8 border border-warn/25 rounded-md animate-scale-in ${className}`}
     >
       <Alert size={14} className="shrink-0 mt-0.5" />
-      <span className="font-mono text-[12px]">{message}</span>
+      <span className="text-[13px] font-medium leading-relaxed">{message}</span>
     </div>
   );
 }

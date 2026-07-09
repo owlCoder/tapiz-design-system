@@ -16,7 +16,7 @@ export function MockupFrame({ children, title, toolbar, className = "" }: Mockup
           <span className="h-2.5 w-2.5 border border-[var(--tapiz-border-strong)] bg-[var(--tapiz-warning)]" />
           <span className="h-2.5 w-2.5 border border-[var(--tapiz-border-strong)] bg-[var(--tapiz-success)]" />
         </div>
-        {title ? <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--tapiz-text-muted)]">{title}</div> : null}
+        {title ? <div className="text-[11px] font-medium text-[var(--tapiz-text-muted)]">{title}</div> : null}
         <div>{toolbar}</div>
       </div>
       <div className="p-4">{children}</div>

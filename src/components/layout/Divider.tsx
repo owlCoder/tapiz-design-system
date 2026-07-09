@@ -13,7 +13,7 @@ export function Divider({ orientation = "horizontal", label, className = "" }: D
     return (
       <div className={`flex items-center gap-3 ${className}`}>
         <div className="h-px flex-1 bg-[var(--tapiz-border-subtle)]" />
-        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--tapiz-text-muted)]">{label}</span>
+        <span className="text-[11px] font-medium text-[var(--tapiz-text-muted)]">{label}</span>
         <div className="h-px flex-1 bg-[var(--tapiz-border-subtle)]" />
       </div>
     );

@@ -6,7 +6,7 @@ interface LogoMarkProps {
   bgOpacity?: number;
   /**
    * Visual tone:
-   * - "solid" (default) = filled teal tile with white glyph in negative space.
+   * - "solid" (default) = filled purple tile with white glyph in negative space.
    * - "outline" = transparent tile with an accent stroke border and the glyph
    *   drawn in the accent color (`currentColor`), so it reads cleanly inside an
    *   outline button on any background.
@@ -26,14 +26,14 @@ interface LogoMarkProps {
   variant?: "lms" | "boards" | "playground" | "whiteboard" | "cloud" | "specs" | "pulse" | "sentinel";
 }
 
-// Solid teal tile with white product glyph in negative space (default tone).
+// Solid purple tile with white product glyph in negative space (default tone).
 // Outline tone: transparent tile + accent stroke + accent glyph via currentColor.
 // LMS = T monogram, Boards = kanban columns, Playground = T + shell `>_`.
 export const LogoMark = ({
   size = 28,
   className,
   bgClassName,
-  bgFill = "#1496b3",
+  bgFill = "#7759c2",
   bgOpacity = 1,
   tone = "solid",
   variant = "lms",
@@ -42,9 +42,9 @@ export const LogoMark = ({
   // In outline tone the glyph inherits the surrounding text color (the button's
   // accent), so the mark matches the label and outline border exactly.
   const glyph = outline ? "currentColor" : "#fff";
-  // The few accent details that are teal on the white glyph in solid tone must
+  // The few accent details that are purple on the white glyph in solid tone must
   // flip to the tile fill in outline tone (where the glyph itself is accent).
-  const accentDetail = outline ? bgFill : "#1496b3";
+  const accentDetail = outline ? bgFill : "#7759c2";
   return (
     <svg
       width={size}
@@ -86,7 +86,7 @@ export const LogoMark = ({
           {/* Shell prompt `>_`: chevron (signal žuta) + kursor (belo). */}
           <path
             d="M16 46 L23 51 L16 56"
-            stroke="#d4ff3a"
+            stroke="#fc6d26"
             strokeWidth="4.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -108,7 +108,7 @@ export const LogoMark = ({
             fill="none"
           />
           <circle cx="19" cy="35" r="2.6" fill={accentDetail} />
-          <circle cx="45" cy="27" r="2.6" fill="#d4ff3a" />
+          <circle cx="45" cy="27" r="2.6" fill="#fc6d26" />
           {/* Nožice table. */}
           <path
             d="M22 43 L19 51 M42 43 L45 51"
@@ -145,7 +145,7 @@ export const LogoMark = ({
           {/* Čekirana stavka (signal žuta kvačica). */}
           <path
             d="M22 43 L26 47 L34 39"
-            stroke="#d4ff3a"
+            stroke="#fc6d26"
             strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -181,7 +181,7 @@ export const LogoMark = ({
             fill={accentDetail}
           />
           {/* Zenica (signal žuta) — aktivni monitoring signal. */}
-          <circle cx="32" cy="32" r="4.2" fill="#d4ff3a" />
+          <circle cx="32" cy="32" r="4.2" fill="#fc6d26" />
         </>
       )}
     </svg>

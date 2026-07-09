@@ -39,7 +39,7 @@ export function CommandMenu({ open, onClose, query = "", onQueryChange, groups, 
           {!hasItems ? <div className="p-6 text-center text-sm text-[var(--tapiz-text-muted)]">{empty}</div> : null}
           {groups.map((group, groupIndex) => (
             <div key={groupIndex} className="py-2">
-              {group.label ? <div className="px-2 pb-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--tapiz-text-muted)]">{group.label}</div> : null}
+              {group.label ? <div className="px-2 pb-2 text-[11px] font-semibold text-[var(--tapiz-text-muted)]">{group.label}</div> : null}
               {group.items.map((item) => (
                 <button key={item.id} type="button" disabled={item.disabled} onClick={item.onSelect} className="flex w-full items-center gap-3 border border-transparent px-3 py-2 text-left hover:border-[var(--tapiz-border-subtle)] hover:bg-[var(--tapiz-bg-surface-muted)] disabled:opacity-40">
                   {item.icon ? <span className="grid size-8 place-items-center border border-[var(--tapiz-border-subtle)] text-[var(--tapiz-text-muted)]">{item.icon}</span> : null}

@@ -36,7 +36,7 @@ export function MetricCard({
     <Card variant={variant} padding="md" hover className={`relative overflow-hidden ${className}`}>
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--tapiz-text-muted)]">
+          <p className="text-[11px] font-semibold text-[var(--tapiz-text-muted)]">
             {label}
           </p>
           <div className="mt-2 font-display text-3xl font-semibold tracking-[-0.05em] text-[var(--tapiz-text-primary)]">
@@ -52,7 +52,7 @@ export function MetricCard({
       {(description || trend) ? (
         <div className="mt-4 flex flex-wrap items-center gap-2">
           {trend ? (
-            <span className={`inline-flex border px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-widest ${trendClasses[trendTone]}`}>
+            <span className={`inline-flex border px-2 py-0.5 text-[11px] font-semibold ${trendClasses[trendTone]}`}>
               {trend}
             </span>
           ) : null}

@@ -47,8 +47,8 @@
   --color-icon-bg: #1a1230;
   --btn-primary-color: #171321;
 
-  --font-display: 'IBM Plex Sans', system-ui, sans-serif;
-  --font-body:    'IBM Plex Sans', system-ui, sans-serif;
+  --font-display: 'Inter Variable', system-ui, sans-serif;
+  --font-body:    'Inter Variable', system-ui, sans-serif;
   --font-mono:    'IBM Plex Mono', ui-monospace, monospace;
 
   /* Radius scale (2.0 restores rounding) */

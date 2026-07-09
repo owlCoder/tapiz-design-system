@@ -31,7 +31,7 @@ export function Timeline({ items, className = "" }: TimelineProps) {
           <span className="min-w-0 flex-1 pb-2">
             <span className="flex flex-wrap items-baseline justify-between gap-2">
               <span className="font-semibold text-[var(--tapiz-text-primary)]">{item.title}</span>
-              {item.time ? <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--tapiz-text-muted)]">{item.time}</span> : null}
+              {item.time ? <span className="text-[11px] font-medium text-[var(--tapiz-text-muted)]">{item.time}</span> : null}
             </span>
             {item.description ? <span className="mt-1 block text-sm text-[var(--tapiz-text-secondary)]">{item.description}</span> : null}
           </span>

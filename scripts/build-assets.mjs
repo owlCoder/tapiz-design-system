@@ -19,24 +19,12 @@ if (builtFontsCss) {
 }
 
 const fontFiles = [
-  "ibm-plex-sans-latin-400-normal.woff2",
-  "ibm-plex-sans-latin-400-normal.woff",
-  "ibm-plex-sans-latin-400-italic.woff2",
-  "ibm-plex-sans-latin-400-italic.woff",
-  "ibm-plex-sans-latin-500-normal.woff2",
-  "ibm-plex-sans-latin-500-normal.woff",
-  "ibm-plex-sans-latin-600-normal.woff2",
-  "ibm-plex-sans-latin-600-normal.woff",
-  "ibm-plex-sans-latin-700-normal.woff2",
-  "ibm-plex-sans-latin-700-normal.woff",
-  "ibm-plex-sans-cyrillic-400-normal.woff2",
-  "ibm-plex-sans-cyrillic-400-normal.woff",
-  "ibm-plex-sans-cyrillic-500-normal.woff2",
-  "ibm-plex-sans-cyrillic-500-normal.woff",
-  "ibm-plex-sans-cyrillic-600-normal.woff2",
-  "ibm-plex-sans-cyrillic-600-normal.woff",
-  "ibm-plex-sans-cyrillic-700-normal.woff2",
-  "ibm-plex-sans-cyrillic-700-normal.woff",
+  "inter-latin-wght-normal.woff2",
+  "inter-latin-ext-wght-normal.woff2",
+  "inter-cyrillic-wght-normal.woff2",
+  "inter-latin-wght-italic.woff2",
+  "inter-latin-ext-wght-italic.woff2",
+  "inter-cyrillic-wght-italic.woff2",
   "ibm-plex-mono-latin-400-normal.woff2",
   "ibm-plex-mono-latin-400-normal.woff",
   "ibm-plex-mono-latin-400-italic.woff2",
@@ -54,7 +42,7 @@ const fontFiles = [
 ];
 
 const sourceDirs = [
-  join(root, "node_modules/@fontsource/ibm-plex-sans/files"),
+  join(root, "node_modules/@fontsource-variable/inter/files"),
   join(root, "node_modules/@fontsource/ibm-plex-mono/files"),
 ];
 

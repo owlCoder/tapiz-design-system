@@ -14,7 +14,7 @@ export interface BreadcrumbsProps extends BaseProps {
 
 export function Breadcrumbs({ items, separator = "/", className = "" }: BreadcrumbsProps) {
   return (
-    <nav aria-label="Breadcrumb" className={`font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--tapiz-text-muted)] ${className}`}>
+    <nav aria-label="Breadcrumb" className={`text-[11px] font-medium text-[var(--tapiz-text-muted)] ${className}`}>
       <ol className="flex flex-wrap items-center gap-2">
         {items.map((item, index) => (
           <li key={index} className="flex items-center gap-2">

@@ -11,7 +11,7 @@ export function FilterChip({ children, active = false, onRemove, className = "" 
   return (
     <span
       className={[
-        "inline-flex items-center gap-2 border px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.12em]",
+        "inline-flex items-center gap-2 border px-2.5 py-1 text-[11px] font-medium",
         active
           ? "border-[var(--tapiz-border-strong)] bg-[var(--tapiz-accent-soft)] text-[var(--tapiz-text-primary)]"
           : "border-[var(--tapiz-border-subtle)] bg-[var(--tapiz-bg-surface)] text-[var(--tapiz-text-muted)]",

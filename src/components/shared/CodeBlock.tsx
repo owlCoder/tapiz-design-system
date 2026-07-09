@@ -13,7 +13,7 @@ export function CodeBlock({ children, language, title, actions, className = "" }
     <figure className={`overflow-hidden border border-[var(--tapiz-border-strong)] bg-[var(--tapiz-bg-surface)] ${className}`}>
       {(title || language || actions) ? (
         <figcaption className="flex items-center justify-between gap-3 border-b border-[var(--tapiz-border-subtle)] bg-[var(--tapiz-bg-surface-muted)] px-3 py-2">
-          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--tapiz-text-muted)]">{title ?? language}</span>
+          <span className="text-[11px] font-semibold text-[var(--tapiz-text-muted)]">{title ?? language}</span>
           {actions}
         </figcaption>
       ) : null}

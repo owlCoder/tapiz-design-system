@@ -20,7 +20,7 @@ export function CalendarGrid({ days, weekdays = defaultWeekdays, className = "" 
   return (
     <div className={`border border-[var(--tapiz-border-subtle)] bg-[var(--tapiz-bg-surface)] ${className}`}>
       <div className="grid grid-cols-7 border-b border-[var(--tapiz-border-subtle)] bg-[var(--tapiz-bg-surface-muted)]">
-        {weekdays.map((day, index) => <div key={index} className="px-3 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--tapiz-text-muted)]">{day}</div>)}
+        {weekdays.map((day, index) => <div key={index} className="px-3 py-2 text-[11px] font-medium text-[var(--tapiz-text-muted)]">{day}</div>)}
       </div>
       <div className="grid grid-cols-7">
         {days.map((day, index) => (

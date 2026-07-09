@@ -9,54 +9,55 @@
     @import "@tapizlabs/ui/tailwind-theme.css";
 */
 @theme {
-  /*  Grid Brutalism  Electric Cyan + Signal Lime  */
-  --color-ink-000: #050608;
-  --color-ink-100: #06080c;
-  --color-ink-200: #0c0f16;
-  --color-ink-300: #11151e;
-  --color-ink-400: #1d222d;
-  --color-ink-500: #262d3b;
-  --color-border:    #1d2330;
-  --color-border-hi: #2a3346;
-  --color-txt-1: #f1f4f9;
-  --color-txt-2: #aab3c2;
-  --color-txt-3: #6b7686;
-  --color-txt-4: #7a8496;
+  /* 2.0 "Ink & Ember" — near-black purple ink, purple accent, ember orange
+     signal, rounded surfaces. Token names unchanged from 1.x. */
+  --color-ink-000: #0d0b14;
+  --color-ink-100: #110e1a;
+  --color-ink-200: #171321;
+  --color-ink-300: #1f1c2e;
+  --color-ink-400: #2a2638;
+  --color-ink-500: #312e3f;
+  --color-border:    #2a2638;
+  --color-border-hi: #3d3950;
+  --color-txt-1: #ffffff;
+  --color-txt-2: #d1d0d3;
+  --color-txt-3: #a2a1a6;
+  --color-txt-4: #74717a;
 
-  /* Accent ramp  electric cyan */
-  --color-primary-50:  #e8fbff;
-  --color-primary-100: #c7f5ff;
-  --color-primary-200: #99eeff;
-  --color-primary-300: #5ee7ff;
-  --color-primary-400: #38d4f0;
-  --color-primary-500: #1eb5d4;
-  --color-primary-600: #1496b3;
-  --color-primary-700: #0e7088;
-  --color-primary-800: #0a4f60;
-  --color-primary-900: #062f3b;
-  --color-primary-950: #03161c;
+  /* Accent ramp  purple */
+  --color-primary-50:  #f6f3fe;
+  --color-primary-100: #eee7fd;
+  --color-primary-200: #e3d6ff;
+  --color-primary-300: #a989f5;
+  --color-primary-400: #9877e0;
+  --color-primary-500: #7759c2;
+  --color-primary-600: #654aa8;
+  --color-primary-700: #533c8c;
+  --color-primary-800: #402e6d;
+  --color-primary-900: #2d2050;
+  --color-primary-950: #1a1230;
 
-  /* Signal lime */
-  --color-signal-300: #e4ff66;
-  --color-signal-400: #d4ff3a;
-  --color-signal-500: #b8e620;
+  /* Signal ember orange */
+  --color-signal-300: #fca326;
+  --color-signal-400: #fc6d26;
+  --color-signal-500: #e24329;
 
-  --color-warn: #ff7a4d;
-  --color-good: #4dd6a3;
-  --color-icon-bg: #03161c;
-  --btn-primary-color: #000;
+  --color-warn: #f24f63;
+  --color-good: #48a651;
+  --color-icon-bg: #1a1230;
+  --btn-primary-color: #171321;
 
   --font-display: 'IBM Plex Sans', system-ui, sans-serif;
   --font-body:    'IBM Plex Sans', system-ui, sans-serif;
   --font-mono:    'IBM Plex Mono', ui-monospace, monospace;
 
-  /* Kill all rounding */
+  /* Radius scale (2.0 restores rounding) */
   --radius-none: 0;
-  --radius-sm:   0;
-  --radius-md:   0;
-  --radius-lg:   0;
-  --radius-xl:   0;
-  --radius-2xl:  0;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  20px;
   --radius-full: 9999px;
 
   /* Animations */

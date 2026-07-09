@@ -2,49 +2,51 @@
 
 /* stylelint-disable */
 @theme {
-  /* Core ink ramp kept for backwards compatibility with existing Tailwind classes. */
-  --color-ink-000: #050608;
-  --color-ink-100: #06080c;
-  --color-ink-200: #0c0f16;
-  --color-ink-300: #11151e;
-  --color-ink-400: #1d222d;
-  --color-ink-500: #262d3b;
-  --color-border: #1d2330;
-  --color-border-hi: #2a3346;
-  --color-txt-1: #f1f4f9;
-  --color-txt-2: #aab3c2;
-  --color-txt-3: #7f8a9b;
-  --color-txt-4: #667185;
+  /* 2.0 "Ink & Ember" — near-black purple ink, purple accent, ember orange
+     signal, rounded surfaces. Token NAMES are unchanged from 1.x so every
+     consumer inherits the new brand without code changes. */
+  --color-ink-000: #0d0b14;
+  --color-ink-100: #110e1a;
+  --color-ink-200: #171321;
+  --color-ink-300: #1f1c2e;
+  --color-ink-400: #2a2638;
+  --color-ink-500: #312e3f;
+  --color-border: #2a2638;
+  --color-border-hi: #3d3950;
+  --color-txt-1: #ffffff;
+  --color-txt-2: #d1d0d3;
+  --color-txt-3: #a2a1a6;
+  --color-txt-4: #74717a;
 
-  --color-primary-50: #e8fbff;
-  --color-primary-100: #c7f5ff;
-  --color-primary-200: #99eeff;
-  --color-primary-300: #5ee7ff;
-  --color-primary-400: #38d4f0;
-  --color-primary-500: #1eb5d4;
-  --color-primary-600: #1496b3;
-  --color-primary-700: #0e7088;
-  --color-primary-800: #0a4f60;
-  --color-primary-900: #062f3b;
-  --color-primary-950: #03161c;
+  --color-primary-50: #f6f3fe;
+  --color-primary-100: #eee7fd;
+  --color-primary-200: #e3d6ff;
+  --color-primary-300: #a989f5;
+  --color-primary-400: #9877e0;
+  --color-primary-500: #7759c2;
+  --color-primary-600: #654aa8;
+  --color-primary-700: #533c8c;
+  --color-primary-800: #402e6d;
+  --color-primary-900: #2d2050;
+  --color-primary-950: #1a1230;
 
-  --color-signal-300: #e4ff66;
-  --color-signal-400: #d4ff3a;
-  --color-signal-500: #b8e620;
+  --color-signal-300: #fca326;
+  --color-signal-400: #fc6d26;
+  --color-signal-500: #e24329;
 
-  --color-warn: #ff7a4d;
-  --color-good: #4dd6a3;
+  --color-warn: #f24f63;
+  --color-good: #48a651;
 
   --font-display: 'IBM Plex Sans', system-ui, sans-serif;
   --font-body: 'IBM Plex Sans', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   --radius-none: 0;
-  --radius-sm: 0;
-  --radius-md: 0;
-  --radius-lg: 0;
-  --radius-xl: 0;
-  --radius-2xl: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
   --radius-full: 9999px;
 
   --animate-fade-in-up: fade-in-up 0.5s ease both;
@@ -89,9 +91,9 @@
   --tapiz-bg-page: var(--color-ink-100);
   --tapiz-bg-surface: var(--color-ink-200);
   --tapiz-bg-surface-muted: var(--color-ink-300);
-  --tapiz-bg-surface-raised: #10151f;
-  --tapiz-bg-surface-inverse: #f8fafc;
-  --tapiz-bg-overlay: rgba(5, 6, 8, 0.74);
+  --tapiz-bg-surface-raised: #241f31;
+  --tapiz-bg-surface-inverse: #ffffff;
+  --tapiz-bg-overlay: rgba(13, 11, 20, 0.74);
 
   --tapiz-border-subtle: var(--color-border);
   --tapiz-border-strong: var(--color-border-hi);
@@ -101,31 +103,32 @@
   --tapiz-text-secondary: var(--color-txt-2);
   --tapiz-text-muted: var(--color-txt-3);
   --tapiz-text-disabled: var(--color-txt-4);
-  --tapiz-text-inverse: #050608;
+  --tapiz-text-inverse: #171321;
 
   --tapiz-accent: var(--color-primary-300);
   --tapiz-accent-hover: var(--color-primary-400);
   --tapiz-accent-soft: color-mix(in srgb, var(--color-primary-300) 12%, transparent);
-  --tapiz-accent-contrast: #000000;
+  --tapiz-accent-contrast: #171321;
   --tapiz-signal: var(--color-signal-400);
   --tapiz-signal-soft: color-mix(in srgb, var(--color-signal-400) 14%, transparent);
 
   --tapiz-success: var(--color-good);
   --tapiz-success-soft: color-mix(in srgb, var(--color-good) 12%, transparent);
-  --tapiz-warning: #ffb020;
-  --tapiz-warning-soft: rgba(255, 176, 32, 0.12);
+  --tapiz-warning: #ffb800;
+  --tapiz-warning-soft: rgba(255, 184, 0, 0.12);
   --tapiz-danger: var(--color-warn);
-  --tapiz-danger-soft: rgba(255, 122, 77, 0.12);
+  --tapiz-danger-soft: rgba(242, 79, 99, 0.12);
   --tapiz-info: var(--color-primary-300);
   --tapiz-info-soft: color-mix(in srgb, var(--color-primary-300) 12%, transparent);
 
-  --tapiz-shadow-sm: 0 1px 0 rgba(255,255,255,0.04);
-  --tapiz-shadow-md: 0 16px 44px rgba(0,0,0,0.24);
-  --tapiz-shadow-lg: 0 28px 80px rgba(0,0,0,0.34);
-  --tapiz-shadow-brutal: 4px 4px 0 var(--tapiz-border-strong);
-  --tapiz-shadow-brutal-lg: 8px 8px 0 var(--tapiz-border-strong);
+  --tapiz-shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --tapiz-shadow-md: 0 16px 44px rgba(0,0,0,0.28);
+  --tapiz-shadow-lg: 0 28px 80px rgba(0,0,0,0.4);
+  /* 1.x brutal offsets remapped to soft elevation — names kept for compat */
+  --tapiz-shadow-brutal: 0 6px 16px rgba(0,0,0,0.3);
+  --tapiz-shadow-brutal-lg: 0 12px 28px rgba(0,0,0,0.38);
 
-  --tapiz-brutal-border: 2px solid var(--tapiz-border-strong);
+  --tapiz-brutal-border: 1px solid var(--tapiz-border-subtle);
   --tapiz-brutal-shadow: var(--tapiz-shadow-brutal);
   --tapiz-brutal-shadow-lg: var(--tapiz-shadow-brutal-lg);
 
@@ -150,43 +153,43 @@ html:not(.dark) {
   color-scheme: light;
 
   --color-ink-000: #ffffff;
-  --color-ink-100: #f7f8fb;
+  --color-ink-100: #f7f6f9;
   --color-ink-200: #ffffff;
-  --color-ink-300: #eef1f6;
-  --color-ink-400: #d9dee8;
-  --color-ink-500: #bcc5d3;
-  --color-border: #d7dce6;
-  --color-border-hi: #aeb7c8;
-  --color-txt-1: #0b1020;
-  --color-txt-2: #263145;
-  --color-txt-3: #566276;
-  --color-txt-4: #7a8496;
+  --color-ink-300: #f2f1f5;
+  --color-ink-400: #e8e7eb;
+  --color-ink-500: #d1d0d3;
+  --color-border: #e8e7eb;
+  --color-border-hi: #d1d0d3;
+  --color-txt-1: #171321;
+  --color-txt-2: #45424d;
+  --color-txt-3: #74717a;
+  --color-txt-4: #a2a1a6;
 
-  --color-primary-300: #087d9c;
-  --color-primary-400: #066d89;
-  --color-primary-500: #075e75;
-  --color-signal-300: #6f950b;
-  --color-signal-400: #53720b;
-  --color-signal-500: #3f5a08;
-  --color-warn: #c4481f;
-  --color-good: #047857;
+  --color-primary-300: #7759c2;
+  --color-primary-400: #654aa8;
+  --color-primary-500: #533c8c;
+  --color-signal-300: #fc6d26;
+  --color-signal-400: #e24329;
+  --color-signal-500: #c93a20;
+  --color-warn: #cb3446;
+  --color-good: #327338;
 
-  --tapiz-bg-canvas: #f7f8fb;
-  --tapiz-bg-page: #f7f8fb;
+  --tapiz-bg-canvas: #f7f6f9;
+  --tapiz-bg-page: #f7f6f9;
   --tapiz-bg-surface: #ffffff;
-  --tapiz-bg-surface-muted: #eef1f6;
+  --tapiz-bg-surface-muted: #f2f1f5;
   --tapiz-bg-surface-raised: #ffffff;
-  --tapiz-bg-surface-inverse: #050608;
-  --tapiz-bg-overlay: rgba(11, 16, 32, 0.45);
+  --tapiz-bg-surface-inverse: #171321;
+  --tapiz-bg-overlay: rgba(23, 19, 33, 0.45);
 
-  --tapiz-border-subtle: #d7dce6;
-  --tapiz-border-strong: #0b1020;
+  --tapiz-border-subtle: #e8e7eb;
+  --tapiz-border-strong: #d1d0d3;
   --tapiz-border-focus: var(--color-primary-300);
 
-  --tapiz-text-primary: #0b1020;
-  --tapiz-text-secondary: #263145;
-  --tapiz-text-muted: #566276;
-  --tapiz-text-disabled: #7a8496;
+  --tapiz-text-primary: #171321;
+  --tapiz-text-secondary: #45424d;
+  --tapiz-text-muted: #74717a;
+  --tapiz-text-disabled: #a2a1a6;
   --tapiz-text-inverse: #ffffff;
 
   --tapiz-accent: var(--color-primary-300);
@@ -197,20 +200,20 @@ html:not(.dark) {
   --tapiz-signal-soft: color-mix(in srgb, var(--color-signal-400) 12%, transparent);
 
   --tapiz-success: var(--color-good);
-  --tapiz-success-soft: rgba(4, 120, 87, 0.10);
+  --tapiz-success-soft: rgba(50, 115, 56, 0.10);
   --tapiz-warning: #b45309;
   --tapiz-warning-soft: rgba(180, 83, 9, 0.10);
   --tapiz-danger: var(--color-warn);
-  --tapiz-danger-soft: rgba(196, 72, 31, 0.10);
+  --tapiz-danger-soft: rgba(203, 52, 70, 0.10);
   --tapiz-info: var(--color-primary-300);
   --tapiz-info-soft: color-mix(in srgb, var(--color-primary-300) 10%, transparent);
 
-  --tapiz-shadow-sm: 0 1px 0 rgba(11,16,32,0.08);
-  --tapiz-shadow-md: 0 18px 42px rgba(11,16,32,0.08);
-  --tapiz-shadow-lg: 0 26px 80px rgba(11,16,32,0.12);
-  --tapiz-shadow-brutal: 4px 4px 0 #0b1020;
-  --tapiz-shadow-brutal-lg: 8px 8px 0 #0b1020;
-  --tapiz-brutal-border: 2px solid #0b1020;
+  --tapiz-shadow-sm: 0 1px 2px rgba(23,19,33,0.06);
+  --tapiz-shadow-md: 0 18px 42px rgba(23,19,33,0.08);
+  --tapiz-shadow-lg: 0 26px 80px rgba(23,19,33,0.12);
+  --tapiz-shadow-brutal: 0 6px 16px rgba(23,19,33,0.1);
+  --tapiz-shadow-brutal-lg: 0 12px 28px rgba(23,19,33,0.14);
+  --tapiz-brutal-border: 1px solid #e8e7eb;
 
   --color-icon-bg: color-mix(in srgb, var(--color-primary-300) 12%, var(--color-ink-200));
   --btn-primary-color: var(--tapiz-accent-contrast);
@@ -221,12 +224,8 @@ html:not(.dark) {
     border-color: var(--tapiz-border-subtle, currentcolor);
   }
 
-  /* Flat-brand corner reset. Skipped inside `.lp-page` — the LMS ecosystem
-     landing is a sanctioned GitLab-style one-off that owns its own radii.
-     `:where()` adds no specificity, so behavior elsewhere is unchanged. */
-  *:where(:not(.lp-page):not(.lp-page *)), ::after, ::before, ::backdrop, ::file-selector-button {
-    border-radius: 0 !important;
-  }
+  /* 2.0: the 1.x flat-brand `border-radius: 0 !important` reset is gone —
+     rounded corners are part of the brand again (see --radius-* scale). */
 
   html, body {
     background: var(--tapiz-bg-page);
@@ -241,8 +240,6 @@ html:not(.dark) {
     font-weight: 600;
     letter-spacing: -0.03em;
   }
-
-  [class*="rounded"]:where(:not(.lp-page *)) { border-radius: 0 !important; }
 
   html *:not([class*="animate-"]):not(.sliding-logo):not(.pulse-line) {
     transition:
@@ -263,12 +260,13 @@ html:not(.dark) {
   input, textarea, select {
     background-color: var(--tapiz-bg-surface) !important;
     border-color: var(--tapiz-border-strong) !important;
+    border-radius: var(--radius-sm);
     color: var(--tapiz-text-primary) !important;
   }
   input::placeholder, textarea::placeholder { color: var(--tapiz-text-disabled) !important; }
   input:focus, textarea:focus, select:focus {
     border-color: var(--tapiz-border-focus) !important;
-    box-shadow: inset 3px 0 0 0 var(--tapiz-signal), 0 0 0 1px var(--tapiz-border-focus) !important;
+    box-shadow: 0 0 0 1px var(--tapiz-border-focus) !important;
     outline: none !important;
   }
 
@@ -328,22 +326,28 @@ html:not(.dark) {
 .tapiz-enterprise-shell { background: var(--tapiz-bg-page); color: var(--tapiz-text-primary); }
 .tapiz-focus-ring:focus-visible { outline: 2px solid var(--tapiz-border-focus); outline-offset: 2px; }
 
+/* 2.0 primary: ink fill on light, white fill on dark (inverse-surface pair),
+   flat, 4px radius, hover softens toward the page surface — no offset shadow. */
 @utility btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.5rem 1rem;
-  background: var(--tapiz-accent);
-  color: var(--btn-primary-color);
+  background: var(--tapiz-bg-surface-inverse);
+  color: var(--tapiz-text-inverse);
   font-family: var(--font-display);
   font-size: 0.875rem;
   font-weight: 700;
-  border: 1px solid var(--tapiz-border-strong);
-  box-shadow: var(--tapiz-brutal-shadow);
+  border: 1px solid var(--tapiz-bg-surface-inverse);
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  &:hover { transform: translate(-1px,-1px); box-shadow: var(--tapiz-brutal-shadow-lg); }
-  &:active { transform: translate(1px,1px); box-shadow: 2px 2px 0 var(--tapiz-border-strong); }
-  &:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  &:hover {
+    background: color-mix(in srgb, var(--tapiz-bg-surface-inverse) 82%, var(--tapiz-bg-surface));
+    border-color: color-mix(in srgb, var(--tapiz-bg-surface-inverse) 82%, var(--tapiz-bg-surface));
+  }
+  &:active { opacity: 0.85; }
+  &:disabled { opacity: 0.4; cursor: not-allowed; }
 }
 
 @utility btn-secondary {
@@ -352,13 +356,14 @@ html:not(.dark) {
   justify-content: center;
   padding: 0.5rem 1rem;
   background: var(--tapiz-bg-surface);
-  color: var(--tapiz-text-secondary);
-  font-family: var(--font-mono);
+  color: var(--tapiz-text-primary);
+  font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 600;
   border: 1px solid var(--tapiz-border-strong);
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  &:hover { color: var(--tapiz-text-primary); border-color: var(--tapiz-accent); }
+  &:hover { background: var(--tapiz-bg-surface-muted); }
   &:active { background: var(--tapiz-bg-surface-muted); }
   &:disabled { opacity: 0.4; cursor: not-allowed; }
 }
@@ -369,8 +374,10 @@ html:not(.dark) {
   justify-content: center;
   background: transparent;
   color: var(--tapiz-danger);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
+  font-weight: 600;
   border: 1px solid var(--tapiz-danger);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   &:hover { background: var(--tapiz-danger-soft); }
 }
@@ -381,20 +388,23 @@ html:not(.dark) {
   padding: 0.625rem 0.875rem;
   background: var(--tapiz-bg-surface);
   border: 1px solid var(--tapiz-border-strong);
+  border-radius: var(--radius-sm);
   font-size: 0.875rem;
   color: var(--tapiz-text-primary);
   outline: none;
   &::placeholder { color: var(--tapiz-text-disabled); }
-  &:focus { border-color: var(--tapiz-border-focus); box-shadow: inset 3px 0 0 0 var(--tapiz-signal); }
+  &:focus { border-color: var(--tapiz-border-focus); box-shadow: 0 0 0 1px var(--tapiz-border-focus); }
 }
 
 @utility skeleton {
+  border-radius: var(--radius-md);
   background: linear-gradient(90deg, var(--color-ink-300) 25%, var(--color-ink-400) 50%, var(--color-ink-300) 75%);
   background-size: 800px 100%;
   animation: skeleton-shimmer 1.5s infinite linear;
 }
 
 @utility card {
+  border-radius: var(--radius-lg);
   background: var(--tapiz-bg-surface);
   border: 1px solid var(--tapiz-border-subtle);
   box-shadow: var(--tapiz-shadow-sm);
@@ -402,6 +412,7 @@ html:not(.dark) {
 }
 
 @utility form-panel {
+  border-radius: var(--radius-lg);
   background: var(--tapiz-bg-surface);
   border: 1px solid var(--tapiz-border-strong);
   border-top: 2px solid var(--tapiz-accent);
@@ -410,6 +421,7 @@ html:not(.dark) {
 }
 
 @utility stat-card {
+  border-radius: var(--radius-lg);
   background: var(--tapiz-bg-surface);
   border: 1px solid var(--tapiz-border-subtle);
   box-shadow: var(--tapiz-shadow-sm);
@@ -421,18 +433,21 @@ html:not(.dark) {
 }
 
 @utility tapiz-brutal-card {
+  border-radius: var(--radius-lg);
   background: var(--tapiz-bg-surface);
   border: var(--tapiz-brutal-border);
   box-shadow: var(--tapiz-brutal-shadow);
 }
 
 @utility tapiz-enterprise-card {
+  border-radius: var(--radius-lg);
   background: var(--tapiz-bg-surface);
   border: 1px solid var(--tapiz-border-subtle);
   box-shadow: var(--tapiz-shadow-md);
 }
 
 @utility tapiz-landing-shell {
+  border-radius: var(--radius-xl);
   pointer-events: auto;
   border: 1px solid var(--tapiz-border-strong);
   background: color-mix(in srgb, var(--tapiz-bg-surface) 88%, transparent);
@@ -479,6 +494,7 @@ html:not(.dark) {
 }
 
 @utility tapiz-landing-mobile-drawer {
+  border-radius: var(--radius-lg);
   border: 1px solid var(--tapiz-border-strong);
   background: color-mix(in srgb, var(--tapiz-bg-surface) 94%, transparent);
   box-shadow: var(--tapiz-shadow-lg);

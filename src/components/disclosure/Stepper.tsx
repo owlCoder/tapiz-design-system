@@ -27,7 +27,7 @@ export function Stepper({ steps, orientation = "horizontal", className = "" }: S
         const status = step.status ?? "upcoming";
         return (
           <li key={step.id} className="flex gap-3">
-            <span className={`grid size-8 shrink-0 place-items-center border font-mono text-xs font-bold ${tone[status]}`}>{status === "complete" ? "✓" : index + 1}</span>
+            <span className={`grid size-8 shrink-0 place-items-center rounded-full border text-xs font-bold ${tone[status]}`}>{status === "complete" ? "✓" : index + 1}</span>
             <span className="min-w-0">
               <span className="block text-sm font-semibold text-[var(--tapiz-text-primary)]">{step.label}</span>
               {step.description ? <span className="mt-1 block text-xs text-[var(--tapiz-text-muted)]">{step.description}</span> : null}

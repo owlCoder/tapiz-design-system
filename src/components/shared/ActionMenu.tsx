@@ -32,13 +32,14 @@ export interface ActionMenuProps {
 const defaultMenuStyle: CSSProperties = {
   background: "var(--color-ink-200)",
   border: "1px solid var(--color-border-hi)",
-  borderTop: "2px solid var(--color-primary-300)",
+  borderRadius: "10px",
+  padding: "4px",
   boxShadow: "0 16px 48px -8px rgba(0,0,0,0.45)",
   maxHeight: "min(320px, calc(100vh - 180px))",
 };
 
 const itemBaseClass =
-  "flex w-full items-center gap-2.5 border-l-2 border-transparent px-4 py-2.5 text-left text-sm transition-colors duration-100 hover:border-[var(--color-primary-300)] disabled:cursor-not-allowed disabled:opacity-40";
+  "flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 text-left text-sm transition-colors duration-100 hover:bg-[var(--color-ink-300)] disabled:cursor-not-allowed disabled:opacity-40";
 
 export function ActionMenu({
   label,

@@ -42,18 +42,18 @@ export function Toast({ message, ok, durationMs = 5000 }: ToastProps) {
   return createPortal(
     <div className="pointer-events-none fixed bottom-20 left-4 right-4 z-9999 flex justify-center min-[600px]:bottom-auto min-[600px]:left-auto min-[600px]:right-5 min-[600px]:top-5 min-[600px]:justify-end">
       <div
-        className={`${transform} pointer-events-auto relative flex w-full max-w-sm items-center gap-2.5 overflow-hidden px-4 py-3 text-sm font-medium transition-all duration-300 sm:w-auto sm:max-w-xs`}
+        className={`${transform} pointer-events-auto relative flex w-full max-w-sm items-center gap-2.5 overflow-hidden rounded-lg px-4 py-3 text-sm font-medium transition-all duration-300 sm:w-auto sm:max-w-xs`}
         style={{
           background: "var(--color-ink-300)",
           border: `1px solid ${borderColor}`,
-          borderLeft: `3px solid ${borderColor}`,
           color: "var(--color-txt-1)",
+          boxShadow: "0 12px 32px -12px rgba(0,0,0,0.4)",
         }}
       >
         <span className="flex h-5 w-5 shrink-0 items-center justify-center" style={{ color: accentColor }}>
           {ok ? <Check size={12} /> : <X size={12} />}
         </span>
-        <span className="flex-1 text-[12px] leading-snug sm:text-[13px]" style={{ fontFamily: "var(--font-mono)" }}>
+        <span className="flex-1 text-[12px] leading-snug sm:text-[13px]">
           {message}
         </span>
         <div

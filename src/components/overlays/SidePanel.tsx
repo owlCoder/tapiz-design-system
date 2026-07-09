@@ -133,22 +133,24 @@ export function SidePanel({
       onTouchMove={(e) => e.preventDefault()}
     >
       <div
-        className={`flex h-full max-sm:h-dvh w-full flex-col overflow-hidden border-t-2 border-t-primary-300 bg-ink-200 ${
-          side === "right" ? "border-l border-border-hi max-sm:border-l-0" : "border-r border-border-hi max-sm:border-r-0"
+        className={`flex h-full max-sm:h-dvh w-full flex-col overflow-hidden bg-ink-200 ${
+          side === "right"
+            ? "rounded-l-2xl border-l border-border-hi max-sm:rounded-none max-sm:border-l-0"
+            : "rounded-r-2xl border-r border-border-hi max-sm:rounded-none max-sm:border-r-0"
         }`}
         style={panelStyle}
       >
         <div className="flex shrink-0 items-center justify-between gap-3 border-b border-border px-4 py-3 sm:px-5">
           <div className="flex min-w-0 items-center gap-3">
             {icon && (
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-ink-300 border border-border-hi text-primary-300">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-ink-300 border border-border-hi text-primary-300">
                 {icon}
               </div>
             )}
             <div className="min-w-0">
               <h3 id={titleId} className="truncate font-display text-[15px] font-semibold text-txt-1">{title}</h3>
               {subtitle && (
-                <p className="mt-0.5 truncate font-mono text-[10px] tracking-widest text-primary-300">{subtitle}</p>
+                <p className="mt-0.5 truncate text-[12px] text-txt-3">{subtitle}</p>
               )}
             </div>
           </div>
@@ -157,7 +159,7 @@ export function SidePanel({
             onClick={onClose}
             aria-label={closeLabel}
             title={closeLabel}
-            className="flex h-8 w-8 shrink-0 items-center justify-center border border-transparent text-txt-3 transition-colors hover:border-border-hi hover:text-txt-1"
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-transparent text-txt-3 transition-colors hover:border-border-hi hover:bg-ink-300 hover:text-txt-1"
           >
             <X size={16} />
           </button>

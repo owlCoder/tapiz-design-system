@@ -1,5 +1,5 @@
 import type { BaseProps } from "../../types";
-import { Info, LockIcon } from "../icons/index";
+import { Info, Lock } from "../icons/index";
 
 interface StructuredInfoBannerProps extends BaseProps {
   title: string;
@@ -29,7 +29,7 @@ export function InfoBanner(props: InfoBannerProps) {
           : "bg-primary-500/10 border-primary-100 text-primary-500";
 
     const icon = variant === "lock"
-      ? <LockIcon size={14} className="mt-1 shrink-0" />
+      ? <Lock size={14} className="mt-1 shrink-0" />
       : <Info size={14} className="mt-1 shrink-0" />;
 
     return (

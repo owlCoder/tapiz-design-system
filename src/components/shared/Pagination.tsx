@@ -48,11 +48,11 @@ export function Pagination({ page, totalPages, onChange, totalItems, pageSize, l
   return (
     <div className="flex flex-col items-center justify-between gap-3 border-t border-border pt-3 sm:flex-row">
       {totalItems != null && from != null && to != null ? (
-        <span className="order-2 font-mono text-[12px] text-txt-4 sm:order-1">
+        <span className="order-2 text-[12px] text-txt-4 sm:order-1">
           {copy.showing({ from, to, total: totalItems })}
         </span>
       ) : (
-        <span className="order-2 font-mono text-[11px] text-txt-4 sm:order-1">
+        <span className="order-2 text-[12px] text-txt-4 sm:order-1">
           {copy.page({ page, totalPages })}
         </span>
       )}
@@ -63,7 +63,7 @@ export function Pagination({ page, totalPages, onChange, totalItems, pageSize, l
           onClick={() => onChange(Math.max(1, page - 1))}
           disabled={page === 1}
           title={copy.prevTitle}
-          className="flex items-center gap-1 border border-border px-2.5 py-1.5 font-mono text-[11px] text-txt-3 transition-colors hover:border-border-hi hover:text-txt-1 disabled:cursor-not-allowed disabled:opacity-30"
+          className="flex items-center gap-1 rounded-sm border border-border px-2.5 py-1.5 text-[12px] font-medium text-txt-3 transition-colors hover:border-border-hi hover:text-txt-1 disabled:cursor-not-allowed disabled:opacity-30"
         >
           <ChevronLeft size={12} />
           <span className="hidden sm:inline">{copy.prev}</span>
@@ -72,7 +72,7 @@ export function Pagination({ page, totalPages, onChange, totalItems, pageSize, l
         <div className="flex items-center gap-1">
           {pageNumbers.map((entry, index) =>
             entry === "…" ? (
-              <span key={`ellipsis-${index}`} className="w-7 text-center font-mono text-[11px] text-txt-4">
+              <span key={`ellipsis-${index}`} className="w-7 text-center text-[12px] text-txt-4">
                 …
               </span>
             ) : (
@@ -80,7 +80,7 @@ export function Pagination({ page, totalPages, onChange, totalItems, pageSize, l
                 key={entry}
                 type="button"
                 onClick={() => onChange(entry)}
-                className={`h-7 w-7 border font-mono text-[11px] transition-colors ${
+                className={`h-7 w-7 rounded-sm border text-[12px] font-medium transition-colors ${
                   page === entry
                     ? "border-primary-300 bg-primary-300/10 text-primary-300"
                     : "border-border text-txt-3 hover:border-border-hi hover:text-txt-1"
@@ -97,7 +97,7 @@ export function Pagination({ page, totalPages, onChange, totalItems, pageSize, l
           onClick={() => onChange(Math.min(totalPages, page + 1))}
           disabled={page >= totalPages}
           title={copy.nextTitle}
-          className="flex items-center gap-1 border border-border px-2.5 py-1.5 font-mono text-[10px] text-txt-3 transition-colors hover:border-border-hi hover:text-txt-1 disabled:cursor-not-allowed disabled:opacity-30"
+          className="flex items-center gap-1 rounded-sm border border-border px-2.5 py-1.5 text-[12px] font-medium text-txt-3 transition-colors hover:border-border-hi hover:text-txt-1 disabled:cursor-not-allowed disabled:opacity-30"
         >
           <span className="hidden sm:inline">{copy.next}</span>
           <ChevronRight size={12} />

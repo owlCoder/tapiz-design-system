@@ -44,19 +44,19 @@ export function BaseModal({
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div
-        className={`w-full ${sizeClass[size]} p-6 space-y-4 bg-ink-200 border border-border-hi border-t-2 border-t-primary-300 animate-scale-in`}
+        className={`w-full ${sizeClass[size]} p-6 space-y-4 rounded-xl bg-ink-200 border border-border-hi animate-scale-in`}
       >
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
             {icon && (
-              <div className="flex items-center justify-center w-10 h-10 shrink-0 bg-ink-300 border border-border-hi text-primary-300">
+              <div className="flex items-center justify-center w-10 h-10 shrink-0 rounded-md bg-ink-300 border border-border-hi text-primary-300">
                 {icon}
               </div>
             )}
             <div>
               <h3 id={titleId} className="font-display text-[15px] font-semibold text-txt-1">{title}</h3>
               {subtitle && (
-                <p className="font-mono text-[10px] text-primary-300 mt-0.5 tracking-widest">
+                <p className="text-[12px] text-txt-3 mt-0.5">
                   {subtitle}
                 </p>
               )}
@@ -65,7 +65,7 @@ export function BaseModal({
           {xShown && (
             <button
               onClick={onClose}
-              className="w-7 h-7 flex items-center justify-center text-txt-3 border border-transparent hover:text-txt-1 hover:border-border-hi transition-colors"
+              className="w-7 h-7 flex items-center justify-center rounded-md text-txt-3 border border-transparent hover:text-txt-1 hover:border-border-hi hover:bg-ink-300 transition-colors"
               aria-label={closeLabel}
               title={closeLabel}
             >

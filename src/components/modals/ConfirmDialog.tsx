@@ -40,7 +40,7 @@ export function ConfirmDialog({
       onClick={onCancel}
     >
       <div
-        className={`relative w-full max-w-sm bg-ink-200 border border-border-hi border-t-2 animate-scale-in ${danger ? "border-t-(--color-danger,#f87171)" : "border-t-primary-300"}`}
+        className="relative w-full max-w-sm rounded-xl bg-ink-200 border border-border-hi animate-scale-in"
         onClick={e => e.stopPropagation()}
       >
         <div className="p-6 flex flex-col gap-4">
@@ -48,7 +48,7 @@ export function ConfirmDialog({
           <div className="flex items-center gap-3">
             {icon && (
               <div
-                className={`flex items-center justify-center w-9 h-9 shrink-0 border ${danger ? "bg-[rgba(248,113,113,0.1)] border-[rgba(248,113,113,0.25)] text-(--color-danger,#f87171)" : "bg-primary-300/8 border-primary-300/15 text-primary-300"}`}
+                className={`flex items-center justify-center w-9 h-9 shrink-0 rounded-md border ${danger ? "bg-[rgba(248,113,113,0.1)] border-[rgba(248,113,113,0.25)] text-(--color-danger,#f87171)" : "bg-primary-300/8 border-primary-300/15 text-primary-300"}`}
               >
                 {icon}
               </div>

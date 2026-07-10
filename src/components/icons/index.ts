@@ -48,6 +48,7 @@ export {
   Menu,
   Monitor,
   Moon,
+  Palette,
   Plus,
   Printer,
   QrCode,

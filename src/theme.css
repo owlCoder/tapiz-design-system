@@ -92,14 +92,16 @@
 :root {
   color-scheme: dark;
 
-  /* Semantic design tokens: use these in new components and app code. */
+  /* Semantic design tokens: use these in new components and app code.
+     Everything here derives from the primitive ramps above so that skins
+     (see the `data-skin` blocks below) only have to re-color primitives. */
   --tapiz-bg-canvas: var(--color-ink-100);
   --tapiz-bg-page: var(--color-ink-100);
   --tapiz-bg-surface: var(--color-ink-200);
   --tapiz-bg-surface-muted: var(--color-ink-300);
-  --tapiz-bg-surface-raised: #241f31;
-  --tapiz-bg-surface-inverse: #ffffff;
-  --tapiz-bg-overlay: rgba(13, 11, 20, 0.74);
+  --tapiz-bg-surface-raised: color-mix(in srgb, var(--color-ink-300) 70%, var(--color-ink-400));
+  --tapiz-bg-surface-inverse: var(--color-txt-1);
+  --tapiz-bg-overlay: color-mix(in srgb, var(--color-ink-000) 74%, transparent);
 
   --tapiz-border-subtle: var(--color-border);
   --tapiz-border-strong: var(--color-border-hi);
@@ -109,12 +111,12 @@
   --tapiz-text-secondary: var(--color-txt-2);
   --tapiz-text-muted: var(--color-txt-3);
   --tapiz-text-disabled: var(--color-txt-4);
-  --tapiz-text-inverse: #171321;
+  --tapiz-text-inverse: var(--color-ink-200);
 
   --tapiz-accent: var(--color-primary-300);
   --tapiz-accent-hover: var(--color-primary-400);
   --tapiz-accent-soft: color-mix(in srgb, var(--color-primary-300) 12%, transparent);
-  --tapiz-accent-contrast: #171321;
+  --tapiz-accent-contrast: var(--color-ink-200);
   --tapiz-signal: var(--color-signal-400);
   --tapiz-signal-soft: color-mix(in srgb, var(--color-signal-400) 14%, transparent);
   --tapiz-tint-primary: var(--color-tint-lavender);
@@ -185,28 +187,25 @@ html:not(.dark) {
   --color-tint-lavender: #f3effc;
   --color-tint-peach: #fef0e7;
 
-  --tapiz-bg-canvas: #f7f6f9;
-  --tapiz-bg-page: #f7f6f9;
-  --tapiz-bg-surface: #ffffff;
-  --tapiz-bg-surface-muted: #f2f1f5;
-  --tapiz-bg-surface-raised: #ffffff;
-  --tapiz-bg-surface-inverse: #171321;
-  --tapiz-bg-overlay: rgba(23, 19, 33, 0.45);
+  --tapiz-bg-canvas: var(--color-ink-100);
+  --tapiz-bg-page: var(--color-ink-100);
+  --tapiz-bg-surface: var(--color-ink-200);
+  --tapiz-bg-surface-muted: var(--color-ink-300);
+  --tapiz-bg-surface-raised: var(--color-ink-200);
+  --tapiz-bg-overlay: color-mix(in srgb, var(--color-txt-1) 45%, transparent);
 
-  --tapiz-border-subtle: #e8e7eb;
-  --tapiz-border-strong: #d1d0d3;
+  --tapiz-border-subtle: var(--color-border);
+  --tapiz-border-strong: var(--color-border-hi);
   --tapiz-border-focus: var(--color-primary-300);
 
-  --tapiz-text-primary: #171321;
-  --tapiz-text-secondary: #45424d;
-  --tapiz-text-muted: #74717a;
-  --tapiz-text-disabled: #a2a1a6;
-  --tapiz-text-inverse: #ffffff;
+  --tapiz-text-primary: var(--color-txt-1);
+  --tapiz-text-secondary: var(--color-txt-2);
+  --tapiz-text-muted: var(--color-txt-3);
+  --tapiz-text-disabled: var(--color-txt-4);
 
   --tapiz-accent: var(--color-primary-300);
   --tapiz-accent-hover: var(--color-primary-400);
   --tapiz-accent-soft: color-mix(in srgb, var(--color-primary-300) 10%, transparent);
-  --tapiz-accent-contrast: #ffffff;
   --tapiz-signal: var(--color-signal-400);
   --tapiz-signal-soft: color-mix(in srgb, var(--color-signal-400) 12%, transparent);
 
@@ -224,10 +223,202 @@ html:not(.dark) {
   --tapiz-shadow-lg: 0 26px 80px rgba(23,19,33,0.12);
   --tapiz-shadow-brutal: 0 6px 16px rgba(23,19,33,0.1);
   --tapiz-shadow-brutal-lg: 0 12px 28px rgba(23,19,33,0.14);
-  --tapiz-brutal-border: 1px solid #e8e7eb;
 
   --color-icon-bg: color-mix(in srgb, var(--color-primary-300) 12%, var(--color-ink-200));
   --btn-primary-color: var(--tapiz-accent-contrast);
+}
+
+/* ---------------------------------------------------------------------------
+   Predefined skins
+   ---------------------------------------------------------------------------
+   A skin re-colors the primitive ramps; every semantic token derives from
+   primitives, so overriding the ramps restyles the whole app in both modes.
+   Opt-in via `data-skin` on <html>, layered on top of the light/dark class
+   (no attribute = default Ink & Ember). Marketing/landing surfaces never set
+   `data-skin`, so they always keep the default brand. Skin ids + picker
+   metadata live in src/skins.ts (TAPIZ_SKINS).
+
+   Structure mirrors the base theme: `html[data-skin]` = dark-flavored
+   defaults (parallel to @theme), `html:not(.dark)[data-skin]` = the light
+   overrides (parallel to the html:not(.dark) block above, which it must
+   fully shadow for every variable the skin changes). Status colors
+   (--color-warn/--color-good/--tapiz-warning) stay unskinned on purpose. */
+
+/* Ocean — deep blue ink, sky-blue accent, teal signal. */
+html[data-skin="ocean"] {
+  --color-ink-000: #0a0d15;
+  --color-ink-100: #0d111c;
+  --color-ink-200: #121724;
+  --color-ink-300: #1a2030;
+  --color-ink-400: #242b3c;
+  --color-ink-500: #2c3446;
+  --color-border: #242b3c;
+  --color-border-hi: #3a4256;
+  --color-txt-2: #d0d3da;
+  --color-txt-3: #a0a6b2;
+  --color-txt-4: #707786;
+
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #e0edfe;
+  --color-primary-200: #c6dffd;
+  --color-primary-300: #7fb5f2;
+  --color-primary-400: #5d9be6;
+  --color-primary-500: #3b7fd4;
+  --color-primary-600: #2f6ab6;
+  --color-primary-700: #265593;
+  --color-primary-800: #1e4271;
+  --color-primary-900: #152e4f;
+  --color-primary-950: #0d1c31;
+
+  --color-signal-300: #38cfc0;
+  --color-signal-400: #17b3a3;
+  --color-signal-500: #0f9184;
+
+  --color-tint-lavender: color-mix(in srgb, var(--color-primary-300) 9%, var(--color-ink-200));
+  --color-tint-peach: color-mix(in srgb, var(--color-signal-400) 8%, var(--color-ink-200));
+}
+
+html:not(.dark)[data-skin="ocean"] {
+  --color-ink-000: #ffffff;
+  --color-ink-100: #f5f7fa;
+  --color-ink-200: #ffffff;
+  --color-ink-300: #eef2f7;
+  --color-ink-400: #e2e8f0;
+  --color-ink-500: #cbd5e1;
+  --color-border: #e2e8f0;
+  --color-border-hi: #cbd5e1;
+  --color-txt-1: #101725;
+  --color-txt-2: #414d61;
+  --color-txt-3: #6b7789;
+  --color-txt-4: #9aa4b5;
+
+  --color-primary-300: #2f6ab6;
+  --color-primary-400: #265593;
+  --color-primary-500: #1e4271;
+  --color-signal-300: #17b3a3;
+  --color-signal-400: #0f9184;
+  --color-signal-500: #0b7568;
+
+  --color-tint-lavender: color-mix(in srgb, var(--color-primary-300) 8%, var(--color-ink-200));
+  --color-tint-peach: color-mix(in srgb, var(--color-signal-400) 8%, var(--color-ink-200));
+}
+
+/* Forest — green-tinted ink, emerald accent, amber signal. */
+html[data-skin="forest"] {
+  --color-ink-000: #0a0f0b;
+  --color-ink-100: #0d130e;
+  --color-ink-200: #121a14;
+  --color-ink-300: #19231b;
+  --color-ink-400: #223026;
+  --color-ink-500: #2a3a2e;
+  --color-border: #223026;
+  --color-border-hi: #37493c;
+  --color-txt-2: #d0d6d1;
+  --color-txt-3: #a0aaa2;
+  --color-txt-4: #6f7a71;
+
+  --color-primary-50: #effaf3;
+  --color-primary-100: #dcf5e6;
+  --color-primary-200: #bfecd2;
+  --color-primary-300: #7ed6a3;
+  --color-primary-400: #55c286;
+  --color-primary-500: #35a468;
+  --color-primary-600: #2b8a57;
+  --color-primary-700: #237047;
+  --color-primary-800: #1b5637;
+  --color-primary-900: #133c27;
+  --color-primary-950: #0c2618;
+
+  --color-signal-300: #fbc02d;
+  --color-signal-400: #f59e0b;
+  --color-signal-500: #d97706;
+
+  --color-tint-lavender: color-mix(in srgb, var(--color-primary-300) 9%, var(--color-ink-200));
+  --color-tint-peach: color-mix(in srgb, var(--color-signal-400) 8%, var(--color-ink-200));
+}
+
+html:not(.dark)[data-skin="forest"] {
+  --color-ink-000: #ffffff;
+  --color-ink-100: #f5f8f5;
+  --color-ink-200: #ffffff;
+  --color-ink-300: #eef3ee;
+  --color-ink-400: #e1e9e2;
+  --color-ink-500: #c9d5cb;
+  --color-border: #e1e9e2;
+  --color-border-hi: #c9d5cb;
+  --color-txt-1: #121a14;
+  --color-txt-2: #414d43;
+  --color-txt-3: #6c786e;
+  --color-txt-4: #9aa69c;
+
+  --color-primary-300: #2b8a57;
+  --color-primary-400: #237047;
+  --color-primary-500: #1b5637;
+  --color-signal-300: #d97706;
+  --color-signal-400: #b45309;
+  --color-signal-500: #92400e;
+
+  --color-tint-lavender: color-mix(in srgb, var(--color-primary-300) 8%, var(--color-ink-200));
+  --color-tint-peach: color-mix(in srgb, var(--color-signal-400) 8%, var(--color-ink-200));
+}
+
+/* Rose — warm plum ink, rose accent, gold signal. */
+html[data-skin="rose"] {
+  --color-ink-000: #130b10;
+  --color-ink-100: #180e14;
+  --color-ink-200: #1f1319;
+  --color-ink-300: #291b22;
+  --color-ink-400: #35252d;
+  --color-ink-500: #3d2c35;
+  --color-border: #35252d;
+  --color-border-hi: #4d3a44;
+  --color-txt-2: #d5cfd2;
+  --color-txt-3: #a89fa4;
+  --color-txt-4: #786f74;
+
+  --color-primary-50: #fdf2f7;
+  --color-primary-100: #fce7f0;
+  --color-primary-200: #f9d0e2;
+  --color-primary-300: #f290b8;
+  --color-primary-400: #e56f9f;
+  --color-primary-500: #cc5382;
+  --color-primary-600: #ad446c;
+  --color-primary-700: #8e3758;
+  --color-primary-800: #6e2a44;
+  --color-primary-900: #4e1d30;
+  --color-primary-950: #2f111d;
+
+  --color-signal-300: #f5c518;
+  --color-signal-400: #e0a80c;
+  --color-signal-500: #bc8a06;
+
+  --color-tint-lavender: color-mix(in srgb, var(--color-primary-300) 9%, var(--color-ink-200));
+  --color-tint-peach: color-mix(in srgb, var(--color-signal-400) 8%, var(--color-ink-200));
+}
+
+html:not(.dark)[data-skin="rose"] {
+  --color-ink-000: #ffffff;
+  --color-ink-100: #f9f6f8;
+  --color-ink-200: #ffffff;
+  --color-ink-300: #f4eef1;
+  --color-ink-400: #eae1e6;
+  --color-ink-500: #d6c8cf;
+  --color-border: #eae1e6;
+  --color-border-hi: #d6c8cf;
+  --color-txt-1: #1c1218;
+  --color-txt-2: #4c4148;
+  --color-txt-3: #786f74;
+  --color-txt-4: #a69ba1;
+
+  --color-primary-300: #cc5382;
+  --color-primary-400: #ad446c;
+  --color-primary-500: #8e3758;
+  --color-signal-300: #a16207;
+  --color-signal-400: #854d0e;
+  --color-signal-500: #713f12;
+
+  --color-tint-lavender: color-mix(in srgb, var(--color-primary-300) 8%, var(--color-ink-200));
+  --color-tint-peach: color-mix(in srgb, var(--color-signal-400) 8%, var(--color-ink-200));
 }
 
 @layer base {

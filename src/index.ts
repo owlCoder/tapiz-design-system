@@ -1,4 +1,6 @@
 export * from "./components/icons/index";
+export { TAPIZ_SKINS, TAPIZ_SKIN_IDS, applyTapizSkin, clearTapizSkin } from "./skins";
+export type { TapizSkin, TapizSkinId, TapizSkinPreview } from "./skins";
 export { Button } from "./components/forms/Button";
 export type { ButtonProps } from "./components/forms/Button";
 export { Input } from "./components/forms/Input";

@@ -9,7 +9,7 @@ export interface MockupFrameProps extends BaseProps {
 
 export function MockupFrame({ children, title, toolbar, className = "" }: MockupFrameProps) {
   return (
-    <div className={`overflow-hidden border-2 border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) shadow-(--tapiz-shadow-brutal) ${className}`}>
+    <div className={`overflow-hidden border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) shadow-(--tapiz-shadow-brutal) ${className}`}>
       <div className="flex items-center justify-between border-b border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted) px-3 py-2">
         <div className="flex items-center gap-1.5">
           <span className="h-2.5 w-2.5 border border-(--tapiz-border-strong) bg-(--tapiz-danger)" />

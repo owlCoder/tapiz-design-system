@@ -42,6 +42,8 @@
   --color-signal-400: #fc6d26;
   --color-signal-500: #e24329;
 
+  --color-tint-lavender: color-mix(in srgb, #a989f5 9%, #171321);
+  --color-tint-peach: color-mix(in srgb, #fc6d26 8%, #171321);
   --color-warn: #f24f63;
   --color-good: #48a651;
   --color-icon-bg: #1a1230;

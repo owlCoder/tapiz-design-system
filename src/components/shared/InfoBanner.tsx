@@ -23,10 +23,10 @@ export function InfoBanner(props: InfoBannerProps) {
     const { text, variant = "info", className = "" } = props;
     const styles =
       variant === "warn"
-        ? "bg-warn/8 border-warn/25 text-warn"
+        ? "bg-tint-peach border-signal-400/25 text-signal-500"
         : variant === "lock"
-          ? "bg-warn/8 border-warn/30 text-warn"
-          : "bg-primary-500/10 border-primary-100 text-primary-500";
+          ? "bg-tint-peach border-signal-400/30 text-signal-500"
+          : "bg-tint-lavender border-primary-300/20 text-primary-300";
 
     const icon = variant === "lock"
       ? <Lock size={14} className="mt-1 shrink-0" />
@@ -44,7 +44,7 @@ export function InfoBanner(props: InfoBannerProps) {
 
   return (
     <div
-      className={`app-info-banner rounded-md px-4 py-3 bg-primary-300/6 border border-primary-300/20 ${className}`}
+      className={`app-info-banner rounded-md px-4 py-3 bg-tint-lavender border border-primary-300/20 ${className}`}
     >
       <p className="mb-0.5 text-[13px] font-semibold text-primary-300">
         {title}

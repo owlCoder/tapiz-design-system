@@ -37,6 +37,12 @@
   --color-warn: #f24f63;
   --color-good: #48a651;
 
+  /* Pastel tint pair — soft brand-tinted fills for banners, empty states,
+     illustration backdrops. Dark theme: ink-based tints; light theme
+     overrides with true pastels (lavender / peach). */
+  --color-tint-lavender: color-mix(in srgb, #a989f5 9%, #171321);
+  --color-tint-peach: color-mix(in srgb, #fc6d26 8%, #171321);
+
   --font-display: 'Inter Variable', system-ui, sans-serif;
   --font-body: 'Inter Variable', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
@@ -111,6 +117,8 @@
   --tapiz-accent-contrast: #171321;
   --tapiz-signal: var(--color-signal-400);
   --tapiz-signal-soft: color-mix(in srgb, var(--color-signal-400) 14%, transparent);
+  --tapiz-tint-primary: var(--color-tint-lavender);
+  --tapiz-tint-signal: var(--color-tint-peach);
 
   --tapiz-success: var(--color-good);
   --tapiz-success-soft: color-mix(in srgb, var(--color-good) 12%, transparent);
@@ -174,6 +182,9 @@ html:not(.dark) {
   --color-warn: #cb3446;
   --color-good: #327338;
 
+  --color-tint-lavender: #f3effc;
+  --color-tint-peach: #fef0e7;
+
   --tapiz-bg-canvas: #f7f6f9;
   --tapiz-bg-page: #f7f6f9;
   --tapiz-bg-surface: #ffffff;
@@ -227,6 +238,12 @@ html:not(.dark) {
   /* 2.0: the 1.x flat-brand `border-radius: 0 !important` reset is gone —
      rounded corners are part of the brand again (see --radius-* scale). */
 
+  html {
+    /* Reserve the scrollbar gutter permanently: overlays can hide overflow
+       without the layout (sidebar, centered content) shifting sideways. */
+    scrollbar-gutter: stable;
+  }
+
   html, body {
     background: var(--tapiz-bg-page);
     color: var(--tapiz-text-primary);
@@ -264,10 +281,30 @@ html:not(.dark) {
     color: var(--tapiz-text-primary) !important;
   }
   input::placeholder, textarea::placeholder { color: var(--tapiz-text-disabled) !important; }
-  input:focus, textarea:focus, select:focus {
+  /* Soft focus ring: focus-colored border + wide translucent halo. Inputs that
+     live inside an already-framed control (command palette, inline editors)
+     opt out with the `input-bare` class. */
+  input:focus:not(.input-bare), textarea:focus:not(.input-bare), select:focus:not(.input-bare) {
     border-color: var(--tapiz-border-focus) !important;
-    box-shadow: 0 0 0 1px var(--tapiz-border-focus) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--tapiz-border-focus) 22%, transparent) !important;
     outline: none !important;
+  }
+  input.input-bare, input.input-bare:focus {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* Native select arrow hugs the edge — replace it with our chevron, inset
+     from the right like the rest of the control's padding. */
+  select:not([multiple]):not([size]) {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2374717a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px 14px;
+    padding-right: 32px !important;
   }
 
   table { color: var(--tapiz-text-secondary) !important; }
@@ -304,12 +341,13 @@ html:not(.dark) {
   }
 }
 
+/* 2.0: kickers are plain muted labels — no uppercase, no letterspacing. */
 .kicker {
   font-family: var(--font-body);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 500;
   color: var(--tapiz-text-muted);
 }
 

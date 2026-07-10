@@ -23,7 +23,7 @@ export function HeroFrame({ eyebrow, title, description, actions, visual, meta, 
         {meta ? <div className="mt-8 border-l-2 border-(--tapiz-accent) pl-4 font-mono text-xs text-(--tapiz-text-muted)">{meta}</div> : null}
       </div>
       {visual ? (
-        <div className="animate-scale-in border-2 border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) p-3 shadow-(--tapiz-shadow-brutal-lg)">
+        <div className="animate-scale-in border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) p-3 shadow-(--tapiz-shadow-brutal-lg)">
           {visual}
         </div>
       ) : null}

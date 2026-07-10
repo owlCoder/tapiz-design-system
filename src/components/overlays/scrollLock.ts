@@ -13,7 +13,13 @@ export function acquireBodyScrollLock() {
     originalBodyPaddingRight = document.body.style.paddingRight;
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
-    if (scrollbarWidth > 0) {
+    // With `scrollbar-gutter: stable` (set in theme.css) the gutter stays
+    // reserved while overflow is hidden, so padding compensation would itself
+    // cause a horizontal jump — skip it.
+    const gutterStable = window
+      .getComputedStyle(document.documentElement)
+      .scrollbarGutter?.includes("stable");
+    if (!gutterStable && scrollbarWidth > 0) {
       const currentPadding = Number.parseFloat(window.getComputedStyle(document.body).paddingRight) || 0;
       document.body.style.paddingRight = `${currentPadding + scrollbarWidth}px`;
       // Expose the compensation width as a CSS variable so fixed/absolute elements

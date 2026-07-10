@@ -31,7 +31,7 @@ export function CommandMenu({ open, onClose, query = "", onQueryChange, groups, 
   const hasItems = groups.some((group) => group.items.length > 0);
   return (
     <div className="fixed inset-0 z-50 grid place-items-start bg-(--tapiz-bg-overlay) px-4 pt-[12vh]" onClick={onClose}>
-      <div className="mx-auto w-full max-w-2xl border-2 border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) shadow-(--tapiz-shadow-brutal-lg)" onClick={(e) => e.stopPropagation()}>
+      <div className="mx-auto w-full max-w-2xl border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) shadow-(--tapiz-shadow-brutal-lg)" onClick={(e) => e.stopPropagation()}>
         <div className="border-b border-(--tapiz-border-subtle) p-3">
           <SearchInput value={query} onChange={(value) => onQueryChange?.(value)} placeholder={placeholder} autoFocus />
         </div>

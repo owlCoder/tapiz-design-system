@@ -13,8 +13,10 @@ export function EmptyState({ title, description, message, icon }: EmptyStateProp
 
   return (
     <div className="rounded-lg border border-border bg-ink-200 px-4 py-10 text-center">
-      <div className="mb-2 flex justify-center text-txt-4">
-        {icon ?? <Info size={22} />}
+      <div className="mb-3 flex justify-center">
+        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-tint-lavender text-primary-300">
+          {icon ?? <Info size={20} />}
+        </span>
       </div>
       <p className="text-[13px] font-semibold text-txt-3">{resolvedTitle}</p>
       {description ? (
@@ -33,8 +35,10 @@ export function ErrorState({
 }) {
   return (
     <div className="rounded-lg border border-warn bg-ink-200 px-4 py-10 text-center">
-      <div className="mb-2 flex justify-center text-warn">
-        <Info size={22} />
+      <div className="mb-3 flex justify-center">
+        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-tint-peach text-warn">
+          <Info size={20} />
+        </span>
       </div>
       <p className="text-[13px] font-semibold text-warn">{title}</p>
       {error ? <p className="mt-1 text-[12px] text-txt-3">{error.message}</p> : null}

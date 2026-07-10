@@ -11,7 +11,7 @@ export interface CTASectionProps extends BaseProps {
 export function CTASection({ eyebrow, title, description, actions, className = "" }: CTASectionProps) {
   return (
     <section className={`mx-auto max-w-7xl px-(--tapiz-space-page-x) py-(--tapiz-space-section-y) ${className}`}>
-      <div className="border-2 border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) p-8 shadow-(--tapiz-shadow-brutal-lg) md:p-12">
+      <div className="border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) p-8 shadow-(--tapiz-shadow-brutal-lg) md:p-12">
         {eyebrow ? <div className="kicker mb-3">{eyebrow}</div> : null}
         <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>

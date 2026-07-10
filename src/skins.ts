@@ -2,7 +2,16 @@
 // theme.css (`html[data-skin=...]` blocks); this file only carries the ids
 // and preview swatches so apps can render a chooser without hardcoding hex.
 
-export const TAPIZ_SKIN_IDS = ["default", "ocean", "forest", "rose"] as const;
+export const TAPIZ_SKIN_IDS = [
+  "default",
+  "ocean",
+  "forest",
+  "rose",
+  "graphite",
+  "sand",
+  "crimson",
+  "aurora",
+] as const;
 
 export type TapizSkinId = (typeof TAPIZ_SKIN_IDS)[number];
 
@@ -50,6 +59,34 @@ export const TAPIZ_SKINS: readonly TapizSkin[] = [
     preview: {
       dark: { surface: "#1f1319", accent: "#f290b8", signal: "#e0a80c" },
       light: { surface: "#ffffff", accent: "#cc5382", signal: "#854d0e" },
+    },
+  },
+  {
+    id: "graphite",
+    preview: {
+      dark: { surface: "#141418", accent: "#a8b3c2", signal: "#fc6d26" },
+      light: { surface: "#ffffff", accent: "#5c687c", signal: "#e24329" },
+    },
+  },
+  {
+    id: "sand",
+    preview: {
+      dark: { surface: "#1e1812", accent: "#eda87c", signal: "#14b8a6" },
+      light: { surface: "#ffffff", accent: "#ab5c2e", signal: "#0d9488" },
+    },
+  },
+  {
+    id: "crimson",
+    preview: {
+      dark: { surface: "#201315", accent: "#f28b8b", signal: "#e0a80c" },
+      light: { surface: "#ffffff", accent: "#b83b3b", signal: "#854d0e" },
+    },
+  },
+  {
+    id: "aurora",
+    preview: {
+      dark: { surface: "#121a1b", accent: "#6fd9c4", signal: "#9d7bef" },
+      light: { surface: "#ffffff", accent: "#1b8a76", signal: "#6a45c0" },
     },
   },
 ];

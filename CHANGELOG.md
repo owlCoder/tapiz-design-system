@@ -6,6 +6,11 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 
 ## [Unreleased]
 
+## [2.2.0] - 2026-07-10
+
+### Added
+- Four more predefined skins: `graphite` (neutral gray + steel accent), `sand` (warm desert + terracotta), `crimson` (ruby accent + gold signal), `aurora` (mint accent + violet signal) — 8 skins total including default Ink & Ember
+
 ## [2.1.0] - 2026-07-10
 
 ### Added

@@ -18,9 +18,17 @@ export function Switch({ checked = false, onChange, disabled, label, description
         aria-checked={checked}
         disabled={disabled}
         onClick={() => onChange?.(!checked)}
-        className={`relative mt-0.5 h-6 w-11 border border-(--tapiz-border-strong) ${checked ? "bg-(--tapiz-accent)" : "bg-(--tapiz-bg-surface-muted)"}`}
+        className={`relative mt-0.5 h-6 w-11 rounded-full border transition-colors duration-200 ${
+          checked
+            ? "border-(--tapiz-accent) bg-(--tapiz-accent)"
+            : "border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted)"
+        }`}
       >
-        <span className={`absolute top-0.5 size-4 border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) transition-transform ${checked ? "left-5" : "left-0.5"}`} />
+        <span
+          className={`absolute top-1/2 size-4 -translate-y-1/2 rounded-full shadow-sm transition-[left,background-color] duration-200 ${
+            checked ? "left-[calc(100%-1.25rem)] bg-white" : "left-1 bg-(--tapiz-text-muted)"
+          }`}
+        />
       </button>
       {(label || description) ? (
         <span>

@@ -35,7 +35,7 @@ export const LogoMark = ({
   size = 28,
   className,
   bgClassName,
-  bgFill = "#7759c2",
+  bgFill = "var(--color-primary-500)",
   bgOpacity = 1,
   tone = "solid",
   variant = "lms",
@@ -47,7 +47,8 @@ export const LogoMark = ({
   const glyph = outline || glyphOnly ? "currentColor" : "#fff";
   // The few accent details that are purple on the white glyph in solid tone must
   // flip to the tile fill in outline tone; in glyph tone everything is monochrome.
-  const accentDetail = glyphOnly ? "currentColor" : outline ? bgFill : "#7759c2";
+  // Tracks the active skin via the same token as bgFill's default, not a static hex.
+  const accentDetail = glyphOnly ? "currentColor" : outline ? bgFill : "var(--color-primary-500)";
   const signalDetail = glyphOnly ? "currentColor" : "#fc6d26";
   return (
     <svg

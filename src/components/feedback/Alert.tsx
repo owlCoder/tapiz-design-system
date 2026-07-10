@@ -21,7 +21,7 @@ const toneClasses: Record<AlertTone, string> = {
 
 export function Alert({ tone = "info", title, children, icon, actions, className = "" }: AlertProps) {
   return (
-    <div className={`flex gap-3 border p-4 ${toneClasses[tone]} ${className}`}>
+    <div className={`flex gap-3 rounded-lg border p-4 ${toneClasses[tone]} ${className}`}>
       {icon ? <div className="mt-0.5 shrink-0">{icon}</div> : null}
       <div className="min-w-0 flex-1">
         {title ? <div className="font-semibold text-(--tapiz-text-primary)">{title}</div> : null}

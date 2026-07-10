@@ -130,6 +130,10 @@ export function SidePanel({
       style={{
         background: "color-mix(in srgb, var(--color-ink-000) 45%, transparent)",
         transition: reduceMotion ? "none" : `opacity ${TRANSITION_MS}ms ${TRANSITION_EASE}`,
+        // Chromium insets fixed elements by the root's reserved scrollbar gutter
+        // (scrollbar-gutter: stable in theme.css) — extend past it so the panel
+        // hugs the true viewport edge. Var is set by the body scroll lock.
+        right: "calc(-1 * var(--tapiz-scrollbar-comp, 0px))",
       }}
       onClick={(e) => e.target === e.currentTarget && onClose()}
       onWheel={(e) => e.preventDefault()}

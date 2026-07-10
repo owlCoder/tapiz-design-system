@@ -13,7 +13,7 @@ export interface TestimonialCardProps extends BaseProps {
 
 export function TestimonialCard({ quote, author, role, avatarSrc, className = "" }: TestimonialCardProps) {
   return (
-    <figure className={`border bg-(--tapiz-bg-surface) p-5 border-(--tapiz-border-subtle) shadow-(--tapiz-shadow-sm) ${className}`}>
+    <figure className={`rounded-lg border bg-(--tapiz-bg-surface) p-5 border-(--tapiz-border-subtle) shadow-(--tapiz-shadow-sm) ${className}`}>
       <blockquote className="text-base leading-7 text-(--tapiz-text-secondary)">“{quote}”</blockquote>
       <figcaption className="mt-5 flex items-center gap-3">
         <Avatar name={author} src={avatarSrc} size="sm" />

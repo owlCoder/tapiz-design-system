@@ -19,7 +19,7 @@ export interface AccordionProps extends BaseProps {
 
 export function Accordion({ items, openIds = [], onToggle, className = "" }: AccordionProps) {
   return (
-    <div className={`divide-y divide-(--tapiz-border-subtle) border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) ${className}`}>
+    <div className={`divide-y divide-(--tapiz-border-subtle) overflow-hidden rounded-lg border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) ${className}`}>
       {items.map((item) => {
         const open = openIds.includes(item.id);
         return (
@@ -34,7 +34,7 @@ export function Accordion({ items, openIds = [], onToggle, className = "" }: Acc
               <span className="font-semibold text-(--tapiz-text-primary)">{item.title}</span>
               <span className="flex items-center gap-3 text-(--tapiz-text-muted)">
                 {item.meta}
-                <span aria-hidden="true" className="font-mono text-lg">{open ? "−" : "+"}</span>
+                <span aria-hidden="true" className="text-lg text-(--tapiz-text-muted)">{open ? "−" : "+"}</span>
               </span>
             </button>
             {open ? <div className="border-t border-(--tapiz-border-subtle) px-4 py-4 text-sm text-(--tapiz-text-secondary)">{item.content}</div> : null}

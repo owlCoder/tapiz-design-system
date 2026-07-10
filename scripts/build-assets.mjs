@@ -25,25 +25,10 @@ const fontFiles = [
   "inter-latin-wght-italic.woff2",
   "inter-latin-ext-wght-italic.woff2",
   "inter-cyrillic-wght-italic.woff2",
-  "ibm-plex-mono-latin-400-normal.woff2",
-  "ibm-plex-mono-latin-400-normal.woff",
-  "ibm-plex-mono-latin-400-italic.woff2",
-  "ibm-plex-mono-latin-400-italic.woff",
-  "ibm-plex-mono-latin-500-normal.woff2",
-  "ibm-plex-mono-latin-500-normal.woff",
-  "ibm-plex-mono-latin-600-normal.woff2",
-  "ibm-plex-mono-latin-600-normal.woff",
-  "ibm-plex-mono-latin-ext-400-normal.woff2",
-  "ibm-plex-mono-latin-ext-400-normal.woff",
-  "ibm-plex-mono-latin-ext-500-normal.woff2",
-  "ibm-plex-mono-latin-ext-500-normal.woff",
-  "ibm-plex-mono-latin-ext-600-normal.woff2",
-  "ibm-plex-mono-latin-ext-600-normal.woff",
 ];
 
 const sourceDirs = [
   join(root, "node_modules/@fontsource-variable/inter/files"),
-  join(root, "node_modules/@fontsource/ibm-plex-mono/files"),
 ];
 
 for (const fontFile of fontFiles) {

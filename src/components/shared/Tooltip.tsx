@@ -23,9 +23,8 @@ export function Tooltip({ text, children, position = "top", align = "center", wi
           zIndex: 60,
           background: "var(--color-ink-300)",
           border: "1px solid var(--color-border-hi)",
+          borderRadius: "var(--radius-sm)",
           color: "var(--color-txt-2)",
-          fontFamily: "var(--font-mono)",
-          letterSpacing: "0.04em",
         }}
       >
         {text}

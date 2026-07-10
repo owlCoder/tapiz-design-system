@@ -32,7 +32,7 @@ const paddingClasses: Record<SurfacePadding, string> = {
 export function Surface({ children, variant = "surface", padding = "md", bordered = true, className = "", style }: SurfaceProps) {
   return (
     <section
-      className={[variantClasses[variant], paddingClasses[padding], bordered ? "border border-(--tapiz-border-subtle)" : "", className]
+      className={["rounded-lg", variantClasses[variant], paddingClasses[padding], bordered ? "border border-(--tapiz-border-subtle)" : "", className]
         .filter(Boolean)
         .join(" ")}
       style={style}

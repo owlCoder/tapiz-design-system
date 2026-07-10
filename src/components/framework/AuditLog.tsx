@@ -16,7 +16,7 @@ export interface AuditLogProps extends BaseProps {
 
 export function AuditLog({ items, className = "" }: AuditLogProps) {
   return (
-    <div className={`divide-y divide-(--tapiz-border-subtle) border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) ${className}`}>
+    <div className={`divide-y divide-(--tapiz-border-subtle) overflow-hidden rounded-lg border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) ${className}`}>
       {items.map((item, index) => (
         <div key={index} className="flex gap-3 p-4">
           <Avatar name={item.initials ?? item.actor} size="sm" />

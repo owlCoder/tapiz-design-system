@@ -16,7 +16,7 @@ export interface NotificationListProps extends BaseProps {
 
 export function NotificationList({ items, className = "" }: NotificationListProps) {
   return (
-    <div className={`divide-y divide-(--tapiz-border-subtle) border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) ${className}`}>
+    <div className={`divide-y divide-(--tapiz-border-subtle) overflow-hidden rounded-lg border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) ${className}`}>
       {items.map((item) => (
         <article key={item.id} className="flex gap-3 p-4">
           <span className={`mt-1 size-2.5 ${item.unread ? "bg-(--tapiz-accent)" : "bg-(--tapiz-border-subtle)"}`} aria-hidden="true" />

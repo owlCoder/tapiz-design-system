@@ -18,7 +18,7 @@ export function LogoCloud({ title, items, className = "" }: LogoCloudProps) {
         {title ? <p className="mb-6 text-center text-[11px] font-semibold text-(--tapiz-text-muted)">{title}</p> : null}
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-6">
           {items.map((item) => (
-            <div key={item.name} className="grid min-h-20 place-items-center border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface-muted) px-4 text-center text-sm font-semibold text-(--tapiz-text-secondary)">
+            <div key={item.name} className="grid min-h-20 place-items-center rounded-lg border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface-muted) px-4 text-center text-sm font-semibold text-(--tapiz-text-secondary)">
               {item.logo ?? item.name}
             </div>
           ))}

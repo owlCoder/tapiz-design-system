@@ -14,5 +14,5 @@ export interface RoadmapListProps extends BaseProps {
 }
 
 export function RoadmapList({ items, className = "" }: RoadmapListProps) {
-  return <div className={["grid gap-3 md:grid-cols-3", className].filter(Boolean).join(" ")}>{items.map((item, index) => <article key={index} className="border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) p-5"><div className="flex items-center justify-between gap-3"><span className="kicker">{item.quarter ?? `0${index + 1}`}</span>{item.status ? <Badge>{item.status}</Badge> : null}</div><h3 className="mt-4 font-semibold text-(--tapiz-text-primary)">{item.title}</h3>{item.description ? <p className="mt-2 text-sm leading-6 text-(--tapiz-text-muted)">{item.description}</p> : null}</article>)}</div>;
+  return <div className={["grid gap-3 md:grid-cols-3", className].filter(Boolean).join(" ")}>{items.map((item, index) => <article key={index} className="rounded-lg border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) p-5"><div className="flex items-center justify-between gap-3"><span className="kicker">{item.quarter ?? `0${index + 1}`}</span>{item.status ? <Badge>{item.status}</Badge> : null}</div><h3 className="mt-4 font-semibold text-(--tapiz-text-primary)">{item.title}</h3>{item.description ? <p className="mt-2 text-sm leading-6 text-(--tapiz-text-muted)">{item.description}</p> : null}</article>)}</div>;
 }

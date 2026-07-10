@@ -17,7 +17,7 @@ export function Slider({ label, valueLabel, className = "", ...props }: SliderPr
       <input
         {...props}
         type="range"
-        className="h-2 w-full cursor-pointer appearance-none border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted) accent-(--tapiz-accent)"
+        className="h-2 w-full cursor-pointer appearance-none rounded-full border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted) accent-(--tapiz-accent)"
       />
     </label>
   );

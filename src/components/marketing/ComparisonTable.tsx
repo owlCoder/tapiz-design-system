@@ -16,7 +16,7 @@ export interface ComparisonTableProps extends BaseProps {
 
 export function ComparisonTable({ rows, featureHeader = "Feature", includedHeader = "Tapiz", alternativeHeader = "Other", className = "" }: ComparisonTableProps) {
   return (
-    <div className={`overflow-x-auto border border-(--tapiz-border-strong) ${className}`}>
+    <div className={`overflow-x-auto rounded-lg border border-(--tapiz-border-strong) ${className}`}>
       <table className="w-full text-sm">
         <thead>
           <tr>

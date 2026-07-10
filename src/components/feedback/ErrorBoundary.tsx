@@ -56,7 +56,7 @@ export function DefaultErrorFallback({
       >
         <div>
           <div
-            className="font-mono font-bold leading-none"
+            className="font-display font-bold leading-none"
             style={{ fontSize: "clamp(72px,16vw,120px)", color: "var(--color-border-hi)", letterSpacing: "-0.04em" }}
           >
             500
@@ -69,15 +69,16 @@ export function DefaultErrorFallback({
 
         <div className="flex flex-col gap-1.5">
           <p className="text-base font-semibold" style={{ color: "var(--color-txt-1)" }}>{title}</p>
-          <p className="font-mono text-[11px] leading-relaxed" style={{ color: "var(--color-txt-3)" }}>{description}</p>
+          <p className="text-xs leading-relaxed" style={{ color: "var(--color-txt-3)" }}>{description}</p>
         </div>
 
         <div
-          className="font-mono text-[9px] uppercase px-2 py-1"
+          className="text-[9px] font-semibold uppercase px-2.5 py-1"
           style={{
             letterSpacing: ".2em",
             color: "rgba(255,80,80,0.9)",
             border: "1px solid rgba(255,80,80,0.25)",
+            borderRadius: 999,
             background: "rgba(255,80,80,0.05)",
           }}
         >
@@ -92,12 +93,12 @@ export function DefaultErrorFallback({
               width: "100%",
               padding: "10px",
               fontSize: "12px",
+              fontWeight: 600,
               background: "var(--color-primary-300)",
               color: "var(--color-ink-100)",
               border: "none",
+              borderRadius: "var(--radius-sm)",
               cursor: "pointer",
-              fontFamily: "var(--font-mono)",
-              letterSpacing: "0.05em",
             }}
           >
             {reloadLabel} →

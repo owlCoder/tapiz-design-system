@@ -26,7 +26,7 @@ export function BarList({ items, max, valueFormatter = (value) => value, classNa
               <span className="font-medium text-(--tapiz-text-secondary)">{item.label}</span>
               <span className="font-mono text-xs text-(--tapiz-text-muted)">{valueFormatter(item.value)}</span>
             </div>
-            <div className="h-2 border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface-muted)">
+            <div className="h-2 overflow-hidden rounded-full border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface-muted)">
               <div className="h-full bg-(--tapiz-accent)" style={{ width: `${percent}%` }} />
             </div>
             {item.detail ? <div className="mt-1 text-xs text-(--tapiz-text-muted)">{item.detail}</div> : null}

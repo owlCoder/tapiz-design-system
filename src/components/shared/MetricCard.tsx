@@ -44,7 +44,7 @@ export function MetricCard({
           </div>
         </div>
         {icon ? (
-          <div className="grid h-10 w-10 shrink-0 place-items-center border border-border-hi bg-(--color-icon-bg) text-primary-300">
+          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-border-hi bg-(--color-icon-bg) text-primary-300">
             {icon}
           </div>
         ) : null}
@@ -52,7 +52,7 @@ export function MetricCard({
       {(description || trend) ? (
         <div className="mt-4 flex flex-wrap items-center gap-2">
           {trend ? (
-            <span className={`inline-flex border px-2 py-0.5 text-[11px] font-semibold ${trendClasses[trendTone]}`}>
+            <span className={`inline-flex rounded-full border px-2 py-0.5 text-[11px] font-semibold ${trendClasses[trendTone]}`}>
               {trend}
             </span>
           ) : null}

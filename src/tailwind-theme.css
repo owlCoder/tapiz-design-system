@@ -51,7 +51,7 @@
 
   --font-display: 'Inter Variable', system-ui, sans-serif;
   --font-body:    'Inter Variable', system-ui, sans-serif;
-  --font-mono:    'IBM Plex Mono', ui-monospace, monospace;
+  --font-mono:    ui-monospace, 'Cascadia Mono', 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
 
   /* Radius scale (2.0 restores rounding) */
   --radius-none: 0;

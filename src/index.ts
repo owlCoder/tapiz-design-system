@@ -32,7 +32,7 @@ export {
 } from "./components/feedback/ErrorBoundary";
 export { BaseModal } from "./components/modals/BaseModal";
 export type { BaseModalProps } from "./components/modals/BaseModal";
-export { ConfirmDialog } from "./components/modals/ConfirmDialog";
+export { ConfirmDialog, setConfirmDialogDefaults } from "./components/modals/ConfirmDialog";
 export type { ConfirmDialogProps } from "./components/modals/ConfirmDialog";
 export { Tooltip } from "./components/shared/Tooltip";
 export type { TooltipProps } from "./components/shared/Tooltip";

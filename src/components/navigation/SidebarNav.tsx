@@ -43,7 +43,7 @@ export function SidebarNav({ groups, header, footer, className = "" }: SidebarNa
 
 function SidebarNavLink({ item }: { item: SidebarNavItem }) {
   const className = [
-    "flex w-full items-center gap-3 border px-3 py-2 text-left text-sm font-medium",
+    "flex w-full items-center gap-3 rounded-md border px-3 py-2 text-left text-sm font-medium",
     item.active
       ? "border-(--tapiz-border-strong) bg-(--tapiz-accent-soft) text-(--tapiz-text-primary) shadow-[inset_3px_0_0_var(--tapiz-accent)]"
       : "border-transparent text-(--tapiz-text-secondary) hover:border-(--tapiz-border-subtle) hover:bg-(--tapiz-bg-surface-muted) hover:text-(--tapiz-text-primary)",

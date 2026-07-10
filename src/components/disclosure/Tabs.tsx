@@ -19,7 +19,7 @@ export interface TabsProps extends BaseProps {
 
 const variants = {
   line: "border-b border-(--tapiz-border-subtle)",
-  boxed: "border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface-muted) p-1",
+  boxed: "rounded-lg border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface-muted) p-1",
 };
 
 export function Tabs({ items, activeId, onChange, className = "", variant = "line" }: TabsProps) {
@@ -37,7 +37,7 @@ export function Tabs({ items, activeId, onChange, className = "", variant = "lin
               aria-selected={selected}
               disabled={item.disabled}
               onClick={() => onChange?.(item.id)}
-              className={`inline-flex items-center gap-2 px-3 py-2 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-40 ${selected ? "bg-(--tapiz-bg-surface) text-(--tapiz-text-primary) shadow-[inset_0_-2px_0_var(--tapiz-accent)]" : "text-(--tapiz-text-muted) hover:bg-(--tapiz-bg-surface) hover:text-(--tapiz-text-primary)"}`}
+              className={`inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-40 ${selected ? "bg-(--tapiz-bg-surface) text-(--tapiz-text-primary) shadow-[inset_0_-2px_0_var(--tapiz-accent)]" : "text-(--tapiz-text-muted) hover:bg-(--tapiz-bg-surface) hover:text-(--tapiz-text-primary)"}`}
             >
               {item.label}
               {item.badge}

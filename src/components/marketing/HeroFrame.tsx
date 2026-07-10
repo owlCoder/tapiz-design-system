@@ -20,10 +20,10 @@ export function HeroFrame({ eyebrow, title, description, actions, visual, meta, 
         </h1>
         {description ? <p className="mt-6 max-w-2xl text-base leading-7 text-(--tapiz-text-secondary) md:text-lg">{description}</p> : null}
         {actions ? <div className="mt-8 flex flex-wrap gap-3">{actions}</div> : null}
-        {meta ? <div className="mt-8 border-l-2 border-(--tapiz-accent) pl-4 font-mono text-xs text-(--tapiz-text-muted)">{meta}</div> : null}
+        {meta ? <div className="mt-8 border-l-2 border-(--tapiz-accent) pl-4 text-xs text-(--tapiz-text-muted)">{meta}</div> : null}
       </div>
       {visual ? (
-        <div className="animate-scale-in border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) p-3 shadow-(--tapiz-shadow-brutal-lg)">
+        <div className="animate-scale-in rounded-xl border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) p-3 shadow-(--tapiz-shadow-lg)">
           {visual}
         </div>
       ) : null}

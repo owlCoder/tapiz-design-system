@@ -3,6 +3,13 @@ import { createPortal } from "react-dom";
 import { Button } from "../forms/Button";
 import { X, Check, Trash } from "../icons/index";
 
+const dialogDefaults = { confirmLabel: "Confirm", cancelLabel: "Cancel" };
+
+/** Set app-wide default labels (call from the host app, e.g. on i18n language change). */
+export function setConfirmDialogDefaults(defaults: Partial<typeof dialogDefaults>) {
+  Object.assign(dialogDefaults, defaults);
+}
+
 export interface ConfirmDialogProps {
   title: string;
   description?: ReactNode;
@@ -30,8 +37,8 @@ export function ConfirmDialog({
   danger = false,
   open = true,
 }: ConfirmDialogProps) {
-  const resolvedConfirm = confirmLabel ?? "Confirm";
-  const resolvedCancel = cancelLabel ?? "Cancel";
+  const resolvedConfirm = confirmLabel ?? dialogDefaults.confirmLabel;
+  const resolvedCancel = cancelLabel ?? dialogDefaults.cancelLabel;
   const resolvedDescription = description ?? message;
   if (!open) return null;
   return createPortal(
@@ -41,7 +48,7 @@ export function ConfirmDialog({
       onClick={onCancel}
     >
       <div
-        className="relative w-full max-w-sm rounded-xl bg-ink-200 border border-border-hi animate-scale-in"
+        className="relative w-full max-w-sm rounded-xl bg-ink-200 border border-border-hi shadow-(--tapiz-shadow-lg) animate-scale-in"
         onClick={e => e.stopPropagation()}
       >
         <div className="p-6 flex flex-col gap-4">
@@ -49,23 +56,23 @@ export function ConfirmDialog({
           <div className="flex items-center gap-3">
             {icon && (
               <div
-                className={`flex items-center justify-center w-9 h-9 shrink-0 rounded-md border ${danger ? "bg-warn/10 border-warn/25 text-warn" : "bg-primary-300/8 border-primary-300/15 text-primary-300"}`}
+                className={`flex items-center justify-center size-10 shrink-0 rounded-lg border ${danger ? "bg-warn/10 border-warn/25 text-warn" : "bg-primary-300/8 border-primary-300/15 text-primary-300"}`}
               >
                 {icon}
               </div>
             )}
-            <p className="text-sm font-semibold text-txt-1">
+            <p className="text-[15px] font-semibold text-txt-1">
               {title}
             </p>
           </div>
 
           {/* Description */}
-          <p className="text-sm text-txt-3">
+          <p className="text-sm leading-relaxed text-txt-3">
             {resolvedDescription}
           </p>
 
           {/* Actions */}
-          <div className="flex items-center justify-end gap-2">
+          <div className="flex items-center justify-end gap-2 pt-1">
             <Button variant="ghost" size="sm" icon={<X size={13} />} onClick={onCancel} disabled={loading}>
               {resolvedCancel}
             </Button>

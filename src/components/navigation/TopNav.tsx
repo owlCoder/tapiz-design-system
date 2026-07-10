@@ -23,7 +23,7 @@ export function TopNav({ brand, links = [], actions, className = "", sticky = tr
         {brand ? <div className="shrink-0">{brand}</div> : null}
         <nav className="hidden items-center gap-1 md:flex">
           {links.map((link, index) => {
-            const cls = `border px-3 py-1.5 text-sm font-medium ${link.active ? "border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted) text-(--tapiz-text-primary)" : "border-transparent text-(--tapiz-text-secondary) hover:border-(--tapiz-border-subtle) hover:text-(--tapiz-text-primary)"}`;
+            const cls = `rounded-md border px-3 py-1.5 text-sm font-medium ${link.active ? "border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted) text-(--tapiz-text-primary)" : "border-transparent text-(--tapiz-text-secondary) hover:border-(--tapiz-border-subtle) hover:text-(--tapiz-text-primary)"}`;
             return link.href ? <a key={index} href={link.href} className={cls}>{link.label}</a> : <button key={index} type="button" onClick={link.onClick} className={cls}>{link.label}</button>;
           })}
         </nav>

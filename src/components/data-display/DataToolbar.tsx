@@ -11,7 +11,7 @@ export interface DataToolbarProps extends BaseProps {
 
 export function DataToolbar({ title, description, search, filters, actions, className = "" }: DataToolbarProps) {
   return (
-    <div className={`border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) p-4 ${className}`}>
+    <div className={`rounded-lg border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) p-4 ${className}`}>
       <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div>
           {title ? <h3 className="text-base font-semibold text-(--tapiz-text-primary)">{title}</h3> : null}

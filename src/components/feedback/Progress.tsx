@@ -24,7 +24,7 @@ export function Progress({ value, max = 100, label, showValue = false, tone = "a
           {showValue ? <span className="font-mono">{Math.round(percentage)}%</span> : null}
         </div>
       ) : null}
-      <div className="h-2 border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted)">
+      <div className="h-2 overflow-hidden rounded-full border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted)">
         <div className={`h-full ${tones[tone]}`} style={{ width: `${percentage}%` }} />
       </div>
     </div>

@@ -22,11 +22,12 @@ export function acquireBodyScrollLock() {
     if (!gutterStable && scrollbarWidth > 0) {
       const currentPadding = Number.parseFloat(window.getComputedStyle(document.body).paddingRight) || 0;
       document.body.style.paddingRight = `${currentPadding + scrollbarWidth}px`;
-      // Expose the compensation width as a CSS variable so fixed/absolute elements
-      // (e.g. desktop sidebar) can shift by the same amount without a layout jump.
-      document.documentElement.style.setProperty(SCROLLBAR_VAR, `${scrollbarWidth}px`);
-    } else {
       document.documentElement.style.setProperty(SCROLLBAR_VAR, "0px");
+    } else {
+      // With a stable gutter, Chromium insets fixed elements by the reserved gutter,
+      // so `right: 0` overlays stop short of the real viewport edge. Expose the gutter
+      // width so overlays (SidePanel etc.) can extend past it.
+      document.documentElement.style.setProperty(SCROLLBAR_VAR, `${scrollbarWidth}px`);
     }
   }
 

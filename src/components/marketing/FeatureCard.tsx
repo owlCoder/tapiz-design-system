@@ -16,7 +16,7 @@ export function FeatureCard({ title, description, icon, eyebrow, children, class
   return (
     <Card variant={variant} hover className={`group ${className}`}>
       <div className="flex items-start gap-4">
-        {icon ? <div className="grid h-11 w-11 shrink-0 place-items-center border border-border-hi bg-(--color-icon-bg) text-primary-300">{icon}</div> : null}
+        {icon ? <div className="grid h-11 w-11 shrink-0 place-items-center rounded-md border border-border-hi bg-(--color-icon-bg) text-primary-300">{icon}</div> : null}
         <div className="min-w-0">
           {eyebrow ? <div className="kicker mb-1">{eyebrow}</div> : null}
           <h3 className="text-lg font-semibold text-txt-1">{title}</h3>

@@ -20,7 +20,7 @@ export interface AccessMatrixProps extends BaseProps {
 
 export function AccessMatrix({ roles, permissions, className = "" }: AccessMatrixProps) {
   return (
-    <div className={`overflow-x-auto border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) ${className}`}>
+    <div className={`overflow-x-auto rounded-lg border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) ${className}`}>
       <table className="min-w-full text-sm">
         <thead>
           <tr>

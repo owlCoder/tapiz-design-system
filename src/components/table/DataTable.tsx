@@ -102,8 +102,7 @@ export function DataTable<T>({
   const densityHeaderClass = density === "compact" ? "px-3 py-2" : density === "spacious" ? "px-4 py-4" : "px-3 py-2.5";
   const densityCellClass = density === "compact" ? "px-3 py-2" : density === "spacious" ? "px-4 py-4" : "px-3 py-2.5";
   const wrapperClass = [
-    "overflow-x-auto",
-    "border border-(--tapiz-border-subtle)",
+    "overflow-x-auto rounded-lg",    "border border-(--tapiz-border-subtle)",
     variant === "enterprise" ? "bg-(--tapiz-bg-surface) shadow-(--tapiz-shadow-md)" : "",
     className,
   ].filter(Boolean).join(" ");
@@ -126,7 +125,7 @@ export function DataTable<T>({
         <thead>
           <tr className="border-b border-border bg-ink-300">
             {columns.map((column) => {
-              const baseClass = `${densityHeaderClass} ${stickyHeader ? "sticky top-0 z-10" : ""} ${ALIGN_CLASS[column.align ?? "left"]} font-mono text-[11px] tracking-[.08em] text-txt-4 font-semibold whitespace-nowrap`;
+              const baseClass = `${densityHeaderClass} ${stickyHeader ? "sticky top-0 z-10" : ""} ${ALIGN_CLASS[column.align ?? "left"]} text-[11px] tracking-[.08em] text-txt-4 font-semibold whitespace-nowrap`;
 
               if (!column.sortable || !column.sortAccessor) {
                 return (
@@ -166,7 +165,7 @@ export function DataTable<T>({
               );
             })}
             {hasActions && (
-              <th scope="col" className="px-3 py-2.5 text-right font-mono text-[11px] tracking-[.08em] text-txt-4 font-semibold whitespace-nowrap" />
+              <th scope="col" className="px-3 py-2.5 text-right text-[11px] tracking-[.08em] text-txt-4 font-semibold whitespace-nowrap" />
             )}
           </tr>
         </thead>
@@ -183,7 +182,7 @@ export function DataTable<T>({
             ))
           ) : sortedData.length === 0 ? (
             <tr>
-              <td colSpan={colCount} className="px-4 py-10 text-center text-txt-4 text-sm font-mono">
+              <td colSpan={colCount} className="px-4 py-10 text-center text-txt-4 text-sm">
                 {emptyState}
               </td>
             </tr>

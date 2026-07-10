@@ -22,7 +22,7 @@ export function Drawer({ open, onClose, title, description, children, footer, si
             {title ? <h2 className="text-lg font-semibold text-(--tapiz-text-primary)">{title}</h2> : null}
             {description ? <p className="mt-1 text-sm text-(--tapiz-text-muted)">{description}</p> : null}
           </div>
-          <button type="button" onClick={onClose} className="border border-(--tapiz-border-subtle) px-2 py-1 font-mono text-sm text-(--tapiz-text-muted) hover:text-(--tapiz-text-primary)">×</button>
+          <button type="button" onClick={onClose} className="rounded-md border border-(--tapiz-border-subtle) px-2 py-1 text-sm text-(--tapiz-text-muted) hover:text-(--tapiz-text-primary)">×</button>
         </header>
         <div className="max-h-[calc(100vh-9rem)] overflow-auto p-5">{children}</div>
         {footer ? <footer className="border-t border-(--tapiz-border-subtle) p-4">{footer}</footer> : null}

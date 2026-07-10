@@ -10,7 +10,7 @@ export interface CodeBlockProps extends BaseProps {
 
 export function CodeBlock({ children, language, title, actions, className = "" }: CodeBlockProps) {
   return (
-    <figure className={`overflow-hidden border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) ${className}`}>
+    <figure className={`overflow-hidden rounded-lg border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) ${className}`}>
       {(title || language || actions) ? (
         <figcaption className="flex items-center justify-between gap-3 border-b border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface-muted) px-3 py-2">
           <span className="text-[11px] font-semibold text-(--tapiz-text-muted)">{title ?? language}</span>

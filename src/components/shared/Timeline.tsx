@@ -27,7 +27,7 @@ export function Timeline({ items, className = "" }: TimelineProps) {
     <ol className={`relative space-y-4 before:absolute before:left-4 before:top-2 before:h-[calc(100%-1rem)] before:w-px before:bg-(--tapiz-border-subtle) ${className}`}>
       {items.map((item) => (
         <li key={item.id} className="relative flex gap-3">
-          <span className={`z-10 grid size-8 shrink-0 place-items-center border text-xs ${tones[item.tone ?? "neutral"]}`}>{item.icon ?? "•"}</span>
+          <span className={`z-10 grid size-8 shrink-0 place-items-center rounded-full border text-xs ${tones[item.tone ?? "neutral"]}`}>{item.icon ?? "•"}</span>
           <span className="min-w-0 flex-1 pb-2">
             <span className="flex flex-wrap items-baseline justify-between gap-2">
               <span className="font-semibold text-(--tapiz-text-primary)">{item.title}</span>

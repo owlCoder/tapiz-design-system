@@ -19,8 +19,8 @@ export function ColorSwatchPicker({ options, value, onChange, className = "" }: 
       {options.map((option) => {
         const selected = option.value === value;
         return (
-          <button key={option.value} type="button" aria-pressed={selected} onClick={() => onChange?.(option.value)} className={["flex items-center gap-2 border px-3 py-2 text-sm transition", selected ? "border-(--tapiz-border-strong) bg-(--tapiz-accent-soft)" : "border-(--tapiz-border-subtle) hover:border-(--tapiz-border-strong)"].join(" ")}>
-            <span className="h-4 w-4 border border-(--tapiz-border-strong)" style={{ background: option.color } as CSSProperties} />
+          <button key={option.value} type="button" aria-pressed={selected} onClick={() => onChange?.(option.value)} className={["flex items-center gap-2 rounded-md border px-3 py-2 text-sm transition", selected ? "border-(--tapiz-border-strong) bg-(--tapiz-accent-soft)" : "border-(--tapiz-border-subtle) hover:border-(--tapiz-border-strong)"].join(" ")}>
+            <span className="h-4 w-4 rounded-sm border border-(--tapiz-border-strong)" style={{ background: option.color } as CSSProperties} />
             <span>{option.label}</span>
           </button>
         );

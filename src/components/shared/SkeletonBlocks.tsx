@@ -38,7 +38,7 @@ export function SkeletonBanner() {
       style={{
         background: "var(--color-ink-300)",
         border: "1px solid var(--color-border)",
-        borderTop: "2px solid var(--color-border-hi)",
+        borderRadius: "var(--radius-lg)",
       }}
     >
       <Skeleton className="mb-2 h-3 w-24" />

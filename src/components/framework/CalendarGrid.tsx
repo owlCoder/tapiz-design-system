@@ -18,7 +18,7 @@ const defaultWeekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 export function CalendarGrid({ days, weekdays = defaultWeekdays, className = "" }: CalendarGridProps) {
   return (
-    <div className={`border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) ${className}`}>
+    <div className={`overflow-hidden rounded-lg border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) `}>
       <div className="grid grid-cols-7 border-b border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface-muted)">
         {weekdays.map((day, index) => <div key={index} className="px-3 py-2 text-[11px] font-medium text-(--tapiz-text-muted)">{day}</div>)}
       </div>

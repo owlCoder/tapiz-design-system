@@ -30,7 +30,7 @@ export function PageHeader({
 }: PageHeaderProps) {
   const resolvedActions = actions ?? action;
   const variantClass = variant === "enterprise"
-    ? "border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) p-5 shadow-(--tapiz-shadow-sm)"
+    ? "rounded-lg border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) p-5 shadow-(--tapiz-shadow-sm)"
     : "border-b border-(--tapiz-border-subtle) pb-4";
 
   return (
@@ -46,7 +46,7 @@ export function PageHeader({
             </h2>
           </div>
           {description ? <div className="mt-2 max-w-3xl text-sm leading-6 text-(--tapiz-text-muted)">{description}</div> : null}
-          {meta ? <div className="mt-3 font-mono text-[11px] text-(--tapiz-text-disabled)">{meta}</div> : null}
+          {meta ? <div className="mt-3 text-[11px] font-medium text-(--tapiz-text-disabled)">{meta}</div> : null}
         </div>
         {resolvedActions ? <div className="flex shrink-0 flex-wrap gap-2">{resolvedActions}</div> : null}
       </div>

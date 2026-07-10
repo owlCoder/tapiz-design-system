@@ -29,10 +29,10 @@ const statusVariant: Record<IntegrationStatus, "success" | "default" | "info" | 
 
 export function IntegrationCard({ name, description, logo, status = "disconnected", lastSync, actions, className = "" }: IntegrationCardProps) {
   return (
-    <article className={`border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) p-5 ${className}`}>
+    <article className={`rounded-lg border border-(--tapiz-border-subtle) bg-(--tapiz-bg-surface) p-5 ${className}`}>
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-start gap-3">
-          <div className="flex size-11 items-center justify-center border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted) text-(--tapiz-accent)">
+          <div className="flex size-11 items-center justify-center rounded-md border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted) text-(--tapiz-accent)">
             {logo ?? <span className="font-mono text-xs">API</span>}
           </div>
           <div>

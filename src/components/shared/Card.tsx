@@ -18,10 +18,10 @@ export interface CardSectionProps extends BaseProps {
 }
 
 const variantClasses: Record<CardVariant, string> = {
-  surface: "border border-border bg-ink-200 shadow-(--tapiz-shadow-sm)",
-  raised: "border border-border bg-(--tapiz-bg-surface-raised) shadow-(--tapiz-shadow-md)",
-  outlined: "border border-border-hi bg-transparent",
-  glass: "border border-border bg-[color-mix(in_srgb,var(--tapiz-bg-surface)_78%,transparent)] shadow-(--tapiz-shadow-md) backdrop-blur-xl",
+  surface: "rounded-lg border border-border bg-ink-200 shadow-(--tapiz-shadow-sm)",
+  raised: "rounded-lg border border-border bg-(--tapiz-bg-surface-raised) shadow-(--tapiz-shadow-md)",
+  outlined: "rounded-lg border border-border-hi bg-transparent",
+  glass: "rounded-lg border border-border bg-[color-mix(in_srgb,var(--tapiz-bg-surface)_78%,transparent)] shadow-(--tapiz-shadow-md) backdrop-blur-xl",
 };
 
 const paddingClasses: Record<CardPadding, string> = {

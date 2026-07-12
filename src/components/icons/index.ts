@@ -110,6 +110,4 @@ export {
 } from "./BrandIcons";
 export type { IconProps } from "./BrandIcons";
 
-export { LogoMark } from "./LogoIcons";
-
 export { Icons, SectionIcons } from "./IconMaps";

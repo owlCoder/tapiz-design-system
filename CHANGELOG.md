@@ -6,6 +6,11 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 
 ## [Unreleased]
 
+## [2.3.0] - 2026-07-12
+
+### Removed
+- **Breaking:** `LogoMark` component removed (`src/components/icons/LogoIcons.tsx` deleted, export dropped from `src/components/icons/index.ts`). Every product now owns its brand glyph as a local `EcosystemLogoMark` component instead of importing a shared one — already ported in `tapiz-lms`, `tapiz-boards`, `tapiz-cloud-status`, `tapiz-sentinel`. Consumers still pinned to `^0.x`/`^2.2.x` ranges are unaffected; only a `^2.3.0`+ upgrade picks this up.
+
 ## [2.2.0] - 2026-07-10
 
 ### Added

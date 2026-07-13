@@ -1,3 +1,5 @@
+import { syncScrollGutter } from "../../scrollGutter";
+
 let lockCount = 0;
 let originalHtmlOverflow = "";
 let originalBodyOverflow = "";
@@ -7,6 +9,11 @@ const SCROLLBAR_VAR = "--tapiz-scrollbar-comp";
 
 export function acquireBodyScrollLock() {
   if (lockCount === 0) {
+    // Force a synchronous re-check before measuring: the gutter toggle in
+    // scrollGutter.ts runs off an async ResizeObserver, which could otherwise
+    // still read "auto" here on a page that has real overflow but hasn't
+    // been observed yet, causing a mid-lock layout jump.
+    syncScrollGutter();
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     originalHtmlOverflow = document.documentElement.style.overflow;
     originalBodyOverflow = document.body.style.overflow;

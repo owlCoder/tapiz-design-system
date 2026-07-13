@@ -1,6 +1,6 @@
 {
   "name": "@tapizlabs/ui",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Centralized design system, theming foundation, and reusable React UI components for the Tapiz platform.",
   "license": "MIT",
   "type": "module",
@@ -27,7 +27,9 @@
     "./tailwind-theme.css",
     "./fonts.css",
     "./dist/fonts.js",
-    "./dist/fonts.css"
+    "./dist/fonts.css",
+    "./dist/index.js",
+    "./src/scrollGutter.ts"
   ],
   "exports": {
     ".": {

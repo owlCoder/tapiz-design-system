@@ -1,3 +1,5 @@
+import "./scrollGutter";
+
 export * from "./components/icons/index";
 export { TAPIZ_SKINS, TAPIZ_SKIN_IDS, applyTapizSkin, clearTapizSkin } from "./skins";
 export type { TapizSkin, TapizSkinId, TapizSkinPreview } from "./skins";

@@ -1,0 +1,22 @@
+/* design-sync Tailwind v4 compile entry.
+   The DS ships Tailwind-native CSS (@theme/@utility in theme.css) and relies on
+   the consumer's Tailwind build; claude.ai/design needs browser-ready CSS, so
+   this entry compiles tokens + utilities used by src/ and authored previews. */
+@import "tailwindcss";
+@import "../theme.css";
+@import "../tailwind-theme.css";
+
+@source "../src/**/*.{ts,tsx}";
+@source "./previews/**/*.tsx";
+
+/* Safelist: the token-utility vocabulary the conventions header teaches the
+   design agent. Designs receive only the compiled styles.css (no Tailwind
+   build), so every named class family must be emitted even if unused in src. */
+@source inline("{bg,text,border}-ink-{000,100,200,300,400,500}");
+@source inline("{bg,text,border}-primary-{50,100,200,300,400,500,600,700,800,900,950}");
+@source inline("{bg,text,border}-signal-{300,400,500}");
+@source inline("text-txt-{1,2,3,4} bg-txt-{1,2,3,4}");
+@source inline("{border,bg}-border {border,bg}-border-hi");
+@source inline("{bg,text,border}-warn {bg,text,border}-good");
+@source inline("bg-tint-lavender bg-tint-peach");
+@source inline("btn-primary btn-secondary btn-danger input-field card card-hover stat-card form-panel skeleton");

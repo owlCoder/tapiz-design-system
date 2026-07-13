@@ -129,7 +129,7 @@ export default function HeroSection({ onBrowse }: HeroSectionProps) {
             margin: "0 auto 2.5rem",
           }}
         >
-          A brutalist design system for React.
+          The Ink &amp; Ember design system for React.
           <br />
           Zero compromise, full control.
         </p>

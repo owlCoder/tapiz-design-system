@@ -121,8 +121,8 @@ export default function TokensSection() {
           Colors
         </h3>
         <SwatchGroup label="Surfaces (Ink)" colors={INK_COLORS} />
-        <SwatchGroup label="Primary (Electric Cyan)" colors={PRIMARY_COLORS} />
-        <SwatchGroup label="Signal (Lime)" colors={SIGNAL_COLORS} />
+        <SwatchGroup label="Primary (Purple)" colors={PRIMARY_COLORS} />
+        <SwatchGroup label="Signal (Ember)" colors={SIGNAL_COLORS} />
         <SwatchGroup label="Semantic" colors={SEMANTIC_COLORS} />
         <SwatchGroup label="Text" colors={TEXT_COLORS} />
       </section>

@@ -63,10 +63,10 @@ export function Pagination({ page, totalPages, onChange, totalItems, pageSize, l
           onClick={() => onChange(Math.max(1, page - 1))}
           disabled={page === 1}
           title={copy.prevTitle}
-          className="flex items-center gap-1 rounded-sm border border-border px-2.5 py-1.5 text-[12px] font-medium text-txt-3 transition-colors hover:border-border-hi hover:text-txt-1 disabled:cursor-not-allowed disabled:opacity-30"
+          aria-label={copy.prev}
+          className="flex items-center rounded-sm border border-border px-2 py-1.5 text-txt-3 transition-colors hover:border-border-hi hover:text-txt-1 disabled:cursor-not-allowed disabled:opacity-30"
         >
           <ChevronLeft size={12} />
-          <span className="hidden sm:inline">{copy.prev}</span>
         </button>
 
         <div className="flex items-center gap-1">
@@ -97,9 +97,9 @@ export function Pagination({ page, totalPages, onChange, totalItems, pageSize, l
           onClick={() => onChange(Math.min(totalPages, page + 1))}
           disabled={page >= totalPages}
           title={copy.nextTitle}
-          className="flex items-center gap-1 rounded-sm border border-border px-2.5 py-1.5 text-[12px] font-medium text-txt-3 transition-colors hover:border-border-hi hover:text-txt-1 disabled:cursor-not-allowed disabled:opacity-30"
+          aria-label={copy.next}
+          className="flex items-center rounded-sm border border-border px-2 py-1.5 text-txt-3 transition-colors hover:border-border-hi hover:text-txt-1 disabled:cursor-not-allowed disabled:opacity-30"
         >
-          <span className="hidden sm:inline">{copy.next}</span>
           <ChevronRight size={12} />
         </button>
       </div>

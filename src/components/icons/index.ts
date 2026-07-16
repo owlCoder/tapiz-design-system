@@ -19,6 +19,7 @@ export {
   ChevronRight,
   ChevronUp,
   Clipboard,
+  ClipboardCheck,
   Clock,
   Copy,
   Cpu,

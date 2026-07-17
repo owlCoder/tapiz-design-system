@@ -6,6 +6,7 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 
 ## [Unreleased]
 
+
 ## [2.3.0] - 2026-07-12
 
 ### Removed

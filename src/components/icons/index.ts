@@ -41,6 +41,7 @@ export {
   Home,
   Image,
   Info,
+  Key,
   Layers,
   Lock,
   LogOut,

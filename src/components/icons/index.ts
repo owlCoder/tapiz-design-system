@@ -75,6 +75,7 @@ export {
   UserMinus,
   UserPlus,
   Users,
+  WifiOff,
   X,
   Zap,
   // Curated aliases — Tapiz-facing names for lucide glyphs.

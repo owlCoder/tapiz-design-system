@@ -4,6 +4,7 @@
 // glyphs. Brand/domain composites that lucide cannot cover live in
 // BrandIcons.tsx / LogoIcons.tsx.
 export {
+  Accessibility,
   Activity,
   ArrowLeft,
   ArrowRight,

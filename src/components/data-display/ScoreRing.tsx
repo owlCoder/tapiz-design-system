@@ -14,7 +14,7 @@ export function ScoreRing({ value, max = 100, label, size = 112, className = "" 
   const circumference = 2 * Math.PI * radius;
   const dash = circumference * normalized;
   return (
-    <div className={["inline-grid place-items-center", className].filter(Boolean).join(" ")} style={{ width: size, height: size }}>
+    <div className={["relative inline-grid place-items-center", className].filter(Boolean).join(" ")} style={{ width: size, height: size }}>
       <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
         <circle cx="50" cy="50" r={radius} fill="none" stroke="var(--tapiz-border-subtle)" strokeWidth="10" />
         <circle cx="50" cy="50" r={radius} fill="none" stroke="var(--tapiz-accent)" strokeWidth="10" strokeLinecap="square" strokeDasharray={`${dash} ${circumference - dash}`} />

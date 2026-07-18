@@ -32,6 +32,8 @@ export {
   EyeOff,
   FileText,
   Fingerprint,
+  Folder,
+  FolderPlus,
   GitCompare,
   Globe,
   GraduationCap,

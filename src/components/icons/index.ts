@@ -44,6 +44,7 @@ export {
   Info,
   Key,
   Layers,
+  Link2,
   Lock,
   LogOut,
   Mail,

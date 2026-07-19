@@ -72,6 +72,7 @@ export {
   Table,
   Tablet,
   Trophy,
+  UploadCloud,
   User,
   UserCheck,
   UserCog,

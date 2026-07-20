@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tapizlabs/ui": "^0.2.30",
+    "@tapizlabs/ui": "^2.3.10",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

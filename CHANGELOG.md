@@ -7,6 +7,11 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 ## [Unreleased]
 
 
+## [2.3.11] - 2026-07-20
+
+### Fixed
+- `LandingNavbarShell` mobile menu now opens full-screen (`inset: 0`, no max-height cap) instead of a short dropdown-style panel anchored under the header, matching the LMS landing page's mobile drawer UX. Blur/backdrop-filter on the drawer is unchanged.
+
 ## [2.3.0] - 2026-07-12
 
 ### Removed

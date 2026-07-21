@@ -1,5 +1,5 @@
 import type { BaseProps } from "../../types";
-import { Alert } from "../icons/index";
+import { WarningTriangle as Alert } from "../icons/index";
 
 export interface FormErrorProps extends BaseProps {
   message: string | null | undefined;

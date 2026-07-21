@@ -11,14 +11,20 @@ export interface SwitchProps extends BaseProps {
 
 export function Switch({ checked = false, onChange, disabled, label, description, className = "" }: SwitchProps) {
   return (
-    <label className={`flex cursor-pointer items-start gap-3 ${disabled ? "cursor-not-allowed opacity-50" : ""} ${className}`}>
+    <label className={`flex cursor-pointer items-center gap-3 ${(label || description) ? "justify-between" : ""} ${disabled ? "cursor-not-allowed opacity-50" : ""} ${className}`}>
+      {(label || description) ? (
+        <span>
+          {label ? <span className="block text-sm font-semibold text-(--tapiz-text-primary)">{label}</span> : null}
+          {description ? <span className="block text-xs text-(--tapiz-text-muted)">{description}</span> : null}
+        </span>
+      ) : null}
       <button
         type="button"
         role="switch"
         aria-checked={checked}
         disabled={disabled}
         onClick={() => onChange?.(!checked)}
-        className={`relative mt-0.5 h-6 w-11 rounded-full border transition-colors duration-200 ${
+        className={`relative h-6 w-11 shrink-0 rounded-full border transition-colors duration-200 ${
           checked
             ? "border-(--tapiz-accent) bg-(--tapiz-accent)"
             : "border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted)"
@@ -30,12 +36,6 @@ export function Switch({ checked = false, onChange, disabled, label, description
           }`}
         />
       </button>
-      {(label || description) ? (
-        <span>
-          {label ? <span className="block text-sm font-semibold text-(--tapiz-text-primary)">{label}</span> : null}
-          {description ? <span className="block text-xs text-(--tapiz-text-muted)">{description}</span> : null}
-        </span>
-      ) : null}
     </label>
   );
 }

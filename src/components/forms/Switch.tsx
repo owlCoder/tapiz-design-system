@@ -15,7 +15,7 @@ export function Switch({ checked = false, onChange, disabled, label, description
       {(label || description) ? (
         <span>
           {label ? <span className="block text-sm font-semibold text-(--tapiz-text-primary)">{label}</span> : null}
-          {description ? <span className="block text-xs text-(--tapiz-text-muted)">{description}</span> : null}
+          {description ? <span className="mt-1 block text-xs text-(--tapiz-text-muted)">{description}</span> : null}
         </span>
       ) : null}
       <button

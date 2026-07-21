@@ -70,7 +70,7 @@ Import the shared theme before your app-specific styles:
 Then consume components directly from the package:
 
 ```tsx
-import { Button, EmptyState, InfoBanner } from "@tapizlabs/ui";
+import { Button, EmptyState, InfoBanner, Plus } from "@tapizlabs/ui";
 
 export function ExamplePanel() {
   return (
@@ -79,10 +79,11 @@ export function ExamplePanel() {
         title="Shared UI"
         description="This screen is using the shared Tapiz design system package."
       />
-      <Button>Save changes</Button>
+      <Button icon={<Plus size={16} />}>Create record</Button>
       <EmptyState
         title="No records"
         description="Create your first item to get started."
+        action={<Button icon={<Plus size={16} />}>Create record</Button>}
       />
     </div>
   );
@@ -114,6 +115,30 @@ export default {
 ```
 
 If Tailwind is missing from the consumer app, `@tapizlabs/ui` will not render correctly.
+
+## Authenticated application composition
+
+Non-dashboard pages use the shared `PageHeader`. Keep the icon, title, subtitle, and primary action together on the left. Put one contextual `InfoBanner` or picker in `aside` on the right. `PageHeader`, `EmptyState`, and `SidePanel` automatically derive subtle background graphics from their icon.
+
+```tsx
+import { Button, FileText, InfoBanner, PageHeader, Plus } from "@tapizlabs/ui";
+
+export function DocumentsPageHeader() {
+  return (
+    <PageHeader
+      icon={<FileText size={20} />}
+      title="Documents"
+      subtitle="Create and share course documents."
+      action={<Button icon={<Plus size={16} />}>New document</Button>}
+      aside={<InfoBanner text="Changes are saved automatically." />}
+    />
+  );
+}
+```
+
+Use `EmptyState size="large"` for full-page empty views and `size="compact"` inside bounded tables or lists. SidePanel content remains scrollable while its header and optional footer stay fixed.
+
+Component geometry is owned by the package. `Button size="sm"` and `SegmentedTabs size="sm"` share the same 36px control height. Consumer `className` values may position or constrain a component, but must not override its radius, height, internal padding, or border strength. If two primitives do not align, update their shared DS size scale instead of adding a page-local fix.
 
 ## Included Components
 
@@ -205,6 +230,8 @@ export function DeleteDialogExample() {
 Compatibility note:
 
 - `ConfirmDialog` supports both `description` and legacy `message`
+- Dialog geometry and overlay behavior are owned by the design system. Consumers should compose content inside `BaseModal` or `ConfirmDialog`, not restyle their surfaces locally.
+- Both dialog primitives lock background scrolling, contain keyboard focus, close on Escape or scrim click, and restore focus to the invoking control.
 
 ### Form Primitives
 
@@ -343,6 +370,8 @@ This package is intentionally opinionated. It provides the shared Tapiz visual l
 - shared motion helpers
 
 Consumer apps can add local styles on top, but should treat `theme.css` as the base design contract for consistency.
+
+Contextual actions should use `ActionMenu` instead of app-specific dropdown markup. Its trigger, menu surface, item spacing, icon treatment, focus state, and destructive-action grouping are owned by the design system; consumers should provide only labels, icons, callbacks, and optional width constraints.
 
 ## Framework Boundary
 

@@ -140,24 +140,35 @@ export function SidePanel({
       onTouchMove={(e) => e.preventDefault()}
     >
       <div
-        className={`flex h-full max-sm:h-dvh w-full flex-col overflow-hidden bg-ink-200 ${
+        className={`relative isolate flex h-full max-sm:h-dvh w-full flex-col overflow-hidden bg-ink-200 ${
           side === "right"
             ? "rounded-l-2xl border-l border-border-hi max-sm:rounded-none max-sm:border-l-0"
             : "rounded-r-2xl border-r border-border-hi max-sm:rounded-none max-sm:border-r-0"
         }`}
         style={panelStyle}
       >
-        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-border px-4 py-3 sm:px-5">
+        {icon ? (
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden text-primary-300">
+            <span className="absolute -right-8 top-28 h-28 w-28 rotate-12 opacity-[0.065] [&_svg]:h-full [&_svg]:w-full [&_svg]:stroke-[0.8]">{icon}</span>
+            <span className="absolute -bottom-9 -left-8 h-24 w-24 -rotate-12 opacity-[0.045] [&_svg]:h-full [&_svg]:w-full [&_svg]:stroke-[0.8]">{icon}</span>
+          </div>
+        ) : (
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden text-primary-300">
+            <span className="absolute -right-8 top-28 h-24 w-24 rotate-12 rounded-3xl border-2 border-current opacity-[0.055]" />
+            <span className="absolute -bottom-9 -left-8 h-24 w-24 rounded-full border-2 border-current opacity-[0.04]" />
+          </div>
+        )}
+        <div className="relative z-10 flex min-h-18 shrink-0 items-center justify-between gap-3 border-b border-border/60 px-4 py-3 sm:px-5">
           <div className="flex min-w-0 items-center gap-3">
             {icon && (
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-ink-300 border border-border-hi text-primary-300">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-primary-300/20 bg-primary-300/8 text-primary-300">
                 {icon}
               </div>
             )}
             <div className="min-w-0">
-              <h3 id={titleId} className="truncate font-display text-[15px] font-semibold text-txt-1">{title}</h3>
+              <h3 id={titleId} className="truncate font-display text-base font-semibold text-txt-1">{title}</h3>
               {subtitle && (
-                <p className="mt-0.5 truncate text-[12px] text-txt-3">{subtitle}</p>
+                <p className="mt-0.5 truncate text-[13px] text-txt-3">{subtitle}</p>
               )}
             </div>
           </div>
@@ -166,19 +177,19 @@ export function SidePanel({
             onClick={onClose}
             aria-label={closeLabel}
             title={closeLabel}
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-transparent text-txt-3 transition-colors hover:border-border-hi hover:bg-ink-300 hover:text-txt-1"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-transparent text-txt-3 transition-colors hover:border-border-hi hover:bg-ink-300 hover:text-txt-1"
           >
             <X size={16} />
           </button>
         </div>
         <div
-          className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-5"
+          className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-5"
           onWheel={(e) => e.stopPropagation()}
           onTouchMove={(e) => e.stopPropagation()}
         >
           {children}
         </div>
-        {footer && <div className="shrink-0 border-t border-border px-4 py-3 sm:px-5">{footer}</div>}
+        {footer && <div className="relative z-10 shrink-0 border-t border-border/60 bg-ink-200/92 px-4 py-3 sm:px-5">{footer}</div>}
       </div>
     </div>,
     document.body,

@@ -13,13 +13,20 @@ export interface SegmentedTabsProps extends BaseProps {
   items: SegmentedTabItem[];
   activeId: string;
   onChange: (id: string) => void;
+  size?: "sm" | "md";
   buttonClassName?: string;
 }
+
+const sizeClasses = {
+  sm: "h-9 px-3 py-0 text-xs",
+  md: "h-10 px-4 py-0 text-sm",
+} as const;
 
 export function SegmentedTabs({
   items,
   activeId,
   onChange,
+  size = "sm",
   className = "",
   buttonClassName = "",
 }: SegmentedTabsProps) {
@@ -57,7 +64,7 @@ export function SegmentedTabs({
             }}
             type="button"
             onClick={() => onChange(item.id)}
-            className={`group relative z-10 inline-flex items-center gap-2 rounded-md border px-4 py-1 text-sm font-medium transition-[color,border-color,background-color,box-shadow] duration-200 ease-out ${
+            className={`group relative z-10 inline-flex items-center gap-2 rounded-md border font-medium transition-[color,border-color,background-color,box-shadow] duration-200 ease-out ${sizeClasses[size]} ${
               active
                 ? "border-transparent bg-transparent text-primary-300"
                 : "border-transparent text-txt-3 hover:border-border hover:bg-ink-200 hover:text-txt-1"

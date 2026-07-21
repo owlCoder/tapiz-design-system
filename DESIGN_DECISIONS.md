@@ -1,4 +1,4 @@
-# @tapizlabs/ui — Design Decisions (Initial Phase)
+# @tapizlabs/ui Design Decisions
 
 ## Overview
 
@@ -35,34 +35,34 @@
 
 ---
 
-## 3. Design System: Grid Brutalism — Electric Cyan + Signal Lime
+## 3. Design System: Ink & Ember application language
 
-**Visual identity established in `tapiz-reactjs-ui/src/index.css`:**
+The pre-2.0 flat brutalist system is retired. Authenticated product UI uses soft, layered semantic surfaces and the shared composition primitives.
 
 | Token | Value | Role |
 |---|---|---|
-| `--color-ink-000` | `#050608` | Darkest background |
-| `--color-primary-300` | `#5ee7ff` | Main accent (Electric Cyan) |
-| `--color-signal-400` | `#d4ff3a` | Shadow/highlight (Signal Lime) |
-| `--color-warn` | `#ff7a4d` | Warning state |
-| `--color-good` | `#4dd6a3` | Success state |
-| `--radius-sm` (and all radii) | `0` | Sharp corners everywhere |
-| `--font-display` | IBM Plex Sans | Display and body text |
-| Monospace | IBM Plex Mono | Code, data, labels |
+| `--color-ink-*` | near-black purple ramp | Canvas and layered surfaces |
+| `--color-primary-*` | skin-aware accent ramp | Navigation, icons, focus, contextual emphasis |
+| `--color-signal-*` | skin-aware secondary accent | Secondary identity and signal emphasis |
+| `--radius-sm…2xl` | 4 to 20px | Controls through large content surfaces |
+| `--tapiz-shadow-sm…lg` | soft elevation | Layering without offset or brutal shadows |
+| `--font-display` | Inter Variable | Display and body typography |
 
-**Signature effect:** `btn-primary` uses a 4px solid lime offset shadow (`box-shadow: 4px 4px 0 0 var(--color-signal-400)`) that shifts on hover — the defining visual gesture of the system.
+**Composition primitives are visual policy.** `PageHeader`, `InfoBanner`, `EmptyState`, and `SidePanel` define the authenticated application language. They use rounded 2xl surfaces, restrained semantic borders, 13 to 14px supporting text, and low-opacity thematic graphics derived from their icon. Product apps must compose these primitives instead of recreating them.
 
-**Dark-first:** the default color scheme is dark. Light mode is applied via `html:not(.dark)` overrides.
+**PageHeader contract:** icon tile, title and subtitle, optional primary action below the subtitle, and one contextual aside on the right. Dashboards may use role-specific heroes; other authenticated pages do not create alternate header layouts.
+
+**Geometry is centralized:** component `size`, `density`, `variant`, and `padding` props own radius, height, internal padding, and borders. Consumer class names are reserved for placement and responsive layout. Compact Button, SegmentedTabs, and ActionMenu triggers share the same 36px control height.
+
+**Dark-first, skin-aware:** the default color scheme is dark, light mode is applied via `html:not(.dark)`, and eight `data-skin` palettes recolor semantic tokens. Component code never assumes a fixed hue.
 
 ---
 
 ## 4. Typography
 
-**Decision:** IBM Plex Sans (display + body) and IBM Plex Mono (code/data), loaded via `@fontsource` packages.
+**Decision:** Inter Variable for display and body typography, with system monospace for code and technical data.
 
-**Font weights loaded:**
-- IBM Plex Sans: 300, 400, 500, 600, 700 — Latin + Cyrillic subsets
-- IBM Plex Mono: 400, 500 — Latin + Cyrillic subsets
+Supporting product text defaults to 13 to 14px. Sizes below 12px are limited to technical labels, keyboard hints, and tertiary counters.
 
 **Distribution:** font imports are centralized in `tapiz-design-system/src/fonts.ts` (a single `import "@tapizlabs/ui/fonts"` in consumer `main.tsx`).
 
@@ -158,3 +158,23 @@ Point 3 is the most common integration mistake — without it, Tailwind purges c
 | 5 | Publish to npm (`npm publish --access public`) |
 
 Full migration plan: [`uiframework.md`](../uiframework.md)
+
+---
+
+## 11. Action and Context Menus
+
+**Decision:** Contextual action lists use the shared `ActionMenu` primitive exclusively.
+
+The trigger inherits the standard `Button` size and radius. The floating menu uses a compact 272px default width, a soft 16px surface radius, 44px minimum item height, icon tiles, subtle scale-in motion, and a separated danger group. Consumer applications may control layout width through `menuStyle`, but must not restyle menu item geometry locally.
+
+Use `danger: true` for destructive actions so the separator, tone, hover state, and focus state remain consistent across products.
+
+---
+
+## 12. Modal and Confirmation Dialogs
+
+**Decision:** Every standard modal and destructive confirmation uses `BaseModal` or `ConfirmDialog`. Consumer applications provide content and semantic icons, but do not override the overlay, container, header, icon tile, action geometry, or radius.
+
+Both primitives share an 80% viewport height cap, a soft 16px surface, restrained borders and shadow, thematic low-opacity graphics derived from the dialog icon, internal scrolling, body scroll locking, focus containment, Escape dismissal, and focus restoration. Confirmation actions use the shared `Button` sizes: cancel is ghost and confirm is primary or danger.
+
+Complex domain workflows may compose their content inside `BaseModal`. A separate portal implementation is reserved for interaction models that cannot fit the modal contract, such as a full-screen scanner or editor, and must still preserve the same accessibility behavior.

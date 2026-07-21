@@ -23,13 +23,13 @@ export function useMenuPosition(
       if (!buttonElement) return;
       const rect = buttonElement.getBoundingClientRect();
       const viewportPadding = 8;
-      const menuOffset = 4;
-      const menuW = Math.min(320, window.innerWidth - viewportPadding * 2);
+      const menuOffset = 8;
+      const menuW = Math.min(272, window.innerWidth - viewportPadding * 2);
       const left = Math.max(
         viewportPadding,
         Math.min(rect.right - menuW, window.innerWidth - menuW - viewportPadding),
       );
-      const estimatedMenuHeight = Math.min(320, itemCount * 44 + 16);
+      const estimatedMenuHeight = Math.min(320, itemCount * 52 + 16);
       const spaceAbove = Math.max(0, rect.top - viewportPadding - menuOffset);
       const spaceBelow = Math.max(0, window.innerHeight - rect.bottom - viewportPadding - menuOffset);
       const preferBelow = spaceBelow >= estimatedMenuHeight || spaceBelow >= spaceAbove;

@@ -30,16 +30,20 @@ export interface ActionMenuProps {
 }
 
 const defaultMenuStyle: CSSProperties = {
-  background: "var(--color-ink-200)",
-  border: "1px solid var(--color-border-hi)",
-  borderRadius: "10px",
-  padding: "4px",
-  boxShadow: "0 16px 48px -8px rgba(0,0,0,0.45)",
+  background: "color-mix(in srgb, var(--color-ink-200) 96%, transparent)",
+  border: "1px solid color-mix(in srgb, var(--color-border-hi) 72%, transparent)",
+  borderRadius: "16px",
+  padding: "8px",
+  boxShadow: "0 24px 64px -18px rgba(0,0,0,0.62), 0 8px 24px -16px rgba(0,0,0,0.72)",
+  backdropFilter: "blur(18px)",
   maxHeight: "min(320px, calc(100vh - 180px))",
 };
 
 const itemBaseClass =
-  "flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 text-left text-sm transition-colors duration-100 hover:bg-ink-300 disabled:cursor-not-allowed disabled:opacity-40";
+  "group/menu-item relative flex min-h-11 w-full items-center gap-3 rounded-xl px-2.5 py-2 text-left text-sm font-medium outline-none transition-[background-color,color,transform] duration-150 hover:bg-primary-300/8 focus-visible:bg-primary-300/8 focus-visible:ring-1 focus-visible:ring-primary-300/40 active:scale-[0.985] disabled:cursor-not-allowed disabled:opacity-40";
+
+const iconBaseClass =
+  "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border transition-colors duration-150";
 
 export function ActionMenu({
   label,
@@ -79,7 +83,9 @@ export function ActionMenu({
       <div className="fixed inset-0 z-9998" onClick={() => setOpen(false)} />
       <div
         ref={menuRef}
-        className={menuClassName ?? "overflow-auto"}
+        role="menu"
+        aria-label={label}
+        className={["relative overflow-auto animate-scale-in", menuClassName].filter(Boolean).join(" ")}
         style={{
           position: "fixed",
           top: pos.top !== undefined ? pos.top : undefined,
@@ -93,13 +99,21 @@ export function ActionMenu({
           ...menuStyle,
         }}
       >
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-8 -top-10 h-24 w-24 rounded-full border border-primary-300/10 bg-primary-300/4"
+        />
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-10 -left-8 h-20 w-20 rounded-full border border-primary-300/8"
+        />
         {items.map((item, index) => (
-          <div key={item.key}>
-            {index > 0 && item.danger ? <div style={{ borderTop: "1px solid var(--color-border)" }} /> : null}
+          <div key={item.key} className="relative">
+            {index > 0 && item.danger ? <div className="my-2 border-t border-border/60" /> : null}
             <button
               type="button"
-              className={itemBaseClass}
-              style={{ color: item.danger ? "var(--color-warn)" : "var(--color-txt-2)" }}
+              role="menuitem"
+              className={`${itemBaseClass} ${item.danger ? "text-warn hover:bg-warn/8 focus-visible:bg-warn/8 focus-visible:ring-warn/35" : "text-txt-2 hover:text-txt-1"}`}
               disabled={item.disabled || item.loading}
               onClick={() => {
                 setOpen(false);
@@ -107,11 +121,21 @@ export function ActionMenu({
               }}
             >
               {item.loading ? (
-                <Spinner color="text-txt-3" />
-              ) : (
-                <span className={item.danger ? "shrink-0 text-warn" : "shrink-0 text-primary-300"}>{item.icon}</span>
-              )}
-              <span>{item.label}</span>
+                <span className={`${iconBaseClass} border-border/60 bg-ink-300/60 text-txt-3`}>
+                  <Spinner color="text-txt-3" />
+                </span>
+              ) : item.icon ? (
+                <span
+                  className={`${iconBaseClass} ${
+                    item.danger
+                      ? "border-warn/18 bg-warn/7 text-warn group-hover/menu-item:border-warn/28 group-hover/menu-item:bg-warn/10"
+                      : "border-primary-300/14 bg-primary-300/7 text-primary-300 group-hover/menu-item:border-primary-300/24 group-hover/menu-item:bg-primary-300/11"
+                  }`}
+                >
+                  {item.icon}
+                </span>
+              ) : null}
+              <span className="min-w-0 flex-1 truncate">{item.label}</span>
             </button>
           </div>
         ))}
@@ -125,9 +149,9 @@ export function ActionMenu({
         size={buttonSize}
         variant={buttonVariant}
         icon={icon}
-        iconRight={<ChevronDown size={11} />}
+        iconRight={<ChevronDown size={12} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />}
         onClick={() => setOpen(value => !value)}
-        className={buttonClassName}
+        className={`${buttonClassName} ${open ? "border-primary-300/45 bg-primary-300/8 text-primary-300" : ""}`.trim()}
         fullWidth={fullWidth}
       >
         {label}

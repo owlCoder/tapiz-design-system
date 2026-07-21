@@ -29,11 +29,11 @@ export function InfoBanner(props: InfoBannerProps) {
           : "bg-tint-lavender border-primary-300/20 text-primary-300";
 
     const icon = variant === "lock"
-      ? <Lock size={14} className="mt-1 shrink-0" />
-      : <Info size={14} className="mt-1 shrink-0" />;
+      ? <Lock size={15} className="shrink-0" />
+      : <Info size={15} className="shrink-0" />;
 
     return (
-      <div className={`app-info-banner flex items-start gap-2.5 rounded-md border px-3.5 py-2.5 text-[13px] ${styles} ${className}`}>
+      <div className={`app-info-banner flex min-h-14 items-center gap-3 rounded-xl border px-4 py-3 text-sm ${styles} ${className}`}>
         {icon}
         <p className="font-medium leading-relaxed">{text}</p>
       </div>
@@ -44,12 +44,12 @@ export function InfoBanner(props: InfoBannerProps) {
 
   return (
     <div
-      className={`app-info-banner rounded-md px-4 py-3 bg-tint-lavender border border-primary-300/20 ${className}`}
+      className={`app-info-banner rounded-xl border border-primary-300/20 bg-tint-lavender px-4 py-3.5 ${className}`}
     >
-      <p className="mb-0.5 text-[13px] font-semibold text-primary-300">
+      <p className="mb-1 text-sm font-semibold text-primary-300">
         {title}
       </p>
-      <p className="text-[12px] leading-relaxed text-txt-2">
+      <p className="text-[13px] leading-relaxed text-txt-2">
         {description}
       </p>
     </div>

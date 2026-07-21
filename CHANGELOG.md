@@ -6,6 +6,13 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 
 ## [Unreleased]
 
+### Changed
+- `PageHeader` now provides the canonical authenticated-page composition with an icon tile, title/subtitle/action stack, optional right-side `aside`, soft surface, and thematic edge graphics.
+- `InfoBanner`, `EmptyState`, `ErrorState`, and `SidePanel` now share the rounded, softer-border application style and readable 13 to 14px supporting typography.
+- `EmptyState` now accepts an optional `action` and `size`; `SidePanel` derives subtle background graphics from its icon.
+- `Button` sizes now use fixed DS heights, and `SegmentedTabs` shares the same compact/standard height scale so adjacent controls align without consumer overrides.
+- `ActionMenu` now uses the canonical compact menu surface with softer borders, icon tiles, danger grouping, active-trigger feedback, reduced default width, and scale-in motion.
+- `BaseModal` and `ConfirmDialog` now share the canonical rounded overlay surface, thematic edge graphics, readable typography, DS-sized actions, scroll locking, focus containment, Escape handling, and focus restoration.
 
 ## [2.3.11] - 2026-07-20
 

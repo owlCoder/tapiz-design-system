@@ -1,7 +1,8 @@
-import { ReactNode } from "react";
+import { ReactNode, useId, useRef } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "../forms/Button";
-import { X, Check, Trash } from "../icons/index";
+import { X, Check, Trash, Info, WarningTriangle } from "../icons/index";
+import { useModalLifecycle } from "./useModalLifecycle";
 
 const dialogDefaults = { confirmLabel: "Confirm", cancelLabel: "Cancel" };
 
@@ -40,39 +41,62 @@ export function ConfirmDialog({
   const resolvedConfirm = confirmLabel ?? dialogDefaults.confirmLabel;
   const resolvedCancel = cancelLabel ?? dialogDefaults.cancelLabel;
   const resolvedDescription = description ?? message;
+  const titleId = useId();
+  const descriptionId = useId();
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useModalLifecycle(open, onCancel, dialogRef);
   if (!open) return null;
+
+  const resolvedIcon = icon ?? (danger
+    ? <WarningTriangle size={20} />
+    : <Info size={20} />);
+
   return createPortal(
     <div
-      className="fixed inset-0 z-300 flex items-center justify-center px-4 backdrop-blur-sm"
-      style={{ background: "color-mix(in srgb, var(--color-ink-000) 45%, transparent)" }}
-      onClick={onCancel}
+      role={danger ? "alertdialog" : "dialog"}
+      aria-modal="true"
+      aria-labelledby={titleId}
+      aria-describedby={resolvedDescription ? descriptionId : undefined}
+      className="fixed inset-0 z-300 flex items-center justify-center p-4 backdrop-blur-sm"
+      style={{ background: "color-mix(in srgb, var(--color-ink-000) 58%, transparent)" }}
+      onClick={(event) => event.target === event.currentTarget && onCancel()}
     >
       <div
-        className="relative w-full max-w-sm rounded-xl bg-ink-200 border border-border-hi shadow-(--tapiz-shadow-lg) animate-scale-in"
-        onClick={e => e.stopPropagation()}
+        ref={dialogRef}
+        tabIndex={-1}
+        aria-busy={loading || undefined}
+        className="relative isolate w-full max-w-md overflow-hidden rounded-2xl border border-border/65 bg-ink-200 shadow-(--tapiz-shadow-lg) outline-none animate-scale-in"
+        onClick={(event) => event.stopPropagation()}
       >
-        <div className="p-6 flex flex-col gap-4">
-          {/* Icon + title row */}
+        <div
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-0 z-0 overflow-hidden ${danger ? "text-warn" : "text-primary-300"}`}
+        >
+          <span className="absolute -right-7 -top-8 h-28 w-28 rotate-12 opacity-[0.065] [&_svg]:h-full [&_svg]:w-full [&_svg]:stroke-[0.8]">{resolvedIcon}</span>
+          <span className="absolute -bottom-10 -left-9 h-24 w-24 -rotate-12 opacity-[0.04] [&_svg]:h-full [&_svg]:w-full [&_svg]:stroke-[0.8]">{resolvedIcon}</span>
+        </div>
+
+        <div className="relative z-10 flex flex-col gap-5 p-5 sm:p-6">
           <div className="flex items-center gap-3">
-            {icon && (
-              <div
-                className={`flex items-center justify-center size-10 shrink-0 rounded-lg border ${danger ? "bg-warn/10 border-warn/25 text-warn" : "bg-primary-300/8 border-primary-300/15 text-primary-300"}`}
-              >
-                {icon}
-              </div>
-            )}
-            <p className="text-[15px] font-semibold text-txt-1">
+            <div
+              className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${danger ? "border-warn/25 bg-warn/10 text-warn" : "border-primary-300/20 bg-primary-300/8 text-primary-300"}`}
+            >
+              {resolvedIcon}
+            </div>
+            <h3 id={titleId} className="min-w-0 font-display text-base font-semibold text-txt-1">
               {title}
-            </p>
+            </h3>
           </div>
 
-          {/* Description */}
-          <p className="text-sm leading-relaxed text-txt-3">
-            {resolvedDescription}
-          </p>
+          {resolvedDescription ? (
+            <div className="rounded-xl border border-border/55 bg-ink-300/45 px-4 py-3.5">
+              <div id={descriptionId} className="text-sm leading-6 text-txt-2">
+                {resolvedDescription}
+              </div>
+            </div>
+          ) : null}
 
-          {/* Actions */}
-          <div className="flex items-center justify-end gap-2 pt-1">
+          <div className="flex flex-col-reverse gap-2 border-t border-border/55 pt-4 sm:flex-row sm:items-center sm:justify-end">
             <Button variant="ghost" size="sm" icon={<X size={13} />} onClick={onCancel} disabled={loading}>
               {resolvedCancel}
             </Button>

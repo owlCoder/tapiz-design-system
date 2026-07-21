@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { Menu, Moon, Sun, X } from "../icons/index";
 import type { BaseProps } from "../../types";
 import { useDrawerState } from "./useDrawerState";
@@ -44,13 +45,12 @@ export function LandingNavbarShell({
   menuLabel,
   mobileActions,
   mobileDialogLabel,
-  mobileLanguageSwitcher,
   mobileNavLabel,
   onThemeToggle,
   theme,
   themeLabels,
 }: LandingNavbarShellProps) {
-  const { open, setOpen, renderDrawer } = useDrawerState();
+  const { open, setOpen, renderDrawer, shown } = useDrawerState();
 
   const drawerLabel = mobileDialogLabel ?? menuLabel;
   const resolvedCloseMenuLabel = closeMenuLabel ?? menuLabel;
@@ -106,45 +106,55 @@ export function LandingNavbarShell({
         </div>
       </header>
 
-      {renderDrawer ? (
-        <button
-          type="button"
-          className="tapiz-landing-navbar__scrim"
-          data-state={open ? "open" : "closed"}
-          aria-label={resolvedCloseMenuLabel}
-          onClick={() => setOpen(false)}
-        />
-      ) : null}
-
-      {renderDrawer ? (
-        <div
-          className="tapiz-landing-navbar__drawer"
-          data-state={open ? "open" : "closed"}
-          role="dialog"
-          aria-modal="true"
-          aria-label={drawerLabel}
-        >
-          <nav className="tapiz-landing-navbar__drawer-nav" aria-label={resolvedMobileNavLabel}>
-            {items.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="tapiz-landing-navbar__drawer-link"
+      {renderDrawer && typeof document !== "undefined"
+        ? createPortal(
+            <>
+              <button
+                type="button"
+                className="tapiz-landing-navbar__scrim"
+                data-state={shown ? "open" : "closed"}
+                aria-label={resolvedCloseMenuLabel}
                 onClick={() => setOpen(false)}
+                style={{ backdropFilter: "none", WebkitBackdropFilter: "none" }}
+              />
+
+              <div
+                className="tapiz-landing-navbar__drawer"
+                data-state={shown ? "open" : "closed"}
+                role="dialog"
+                aria-modal="true"
+                aria-label={drawerLabel}
+                style={{ backdropFilter: "none", WebkitBackdropFilter: "none" }}
               >
-                {item.icon ? <span aria-hidden="true" className="tapiz-landing-navbar__link-icon">{item.icon}</span> : null}
-                <span>{item.label}</span>
-              </a>
-            ))}
-          </nav>
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  aria-label={resolvedCloseMenuLabel}
+                  className="tapiz-landing-navbar__drawer-close"
+                >
+                  <X size={18} />
+                </button>
 
-          {mobileLanguageSwitcher ? (
-            <div className="tapiz-landing-navbar__language tapiz-landing-navbar__language--mobile">{mobileLanguageSwitcher}</div>
-          ) : null}
+                <nav className="tapiz-landing-navbar__drawer-nav" aria-label={resolvedMobileNavLabel}>
+                  {items.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="tapiz-landing-navbar__drawer-link"
+                      onClick={() => setOpen(false)}
+                    >
+                      {item.icon ? <span aria-hidden="true" className="tapiz-landing-navbar__link-icon">{item.icon}</span> : null}
+                      <span>{item.label}</span>
+                    </a>
+                  ))}
+                </nav>
 
-          {mobileActions ? <div className="tapiz-landing-navbar__drawer-actions">{mobileActions}</div> : null}
-        </div>
-      ) : null}
+                {mobileActions ? <div className="tapiz-landing-navbar__drawer-actions">{mobileActions}</div> : null}
+              </div>
+            </>,
+            document.body,
+          )
+        : null}
     </>
   );
 }

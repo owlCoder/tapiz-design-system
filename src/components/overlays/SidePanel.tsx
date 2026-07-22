@@ -16,6 +16,8 @@ export interface SidePanelProps {
   /** Side the panel slides in from. Defaults to "right". */
   side?: "left" | "right";
   closeLabel?: string;
+  /** Hide the header's X button — set false when the footer already has its own cancel/close action. Defaults to true. */
+  showCloseButton?: boolean;
 }
 
 // Max width in rem per size. Applied via inline style (not a Tailwind class) so the
@@ -54,6 +56,7 @@ export function SidePanel({
   width = "md",
   side = "right",
   closeLabel = "Close panel",
+  showCloseButton = true,
 }: SidePanelProps) {
   const titleId = useId();
   const [mounted, setMounted] = useState(isOpen);
@@ -158,7 +161,7 @@ export function SidePanel({
             <span className="absolute -bottom-9 -left-8 h-24 w-24 rounded-full border-2 border-current opacity-[0.04]" />
           </div>
         )}
-        <div className="relative z-10 flex min-h-18 shrink-0 items-center justify-between gap-3 border-b border-border/60 px-4 py-3 sm:px-5">
+        <div className="relative z-10 flex shrink-0 items-center justify-between gap-3 border-b border-border/60 px-4 py-3.5 sm:px-5">
           <div className="flex min-w-0 items-center gap-3">
             {icon && (
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-primary-300/20 bg-primary-300/8 text-primary-300">
@@ -172,15 +175,17 @@ export function SidePanel({
               )}
             </div>
           </div>
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label={closeLabel}
-            title={closeLabel}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-transparent text-txt-3 transition-colors hover:border-border-hi hover:bg-ink-300 hover:text-txt-1"
-          >
-            <X size={16} />
-          </button>
+          {showCloseButton && (
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label={closeLabel}
+              title={closeLabel}
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-transparent text-txt-3 transition-colors hover:border-border-hi hover:bg-ink-300 hover:text-txt-1"
+            >
+              <X size={16} />
+            </button>
+          )}
         </div>
         <div
           className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-5"

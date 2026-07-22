@@ -13,6 +13,8 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 - `Button` sizes now use fixed DS heights, and `SegmentedTabs` shares the same compact/standard height scale so adjacent controls align without consumer overrides.
 - `ActionMenu` now uses the canonical compact menu surface with softer borders, icon tiles, danger grouping, active-trigger feedback, reduced default width, and scale-in motion.
 - `BaseModal` and `ConfirmDialog` now share the canonical rounded overlay surface, thematic edge graphics, readable typography, DS-sized actions, scroll locking, focus containment, Escape handling, and focus restoration.
+- `Surface` now accepts a semantic `radius` (`md`, `lg`, or `xl`) so page cards can use canonical geometry without local utility overrides.
+- `EmptyState` now supports a canonical `split` page layout with a supporting rail and stronger thematic edge graphics.
 
 ## [2.3.11] - 2026-07-20
 

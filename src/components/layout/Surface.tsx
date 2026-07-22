@@ -3,11 +3,13 @@ import type { CSSProperties, ReactNode } from "react";
 
 export type SurfaceVariant = "canvas" | "surface" | "raised" | "muted" | "inverse";
 export type SurfacePadding = "none" | "sm" | "md" | "lg" | "xl";
+export type SurfaceRadius = "md" | "lg" | "xl";
 
 export interface SurfaceProps extends BaseProps {
   children: ReactNode;
   variant?: SurfaceVariant;
   padding?: SurfacePadding;
+  radius?: SurfaceRadius;
   bordered?: boolean;
 
   style?: CSSProperties;
@@ -29,10 +31,16 @@ const paddingClasses: Record<SurfacePadding, string> = {
   xl: "p-8",
 };
 
-export function Surface({ children, variant = "surface", padding = "md", bordered = true, className = "", style }: SurfaceProps) {
+const radiusClasses: Record<SurfaceRadius, string> = {
+  md: "rounded-lg",
+  lg: "rounded-xl",
+  xl: "rounded-2xl",
+};
+
+export function Surface({ children, variant = "surface", padding = "md", radius = "md", bordered = true, className = "", style }: SurfaceProps) {
   return (
     <section
-      className={["rounded-lg", variantClasses[variant], paddingClasses[padding], bordered ? "border border-(--tapiz-border-subtle)" : "", className]
+      className={[radiusClasses[radius], variantClasses[variant], paddingClasses[padding], bordered ? "border border-(--tapiz-border-subtle)" : "", className]
         .filter(Boolean)
         .join(" ")}
       style={style}

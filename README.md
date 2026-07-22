@@ -231,6 +231,8 @@ Compatibility note:
 
 - `ConfirmDialog` supports both `description` and legacy `message`
 - Dialog geometry and overlay behavior are owned by the design system. Consumers should compose content inside `BaseModal` or `ConfirmDialog`, not restyle their surfaces locally.
+- Use `Surface radius="xl"` for primary page cards and `radius="lg"` for nested groups. Do not override Surface radius with local utility classes.
+- Use `EmptyState layout="split"` with `aside` for broad page empty states that need contextual steps or related actions. Keep the default centered layout for bounded lists and tables.
 - Both dialog primitives lock background scrolling, contain keyboard focus, close on Escape or scrim click, and restore focus to the invoking control.
 
 ### Form Primitives

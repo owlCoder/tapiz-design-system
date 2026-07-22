@@ -6,6 +6,8 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 
 ## [Unreleased]
 
+## [2.3.20] - 2026-07-22
+
 ### Changed
 - `PageHeader` now provides the canonical authenticated-page composition with an icon tile, title/subtitle/action stack, optional right-side `aside`, soft surface, and thematic edge graphics.
 - `InfoBanner`, `EmptyState`, `ErrorState`, and `SidePanel` now share the rounded, softer-border application style and readable 13 to 14px supporting typography.

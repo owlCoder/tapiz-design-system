@@ -6,6 +6,13 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 
 ## [Unreleased]
 
+## [3.0.22] - 2026-07-22
+
+### Changed
+- `ConfirmDialog` footer actions now sit in a dedicated sticky bar (`border-t`, `bg-ink-200/92`, matching `SidePanel`'s footer treatment) instead of inline with the body content; both buttons are equal-width (`w-1/2`), confirm always uses `primary` (theme-aware, no separate danger-outline styling), cancel uses `secondary` instead of `ghost`, and confirm now renders first (left) with cancel second (right).
+- `icons/index.ts` gains `PenLine`, `Quote`, `Scale` lucide re-exports.
+- `LandingNavbarShell` now supports an optional `dropdown`/`dropdownMobile` per nav item for a mega-menu-style disclosure panel (desktop hover/click with a close-delay to allow pointer transit onto the panel; mobile renders as an inline expandable disclosure inside the drawer).
+
 ## [2.3.20] - 2026-07-22
 
 ### Changed

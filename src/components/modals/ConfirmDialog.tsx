@@ -95,21 +95,22 @@ export function ConfirmDialog({
               </div>
             </div>
           ) : null}
+        </div>
 
-          <div className="flex flex-col-reverse gap-2 border-t border-border/55 pt-4 sm:flex-row sm:items-center sm:justify-end">
-            <Button variant="ghost" size="sm" icon={<X size={13} />} onClick={onCancel} disabled={loading}>
-              {resolvedCancel}
-            </Button>
-            <Button
-              variant={danger ? "danger" : "primary"}
-              size="sm"
-              icon={danger ? <Trash size={13} /> : <Check size={13} />}
-              onClick={onConfirm}
-              loading={loading}
-            >
-              {resolvedConfirm}
-            </Button>
-          </div>
+        <div className="relative z-10 flex shrink-0 gap-2 border-t border-border/60 bg-ink-200/92 px-4 py-3 sm:px-5">
+          <Button
+            variant="primary"
+            size="sm"
+            className="w-1/2"
+            icon={danger ? <Trash size={13} /> : <Check size={13} />}
+            onClick={onConfirm}
+            loading={loading}
+          >
+            {resolvedConfirm}
+          </Button>
+          <Button variant="secondary" size="sm" className="w-1/2" icon={<X size={13} />} onClick={onCancel} disabled={loading}>
+            {resolvedCancel}
+          </Button>
         </div>
       </div>
     </div>,

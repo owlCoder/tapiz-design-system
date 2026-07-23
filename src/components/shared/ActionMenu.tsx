@@ -5,6 +5,7 @@ import { Button } from "../forms/Button";
 import { Spinner } from "../feedback/Spinner";
 import { ChevronDown } from "../icons/index";
 import { useMenuPosition } from "./useMenuPosition";
+import { acquireBodyScrollLock } from "../overlays/scrollLock";
 
 export interface ActionMenuItem {
   key: string;
@@ -27,6 +28,8 @@ export interface ActionMenuProps {
   menuStyle?: CSSProperties;
   fullWidth?: boolean;
   closeLabel?: string;
+  /** Renders the trigger as a square, icon-only button (no label, no chevron) — `label` is still used for a11y and the menu's `aria-label`. */
+  buttonIconOnly?: boolean;
 }
 
 const defaultMenuStyle: CSSProperties = {
@@ -56,6 +59,7 @@ export function ActionMenu({
   menuStyle,
   fullWidth = false,
   closeLabel,
+  buttonIconOnly = false,
 }: ActionMenuProps) {
   const [open, setOpen] = useState(false);
   const btnRef = useRef<HTMLDivElement>(null);
@@ -75,6 +79,12 @@ export function ActionMenu({
     return () => { document.removeEventListener("mousedown", handle); document.removeEventListener("keydown", handle); };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    const releaseBodyScrollLock = acquireBodyScrollLock();
+    return releaseBodyScrollLock;
+  }, [open]);
+
   // closeLabel is accepted for API compatibility but not rendered in the trigger button
   void closeLabel;
 
@@ -82,10 +92,9 @@ export function ActionMenu({
     <>
       <div className="fixed inset-0 z-9998" onClick={() => setOpen(false)} />
       <div
-        ref={menuRef}
         role="menu"
         aria-label={label}
-        className={["relative overflow-auto animate-scale-in", menuClassName].filter(Boolean).join(" ")}
+        className={["relative overflow-hidden animate-scale-in", menuClassName].filter(Boolean).join(" ")}
         style={{
           position: "fixed",
           top: pos.top !== undefined ? pos.top : undefined,
@@ -107,6 +116,7 @@ export function ActionMenu({
           aria-hidden="true"
           className="pointer-events-none absolute -bottom-10 -left-8 h-20 w-20 rounded-full border border-primary-300/8"
         />
+        <div ref={menuRef} className="relative max-h-full overflow-y-auto overflow-x-hidden">
         {items.map((item, index) => (
           <div key={item.key} className="relative">
             {index > 0 && item.danger ? <div className="my-2 border-t border-border/60" /> : null}
@@ -139,6 +149,7 @@ export function ActionMenu({
             </button>
           </div>
         ))}
+        </div>
       </div>
     </>
   ) : null;
@@ -149,12 +160,14 @@ export function ActionMenu({
         size={buttonSize}
         variant={buttonVariant}
         icon={icon}
-        iconRight={<ChevronDown size={12} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />}
+        iconRight={buttonIconOnly ? undefined : <ChevronDown size={12} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />}
+        iconOnly={buttonIconOnly}
+        title={buttonIconOnly ? label : undefined}
         onClick={() => setOpen(value => !value)}
         className={`${buttonClassName} ${open ? "border-primary-300/45 bg-primary-300/8 text-primary-300" : ""}`.trim()}
         fullWidth={fullWidth}
       >
-        {label}
+        {buttonIconOnly ? undefined : label}
       </Button>
       {typeof document !== "undefined" ? createPortal(menuNode, document.body) : null}
     </div>

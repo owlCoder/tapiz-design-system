@@ -16,7 +16,7 @@ export function PasswordInput({
 
   return (
     <div
-      className={`flex border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) focus-within:border-(--tapiz-border-focus) focus-within:shadow-[inset_3px_0_0_0_var(--tapiz-signal)] ${className}`}
+      className={`flex overflow-hidden rounded-sm border border-(--tapiz-border-strong) bg-(--tapiz-bg-surface) focus-within:border-(--tapiz-border-focus) focus-within:shadow-[inset_3px_0_0_0_var(--tapiz-signal)] ${className}`}
     >
       {/* Wrapper već prikazuje focus signal (focus-within); inner input ga ne sme duplirati,
           inače se signal pomera sa paddingom wrappera (npr. pl-10 zbog ikonice). */}

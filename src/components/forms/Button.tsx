@@ -29,6 +29,8 @@ export interface ButtonProps extends BaseProps {
   size?: Size;
   icon?: ButtonIcon;
   iconRight?: ButtonIcon;
+  /** Renders a square, icon-only button (no text label) — pass `title` for accessibility. */
+  iconOnly?: boolean;
 
   type?: "button" | "submit" | "reset";
   title?: string;
@@ -86,6 +88,14 @@ const sizeClasses: Record<Size, string> = {
   xl: "h-12 px-6 py-0 text-base gap-2.5",
 };
 
+const iconOnlySizeClasses: Record<Size, string> = {
+  xs: "h-7 w-7 p-0",
+  sm: "h-9 w-9 p-0",
+  md: "h-10 w-10 p-0",
+  lg: "h-11 w-11 p-0",
+  xl: "h-12 w-12 p-0",
+};
+
 export function Button({
   children,
   onClick,
@@ -95,6 +105,7 @@ export function Button({
   size = "md",
   icon,
   iconRight,
+  iconOnly = false,
   className = "",
   type = "button",
   title,
@@ -112,17 +123,18 @@ export function Button({
       onClick={onClick}
       disabled={isDisabled}
       title={title}
+      aria-label={iconOnly ? title : undefined}
       className={[
         variantClasses[variant],
-        shouldApplySize ? sizeClasses[size] : "",
-        fullWidth ? "w-full" : "",
+        shouldApplySize ? (iconOnly ? iconOnlySizeClasses[size] : sizeClasses[size]) : "",
+        fullWidth && !iconOnly ? "w-full" : "",
         className,
       ].filter(Boolean).join(" ")}
     >
       {loading
         ? <Spinner color={variant === "primary" ? "text-black" : "text-txt-2"} />
         : renderedIcon ? <span>{renderedIcon}</span> : null}
-      {children}
+      {!iconOnly && children}
       {!loading && renderedIconRight}
     </button>
   );

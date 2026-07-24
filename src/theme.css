@@ -694,11 +694,17 @@ html:not(.dark)[data-skin="aurora"] {
     transition: none !important;
   }
 
+  /* `:where()` keeps the radius at zero specificity so a consumer's
+     `rounded-xl`/`rounded-full` utility still wins. Without it every input
+     was pinned to --radius-sm and any rounded utility silently did nothing
+     (the focus halo then traced that near-square shape). */
   input, textarea, select {
     background-color: var(--tapiz-bg-surface) !important;
     border-color: var(--tapiz-border-strong) !important;
-    border-radius: var(--radius-sm);
     color: var(--tapiz-text-primary) !important;
+  }
+  :where(input, textarea, select) {
+    border-radius: var(--radius-sm);
   }
   input::placeholder, textarea::placeholder { color: var(--tapiz-text-disabled) !important; }
   /* Soft focus ring: focus-colored border + wide translucent halo. Inputs that

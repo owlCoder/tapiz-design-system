@@ -68,6 +68,8 @@ export {
   Moon,
   Palette,
   PenLine,
+  Pin,
+  PinOff,
   Plus,
   Presentation,
   Printer,

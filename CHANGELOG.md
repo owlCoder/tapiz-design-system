@@ -6,6 +6,11 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 
 ## [Unreleased]
 
+## [3.0.26] - 2026-07-25
+
+### Added
+- `icons/index.ts` gains `Pin` and `PinOff` lucide re-exports, for pin/unpin affordances (pinned announcements, prioritised list rows).
+
 ## [3.0.22] - 2026-07-22
 
 ### Changed

@@ -6,6 +6,18 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 
 ## [Unreleased]
 
+## [3.0.28] - 2026-07-26
+
+### Added
+- `icons/index.ts` gains `Unlock`, for unlock affordances alongside the existing `Lock` (deck locking in `tapiz-lms`).
+- `icons/index.ts` gains `Circle`, `Square`, `Triangle`, `Minus` and `Type` lucide re-exports. Like the `Play`/`ChevronsUp`/`ChevronsDown` additions in 3.0.27, these were already consumed by `tapiz-lms` (slide toolbar shape picker, line tool, zoom-out control, text-element inspector) but had never been published, so a clean install could not resolve them. `Type` was previously exported only under its `TextIcon` alias; it is now available under both names.
+
+## [3.0.27] - 2026-07-26
+
+### Added
+- `icons/index.ts` gains `Maximize` and `Minimize` lucide re-exports, for enter/exit full-screen affordances (full-screen editing toggles).
+- `icons/index.ts` gains `Play`, `ChevronsUp` and `ChevronsDown` lucide re-exports. These were already consumed by `tapiz-lms` (slide toolbar: start slideshow, bring to front / send to back) but had never been published, so a clean install of `@tapizlabs/ui@3.0.26` could not resolve them.
+
 ## [3.0.26] - 2026-07-25
 
 ### Added

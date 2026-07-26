@@ -6,6 +6,8 @@
 export {
   Accessibility,
   Activity,
+  AlignJustify,
+  AlignLeft,
   ArrowLeft,
   ArrowRight,
   ArrowUpDown,
@@ -25,6 +27,7 @@ export {
   ChevronRight,
   ChevronUp,
   ChevronsDown,
+  ChevronsLeftRight,
   ChevronsUp,
   Circle,
   Clipboard,

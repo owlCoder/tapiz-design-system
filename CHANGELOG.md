@@ -6,7 +6,7 @@ The format is based on Keep a Changelog and the package follows Semantic Version
 
 ## [Unreleased]
 
-## [3.0.28] - 2026-07-26
+## [3.0.29] - 2026-07-26
 
 ### Added
 - `icons/index.ts` gains `Unlock`, for unlock affordances alongside the existing `Lock` (deck locking in `tapiz-lms`).

@@ -90,6 +90,7 @@ export {
   RefreshCw,
   Repeat,
   RotateCcw,
+  Save,
   Scale,
   Scan,
   ScrollText,

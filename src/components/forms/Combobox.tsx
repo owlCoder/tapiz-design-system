@@ -1,4 +1,5 @@
 import type { ReactNode, SelectHTMLAttributes } from "react";
+import { Select } from "./Select";
 
 export interface ComboboxOption {
   value: string;
@@ -12,11 +13,20 @@ export interface ComboboxProps extends Omit<SelectHTMLAttributes<HTMLSelectEleme
   invalid?: boolean;
 }
 
+/**
+ * Option-list wrapper over {@link Select}.
+ *
+ * Delegates rendering so both share one themed menu: a native `<select>` popup is drawn by the
+ * operating system and ignores the app's tokens, which left this control looking like a system
+ * widget dropped into a themed form.
+ */
 export function Combobox({ options, placeholder = "Select option", invalid = false, className = "", ...props }: ComboboxProps) {
   return (
-    <select {...props} className={["input-field appearance-none bg-(--tapiz-bg-surface)", invalid ? "border-warn focus:border-warn" : "", className].filter(Boolean).join(" ")}>
+    <Select {...props} invalid={invalid} className={className}>
       <option value="">{placeholder}</option>
-      {options.map((option) => <option key={option.value} value={option.value}>{String(option.label)}</option>)}
-    </select>
+      {options.map((option) => (
+        <option key={option.value} value={option.value}>{String(option.label)}</option>
+      ))}
+    </Select>
   );
 }

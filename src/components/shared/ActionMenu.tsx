@@ -164,7 +164,17 @@ export function ActionMenu({
         iconOnly={buttonIconOnly}
         title={buttonIconOnly ? label : undefined}
         onClick={() => setOpen(value => !value)}
-        className={`${buttonClassName} ${open ? "border-primary-300/45 bg-primary-300/8 text-primary-300" : ""}`.trim()}
+        /*
+         * Softer geometry than the stock secondary button: the menu surface it opens uses a large
+         * radius and low-contrast borders, and a hard 4px-radius trigger with a full-strength
+         * border reads as a leftover from the older button language next to it.
+         */
+        className={[
+          "rounded-xl border-border/55! bg-ink-200/60 text-txt-2 transition-colors",
+          "hover:border-border-hi! hover:bg-ink-200 hover:text-txt-1",
+          open ? "border-primary-300/45! bg-primary-300/8 text-primary-300" : "",
+          buttonClassName,
+        ].filter(Boolean).join(" ").trim()}
         fullWidth={fullWidth}
       >
         {buttonIconOnly ? undefined : label}

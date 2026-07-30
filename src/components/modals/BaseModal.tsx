@@ -9,6 +9,12 @@ export interface BaseModalProps {
   title: string;
   subtitle?: string;
   children: ReactNode;
+  /**
+   * Actions pinned below the scrollable body. Use this rather than putting buttons at the end of
+   * `children`: content there scrolls away, so in a tall dialog the confirm action is only
+   * reachable after scrolling to the bottom.
+   */
+  footer?: ReactNode;
   xShown?: boolean;
   icon?: ReactNode;
   size?: "sm" | "md" | "lg" | "xl" | "2xl";
@@ -31,6 +37,7 @@ export function BaseModal({
   title,
   subtitle,
   children,
+  footer,
   icon,
   xShown = false,
   size = "md",
@@ -103,6 +110,11 @@ export function BaseModal({
         <div className="relative z-10 min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5">
           {children}
         </div>
+        {footer ? (
+          <div className="relative z-10 flex shrink-0 flex-wrap items-center justify-end gap-2 border-t border-border/60 bg-ink-200 px-5 py-4">
+            {footer}
+          </div>
+        ) : null}
       </div>
     </div>,
     document.body,

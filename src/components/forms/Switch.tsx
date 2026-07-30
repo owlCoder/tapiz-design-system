@@ -24,14 +24,14 @@ export function Switch({ checked = false, onChange, disabled, label, description
         aria-checked={checked}
         disabled={disabled}
         onClick={() => onChange?.(!checked)}
-        className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full border p-[3px] outline-none transition-[background-color,border-color,box-shadow] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-(--tapiz-accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--tapiz-bg-surface) motion-reduce:transition-none ${
+        className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full border p-[3px] outline-none transition-[background-color,border-color,box-shadow] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] focus-visible:ring-2 focus-visible:ring-(--tapiz-accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--tapiz-bg-surface) motion-reduce:transition-none ${
           checked
             ? "border-(--tapiz-accent) bg-(--tapiz-accent)"
             : "border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted)"
         }`}
       >
         <span
-          className={`block size-4 shrink-0 rounded-full shadow-sm transition-[transform,background-color] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+          className={`block size-4 shrink-0 rounded-full shadow-sm transition-[transform,background-color] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] motion-reduce:transition-none ${
             checked ? "translate-x-5 bg-white" : "translate-x-0 bg-(--tapiz-text-muted)"
           }`}
         />

@@ -65,7 +65,7 @@ export function ConfirmDialog({
         ref={dialogRef}
         tabIndex={-1}
         aria-busy={loading || undefined}
-        className="relative isolate w-full max-w-md overflow-hidden rounded-2xl border border-border/65 bg-ink-200 shadow-(--tapiz-shadow-lg) outline-none animate-scale-in"
+        className="relative isolate w-full max-w-md overflow-hidden rounded-2xl border border-border/65 bg-ink-200 shadow-(--tapiz-shadow-lg) outline-none animate-scale-in motion-reduce:animate-none"
         onClick={(event) => event.stopPropagation()}
       >
         <div

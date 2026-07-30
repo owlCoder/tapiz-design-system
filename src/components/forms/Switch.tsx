@@ -24,15 +24,15 @@ export function Switch({ checked = false, onChange, disabled, label, description
         aria-checked={checked}
         disabled={disabled}
         onClick={() => onChange?.(!checked)}
-        className={`relative h-6 w-11 shrink-0 rounded-full border transition-colors duration-200 ${
+        className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full border p-[3px] outline-none transition-[background-color,border-color,box-shadow] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-(--tapiz-accent)/40 focus-visible:ring-offset-2 focus-visible:ring-offset-(--tapiz-bg-surface) motion-reduce:transition-none ${
           checked
             ? "border-(--tapiz-accent) bg-(--tapiz-accent)"
             : "border-(--tapiz-border-strong) bg-(--tapiz-bg-surface-muted)"
         }`}
       >
         <span
-          className={`absolute top-1/2 size-4 -translate-y-1/2 rounded-full shadow-sm transition-[left,background-color] duration-200 ${
-            checked ? "left-[calc(100%-1.25rem)] bg-white" : "left-1 bg-(--tapiz-text-muted)"
+          className={`block size-4 shrink-0 rounded-full shadow-sm transition-[transform,background-color] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+            checked ? "translate-x-5 bg-white" : "translate-x-0 bg-(--tapiz-text-muted)"
           }`}
         />
       </button>

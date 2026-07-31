@@ -70,6 +70,11 @@
   --animate-flip-in: flip-in 0.4s ease both;
   --animate-blur-in: blur-in 0.35s ease both;
   --animate-slide-up-fade: slide-up-fade 0.3s ease both;
+  /* Empty-state glyph motion. `glyph-draw` traces a stroke on with
+     stroke-dashoffset, so every consumer sets its own --glyph-len (the path
+     length) rather than guessing a shared dash array. */
+  --animate-glyph-draw: glyph-draw 0.9s cubic-bezier(0.65,0,0.35,1) both;
+  --animate-glyph-float: glyph-float 6s ease-in-out infinite;
 
   @keyframes fade-in-up { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
   @keyframes fade-in-down { from { opacity:0; transform:translateY(-12px); } to { opacity:1; transform:translateY(0); } }
@@ -87,6 +92,140 @@
   @keyframes blur-in { from { opacity:0; filter:blur(6px); transform:scale(0.97); } to { opacity:1; filter:blur(0px); transform:scale(1); } }
   @keyframes slide-up-fade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
   @keyframes skeleton-shimmer { 0% { background-position:-400px 0; } 100% { background-position:400px 0; } }
+  @keyframes glyph-draw { from { stroke-dashoffset: var(--glyph-len, 200); } to { stroke-dashoffset: 0; } }
+  @keyframes glyph-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
+  /* Opacity, not dash geometry: the glyph stays legible through the whole loop
+     and each stroke's existing animation-delay staggers it into a soft ripple. */
+  @keyframes glyph-trace {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.35; }
+  }
+  /* Fetching table: rows scale in from their left edge, so they read as being
+     written into the table rather than sliding in from somewhere off-frame. */
+  @keyframes glyph-row-in {
+    0%, 5%    { transform: scaleX(0); opacity: 0; }
+    20%, 78%  { transform: scaleX(1); opacity: 1; }
+    92%, 100% { transform: scaleX(0); opacity: 0; }
+  }
+  /* The cursor steps down the rows, dipping slightly on each click. */
+  @keyframes glyph-cursor-move {
+    0%, 8%    { transform: translate(0, -11px); }
+    12%       { transform: translate(-1px, -9px); }
+    25%, 33%  { transform: translate(0, 0); }
+    37%       { transform: translate(-1px, 2px); }
+    50%, 58%  { transform: translate(0, 11px); }
+    62%       { transform: translate(-1px, 13px); }
+    75%, 100% { transform: translate(0, -11px); }
+  }
+  @keyframes glyph-click-ripple {
+    0%       { transform: scale(0.35); opacity: 0.5; }
+    100%     { transform: scale(1); opacity: 0; }
+  }
+}
+
+/* Empty-state glyph (EmptyStateGlyph.tsx). Paths carry pathLength="100", so the
+   dash array is a flat 100 for every stroke regardless of real geometry. */
+.tapiz-glyph-strokes path {
+  stroke-dasharray: 100;
+  --glyph-len: 100;
+  animation: var(--animate-glyph-draw);
+}
+
+/* Starts after the last stroke lands (0.9s draw + 0.28s stagger) so the glyph
+   settles before it begins to drift, rather than drawing on a moving target. */
+.tapiz-glyph-float {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: var(--animate-glyph-float);
+  animation-delay: 1.2s;
+}
+
+.tapiz-glyph-accent {
+  animation: var(--animate-fade-in);
+}
+
+/* Loading variant: the glyph stays fully drawn and pulses instead of retracting.
+   A travelling dash left it blank for most of the cycle, which reads as a broken
+   icon rather than as work in progress. */
+.tapiz-glyph-loading .tapiz-glyph-strokes path {
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  animation: glyph-trace 1.5s ease-in-out infinite;
+}
+
+/* The fetching table holds its frame still and animates only the contents: rows
+   arrive in sequence while a cursor clicks, which reads as data being pulled in
+   rather than as the generic button spinner. One 2.4s cycle drives all of it. */
+.tapiz-glyph-fetching .tapiz-glyph-strokes path {
+  animation: none;
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  /* Lighter than the domain glyphs': the frame is a container here, not the
+     subject, so it recedes behind the rows that actually move. */
+  stroke-width: 3.5;
+}
+
+/* No drift: a table that floats undercuts the idea of a fixed surface filling. */
+.tapiz-glyph-fetching .tapiz-glyph-float {
+  animation: none;
+}
+
+.tapiz-glyph-row {
+  transform-origin: left center;
+  transform-box: fill-box;
+  animation: glyph-row-in 2.4s ease-in-out infinite;
+}
+
+/* Staggered to match the cursor: each click lands just before its row. */
+.tapiz-glyph-row:nth-child(1) { animation-delay: 0.15s; }
+.tapiz-glyph-row:nth-child(2) { animation-delay: 0.75s; }
+.tapiz-glyph-row:nth-child(3) { animation-delay: 1.35s; }
+
+.tapiz-glyph-cursor {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: glyph-cursor-move 2.4s ease-in-out infinite;
+}
+
+.tapiz-glyph-click {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: glyph-click-ripple 0.6s ease-out infinite;
+}
+
+.tapiz-glyph-loading .tapiz-glyph-float {
+  animation-delay: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Land on the finished drawing rather than replaying it. The loading variant
+     is included: a looping trace is exactly what this setting asks us to drop,
+     so it holds the completed glyph and lets its label carry the meaning. */
+  .tapiz-glyph-strokes path,
+  .tapiz-glyph-loading .tapiz-glyph-strokes path,
+  .tapiz-glyph-float,
+  .tapiz-glyph-accent,
+  .tapiz-glyph-row,
+  .tapiz-glyph-cursor,
+  .tapiz-glyph-click {
+    animation: none;
+  }
+
+  .tapiz-glyph-strokes path,
+  .tapiz-glyph-loading .tapiz-glyph-strokes path {
+    stroke-dashoffset: 0;
+  }
+
+  /* The fetching table rests fully populated, and its click ripple is dropped
+     entirely: with no motion it would read as a stray ring around the cursor. */
+  .tapiz-glyph-row {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  .tapiz-glyph-click {
+    display: none;
+  }
 }
 
 :root {

@@ -42,8 +42,9 @@ export { Tooltip } from "./components/shared/Tooltip";
 export type { TooltipProps } from "./components/shared/Tooltip";
 export { Card, CardBody, CardHeader } from "./components/shared/Card";
 export type { CardProps, CardSectionProps, CardPadding, CardVariant } from "./components/shared/Card";
-export { Skeleton } from "./components/shared/Skeleton";
-export type { SkeletonProps } from "./components/shared/Skeleton";
+// `Skeleton` (the raw grey placeholder bar) is deliberately not exported: it was
+// the building block every feature used to hand-roll its own loading shape, and
+// the app now has exactly one in-flight state. Use `LoadingState` instead.
 export {
   SkeletonBanner,
   SkeletonCard,
@@ -54,6 +55,10 @@ export {
 export { Badge } from "./components/shared/Badge";
 export { EmptyState, ErrorState } from "./components/shared/EmptyState";
 export type { EmptyStateProps } from "./components/shared/EmptyState";
+export { LoadingState } from "./components/shared/LoadingState";
+export type { LoadingStateProps } from "./components/shared/LoadingState";
+export { EmptyStateGlyph } from "./components/shared/EmptyStateGlyph";
+export type { EmptyStateGlyphName, EmptyStateGlyphProps } from "./components/shared/EmptyStateGlyph";
 export { InfoBanner } from "./components/shared/InfoBanner";
 export type { InfoBannerProps } from "./components/shared/InfoBanner";
 export { ThemeIconButton } from "./components/shared/ThemeIconButton";

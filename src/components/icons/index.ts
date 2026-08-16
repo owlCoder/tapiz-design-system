@@ -83,6 +83,7 @@ export {
   Minus,
   Monitor,
   Moon,
+  Move,
   Package,
   Palette,
   PenLine,
